@@ -1,0 +1,137 @@
+{
+  "navigation": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "services": "Xizmatlar",
+    "projects": "Loyihalar",
+    "partners": "Hamkorlar",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "company": "Business Brothers And Partners LLC",
+    "title": "O'zbekistonda Ko'p Tarmoqli Kompaniya",
+    "subtitle": "Dinamik rivojlanayotgan kompaniya. Oziq-ovqat savdosi, restoran biznesi, import va halal turizm sohalarida faoliyat yuritamiz.",
+    "cta1": "Loyihalarni Ko'rish",
+    "cta2": "Biz Bilan Bog'lanish",
+    "stats": {
+      "sectors": "Asosiy soha",
+      "service": "Professional xizmat",
+      "halal": "Halal standart"
+    }
+  },
+  "about": {
+    "title": "Business Brothers And Partners LLC",
+    "description": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya. Biz oziq-ovqat savdosi, restoran biznesi, import va halal turizm sohalarida professional faoliyat yuritamiz. Bizning maqsadimiz – yuqori sifatli iste'mol madaniyatini shakllantirish va mijozlarimizga eng yaxshi xizmatlarni taqdim etish.",
+    "directions": {
+      "food": {
+        "title": "Oziq-ovqat Savdosi",
+        "description": "Halal standartlarga muvofiq sifatli oziq-ovqat mahsulotlarini import qilish va tarqatish"
+      },
+      "restaurant": {
+        "title": "Restoran Biznesi",
+        "description": "Zamonaviy va professional restoran xizmatlari, halal taomlar va mijozlar uchun qulaylik"
+      },
+      "import": {
+        "title": "Import Faoliyati",
+        "description": "Xalqaro bozordan sifatli mahsulotlarni import qilish va O'zbekiston bozoriga yetkazib berish"
+      },
+      "tourism": {
+        "title": "Halal Turizm",
+        "description": "Halal standartlarga muvofiq turizm xizmatlari va sayyohlar uchun maxsus dasturlar"
+      }
+    },
+    "timeline": {
+      "title": "Bizning yo'limiz",
+      "2020": {
+        "title": "Tashkil etilish",
+        "description": "Business Brothers And Partners LLC kompaniyasi tashkil etildi"
+      },
+      "2021": {
+        "title": "Oziq-ovqat Savdosi",
+        "description": "Halal oziq-ovqat mahsulotlarini import qilish va tarqatish boshlandi"
+      },
+      "2022": {
+        "title": "Restoran Biznesi",
+        "description": "Professional restoran xizmatlari va halal taomlar bo'limi ochildi"
+      },
+      "2023": {
+        "title": "Halal Turizm",
+        "description": "Halal standartlarga muvofiq turizm xizmatlari ishga tushirildi"
+      },
+      "2024": {
+        "title": "Kengayish",
+        "description": "Barcha yo'nalishlarda professional xizmatlar va yangi loyihalar"
+      }
+    }
+  },
+  "services": {
+    "title": "Bizning Faoliyat Yo'nalishlari",
+    "subtitle": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya sifatida 4 asosiy yo'nalishda professional xizmatlar",
+    "food": {
+      "title": "Oziq-ovqat Savdosi",
+      "description": "Halal standartlarga muvofiq sifatli oziq-ovqat mahsulotlari",
+      "details": "Xalqaro standartlarga muvofiq halal oziq-ovqat mahsulotlarini import qilish, saqlash va tarqatish. Sifat nazorati va sertifikatlash xizmatlari."
+    },
+    "restaurant": {
+      "title": "Restoran Biznesi",
+      "description": "Professional restoran xizmatlari va halal taomlar",
+      "details": "Zamonaviy restoranlar, halal taomlar, professional oshxona jihozlari va mijozlar uchun yuqori darajadagi xizmat ko'rsatish."
+    },
+    "import": {
+      "title": "Import Faoliyati",
+      "description": "Xalqaro bozordan sifatli mahsulotlarni import qilish",
+      "details": "Turli sohalar uchun mahsulotlarni import qilish, logistika xizmatlari, bojxona rasmiylashtirish va O'zbekiston bozoriga yetkazib berish."
+    },
+    "tourism": {
+      "title": "Halal Turizm",
+      "description": "Halal standartlarga muvofiq turizm xizmatlari",
+      "details": "Halal turizm dasturlari, sayyohlar uchun maxsus xizmatlar, Umra va Haj safarlari, halal mehmonxonalar va restoranlar."
+    },
+    "learnMore": "Batafsil",
+    "close": "Yopish"
+  },
+  "projects": {
+    "title": "Bizning Loyihalarimiz",
+    "subtitle": "Business Brothers And Partners LLC kompaniyasining muvaffaqiyatli amalga oshirilgan va davom etayotgan loyihalari",
+    "foodCenter": {
+      "title": "Halal Oziq-ovqat Markazi",
+      "category": "Oziq-ovqat Savdosi"
+    },
+    "restaurantNetwork": {
+      "title": "Premium Restoranlar Tarmog'i",
+      "category": "Restoran Biznesi"
+    },
+    "importTerminal": {
+      "title": "Xalqaro Import Terminali",
+      "category": "Import Faoliyati"
+    },
+    "tourismAgency": {
+      "title": "Halal Turizm Agentligi",
+      "category": "Halal Turizm"
+    }
+  },
+  "contact": {
+    "title": "Biz Bilan Bog'laning",
+    "subtitle": "Sizning savollar va takliflaringiz biz uchun muhim",
+    "form": {
+      "name": "Ism",
+      "email": "Email",
+      "phone": "Telefon",
+      "message": "Xabar",
+      "send": "Yuborish"
+    },
+    "info": {
+      "address": "Manzil",
+      "phone": "Telefon",
+      "email": "Email",
+      "hours": "Ish vaqti"
+    }
+  },
+  "footer": {
+    "company": "Business Brothers And Partners LLC",
+    "description": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya",
+    "quickLinks": "Tezkor havolalar",
+    "contactInfo": "Aloqa ma'lumotlari",
+    "rights": "Barcha huquqlar himoyalangan"
+  }
+}
