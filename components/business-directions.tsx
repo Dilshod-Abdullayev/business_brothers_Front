@@ -1,12 +1,13 @@
 "use client"
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion"
 import { ShoppingCart, Utensils, Package, Plane, ArrowUpRight, Sparkles } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from 'next-intl'
 import Image from "next/image"
+import { NetworkAnimation } from "./business-animations"
 
 const businesses = [
   {
@@ -212,11 +213,22 @@ function BusinessCard({ business, index, isSelected, onToggle }: any) {
 export function BusinessDirections() {
   const [selectedBusiness, setSelectedBusiness] = useState<number | null>(null)
   const t = useTranslations('services')
+  const sectionRef = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+  
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section id="xizmatlar" className="relative py-32 overflow-hidden">
+    <section ref={sectionRef} id="xizmatlar" className="relative py-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
+      
+      {/* Business Network Animation */}
+      <NetworkAnimation />
       
       {/* Animated Background Orbs */}
       <motion.div
@@ -247,16 +259,17 @@ export function BusinessDirections() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
+          style={{ opacity }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
@@ -268,7 +281,7 @@ export function BusinessDirections() {
             className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
@@ -280,7 +293,7 @@ export function BusinessDirections() {
             className="text-xl text-muted-foreground leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {t('subtitle')}

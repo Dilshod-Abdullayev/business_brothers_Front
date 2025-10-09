@@ -1,12 +1,23 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Target, Lightbulb, Users, TrendingUp, Sparkles, CheckCircle2 } from "lucide-react"
 import { useTranslations } from 'next-intl'
 import Image from "next/image"
+import { useRef } from "react"
+import { DataFlowAnimation, FloatingBusinessIcons } from "./business-animations"
 
 export function AboutSection() {
   const t = useTranslations('about')
+  const sectionRef = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   const values = [
     {
@@ -44,8 +55,12 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="haqimizda" className="relative py-32 overflow-hidden">
+    <section ref={sectionRef} id="haqimizda" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
+      
+      {/* Business Animations */}
+      <DataFlowAnimation />
+      <FloatingBusinessIcons />
       
       {/* Animated Background Elements */}
       <motion.div
@@ -64,11 +79,11 @@ export function AboutSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <motion.div style={{ opacity }} className="max-w-4xl mx-auto text-center mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
@@ -79,14 +94,14 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
             <motion.h2
               className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
@@ -97,22 +112,22 @@ export function AboutSection() {
               className="text-xl text-muted-foreground leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {t('description')}
             </motion.p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Values Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+        <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
               className="relative group"
@@ -153,13 +168,13 @@ export function AboutSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >

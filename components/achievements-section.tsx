@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, animate } from "framer-motion"
 import { useRef, useEffect } from "react"
 import { TrendingUp, Users, Award, Building2, DollarSign, Globe } from "lucide-react"
+import { BusinessGraphAnimation, ParticleField } from "./business-animations"
 
 const achievements = [
   {
@@ -77,6 +78,10 @@ export function AchievementsSection() {
     <section ref={containerRef} className="relative py-32 overflow-hidden">
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
+      
+      {/* Business Animations */}
+      <BusinessGraphAnimation />
+      <ParticleField />
       
       {/* Animated Orbs */}
       <motion.div
