@@ -44,8 +44,13 @@
   color: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #ffffff !important;
+  overflow-x: hidden;
 }
 
 /* HAMMA MATNLAR OQ BO'LSIN! */

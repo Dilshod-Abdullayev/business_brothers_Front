@@ -53,6 +53,22 @@ export function Navigation() {
     { href: "#aloqa", label: t('contact'), section: 'aloqa' },
   ]
 
+  // Smooth scroll function - Apple-style
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+    
+    if (element) {
+      const offsetTop = element.offsetTop
+      window.scrollTo({
+        top: offsetTop - 80, // offset for navbar
+        behavior: 'smooth'
+      })
+      dispatch(setMobileMenuOpen(false))
+    }
+  }
+
   return (
     <>
       <motion.nav
@@ -130,7 +146,10 @@ export function Navigation() {
                     }`}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => dispatch(setActiveSection(link.section))}
+                    onClick={(e) => {
+                      handleSmoothScroll(e, link.href)
+                      dispatch(setActiveSection(link.section))
+                    }}
                   >
                     {link.label}
                     {activeSection === link.section && (
@@ -239,9 +258,9 @@ export function Navigation() {
                         ? "bg-primary/10 text-primary border border-primary/20"
                         : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                     }`}
-                    onClick={() => {
+                    onClick={(e) => {
+                      handleSmoothScroll(e, link.href)
                       dispatch(setActiveSection(link.section))
-                      dispatch(setMobileMenuOpen(false))
                     }}
                     whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.98 }}

@@ -25,14 +25,26 @@ export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const t = useTranslations('hero')
   
-  // Simplified scroll effects
+  // Apple-style scroll effects
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   })
 
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.1])
+  // Background parallax - yavaş scale
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3])
+  
+  // Content fade va move up
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -150])
+  
+  // Title parallax - tezroq
+  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -200])
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
+  
+  // Stats parallax - sekinroq
+  const statsY = useTransform(scrollYProgress, [0, 0.5], [0, -100])
+  const statsOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   // Auto-change background images - slower for better performance
   useEffect(() => {
@@ -163,7 +175,7 @@ export function HeroSection() {
         ))}
       </motion.div>
 
-      <motion.div style={{ opacity }} className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
+      <motion.div style={{ opacity: opacity, y: y }} className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -185,6 +197,7 @@ export function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            style={{ opacity: titleOpacity, y: titleY }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold font-[family-name:var(--font-poppins)] mb-8 leading-tight"
           >
@@ -275,6 +288,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            style={{ opacity: statsOpacity, y: statsY }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mt-16"
           >
