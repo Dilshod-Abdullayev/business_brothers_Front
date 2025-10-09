@@ -39,7 +39,7 @@ const testimonials = [
 export function PartnersSection() {
   return (
     <section id="hamkorlar" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -71,7 +71,7 @@ export function PartnersSection() {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ y: -5, scale: 1.05 }}
-              className="flex items-center justify-center bg-card border border-border rounded-2xl hover:border-primary/50 transition-all duration-300 h-28 cursor-pointer group will-change-transform"
+              className="flex items-center justify-center bg-[#1f2937] border border-gray-700 rounded-2xl hover:border-primary/50 transition-all duration-300 h-28 cursor-pointer group will-change-transform"
             >
               <span className="text-xl font-semibold text-muted-foreground group-hover:text-primary transition-colors">
                 {partner}
@@ -94,7 +94,7 @@ export function PartnersSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <div className="relative bg-card border border-border rounded-3xl p-8 h-full">
+              <div className="relative bg-[#1f2937] border border-gray-700 rounded-3xl p-8 h-full">
                 <Quote className="w-12 h-12 text-primary mb-4" />
 
                 {/* Star Rating */}

@@ -26,7 +26,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-card border-t border-border overflow-hidden">
+    <footer className="relative bg-[#1a1f2e] border-t border-gray-700 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         <motion.div

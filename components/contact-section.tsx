@@ -36,7 +36,7 @@ const stats = [
 export function ContactSection() {
   return (
     <section id="aloqa" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-card to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -71,7 +71,7 @@ export function ContactSection() {
               className="relative group will-change-transform"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-card border border-border rounded-2xl p-6 text-center">
+              <div className="relative bg-[#1f2937] border border-gray-700 rounded-2xl p-6 text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-3">
                   <stat.icon className="w-6 h-6 text-primary" />
                 </div>
@@ -127,7 +127,7 @@ export function ContactSection() {
                 alt="Toshkent xaritasi" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </div>
           </motion.div>
 
@@ -145,7 +145,7 @@ export function ContactSection() {
                   id="name"
                   type="text"
                   placeholder="Ismingizni kiriting"
-                  className="bg-card border-border"
+                  className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
@@ -154,7 +154,7 @@ export function ContactSection() {
                   id="phone"
                   type="tel"
                   placeholder="+998 __ ___ __ __"
-                  className="bg-card border-border"
+                  className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
@@ -163,7 +163,7 @@ export function ContactSection() {
                   id="email"
                   type="email"
                   placeholder="email@example.com"
-                  className="bg-card border-border"
+                  className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
@@ -172,7 +172,7 @@ export function ContactSection() {
                   id="message"
                   placeholder="Xabaringizni yozing..."
                   rows={5}
-                  className="bg-card border-border resize-none"
+                  className="bg-[#1f2937] border-gray-700 resize-none focus:border-primary text-white"
                 />
               </div>
               <Button

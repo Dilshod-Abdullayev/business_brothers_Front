@@ -60,7 +60,7 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-background/95 backdrop-blur-2xl border-b border-border shadow-2xl shadow-primary/5" : "bg-transparent"
+          isScrolled ? "bg-[#111827]/95 backdrop-blur-2xl border-b border-gray-700 shadow-2xl shadow-primary/5" : "bg-transparent"
         }`}
       >
         {/* Animated Border Bottom */}
@@ -213,7 +213,7 @@ export function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => dispatch(setMobileMenuOpen(false))}
             />
 
@@ -223,7 +223,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-card border-l border-border z-50 lg:hidden overflow-y-auto shadow-2xl"
+              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-[#1f2937] border-l border-gray-700 z-50 lg:hidden overflow-y-auto shadow-2xl"
             >
               <div className="p-6 space-y-2">
                 {navLinks.map((link, index) => (

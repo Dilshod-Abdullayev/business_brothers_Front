@@ -4,6 +4,167 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* MAKSIMAL KONTRAST - HAMMA NARSA OQ! */
+  --background: #1a1a2e;
+  --foreground: #ffffff;
+  --card: #2d2d44;
+  --card-foreground: #ffffff;
+  --popover: #2d2d44;
+  --popover-foreground: #ffffff;
+  --primary: #5865f2;
+  --primary-foreground: #ffffff;
+  --secondary: #a78bfa;
+  --secondary-foreground: #ffffff;
+  --muted: #4b5563;
+  --muted-foreground: #e5e7eb;
+  --accent: #fbbf24;
+  --accent-foreground: #000000;
+  --destructive: #f87171;
+  --destructive-foreground: #ffffff;
+  --border: #6b7280;
+  --input: #374151;
+  --ring: #5865f2;
+  --chart-1: #5865f2;
+  --chart-2: #a78bfa;
+  --chart-3: #fbbf24;
+  --chart-4: #34d399;
+  --chart-5: #f87171;
+  --radius: 0.625rem;
+  --sidebar: #2d2d44;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #5865f2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #4b5563;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #6b7280;
+  --sidebar-ring: #5865f2;
+}
+
+* {
+  color: inherit;
+}
+
+body {
+  color: #ffffff !important;
+}
+
+/* HAMMA MATNLAR OQ BO'LSIN! */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, label, input, textarea {
+  color: #ffffff;
+}
+
+.text-muted-foreground {
+  color: #e5e7eb !important;
+  opacity: 1 !important;
+}
+
+.text-foreground {
+  color: #ffffff !important;
+}
+
+/* Gradient text fallback */
+.text-transparent {
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ensure all text is visible */
+p, span:not(.text-transparent) {
+  color: #ffffff !important;
+}
+
+/* Card text visibility */
+.card p, .card span, .card h1, .card h2, .card h3, .card h4 {
+  color: #ffffff !important;
+}
+
+/* Dropdown Menu - QORA FON VA OQ MATN! */
+[data-slot="dropdown-menu-content"] {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-slot="dropdown-menu-item"] {
+  color: #ffffff !important;
+}
+
+[data-slot="dropdown-menu-item"]:hover,
+[data-slot="dropdown-menu-item"]:focus {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+[data-slot="dropdown-menu-item"] span {
+  color: #ffffff !important;
+}
+
+/* Button visibility - HAMMASI YORQIN! */
+button {
+  color: #ffffff;
+}
+
+button:hover {
+  color: #ffffff !important;
+}
+
+/* Button ghost variant */
+button[data-slot="button"] {
+  color: #ffffff !important;
+}
+
+/* Ensure button text is always visible */
+button span, button svg {
+  color: inherit !important;
+}
+
+/* Primary button */
+.bg-primary {
+  background-color: #5865f2 !important;
+  color: #ffffff !important;
+}
+
+/* Ghost button hover */
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Popover - QORA FON */
+[data-slot="popover-content"] {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+}
+
+/* Modal & Dialog */
+.bg-card {
+  background-color: #1f2937 !important;
+}
+
+/* Input & Textarea - YORQIN VA KO'RINARLI! */
+input, textarea, select {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+  border-color: #6b7280 !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #5865f2 !important;
+  outline: none !important;
+  ring: 2px solid #5865f2 !important;
+}
+
+/* Label text */
+label {
+  color: #ffffff !important;
+}
+
+.light {
+  /* Light Mode - Optional */
   --background: oklch(0.98 0.01 264);
   --foreground: oklch(0.15 0.02 264);
   --card: oklch(0.95 0.01 264);
@@ -28,7 +189,6 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -37,41 +197,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.12 0.02 264);
-  --foreground: oklch(0.95 0.01 264);
-  --card: oklch(0.15 0.02 264);
-  --card-foreground: oklch(0.95 0.01 264);
-  --popover: oklch(0.15 0.02 264);
-  --popover-foreground: oklch(0.95 0.01 264);
-  --primary: oklch(0.55 0.20 264);
-  --primary-foreground: oklch(0.12 0.02 264);
-  --secondary: oklch(0.45 0.16 200);
-  --secondary-foreground: oklch(0.95 0.01 200);
-  --muted: oklch(0.20 0.02 264);
-  --muted-foreground: oklch(0.65 0.02 264);
-  --accent: oklch(0.60 0.18 45);
-  --accent-foreground: oklch(0.12 0.02 45);
-  --destructive: oklch(0.60 0.24 27);
-  --destructive-foreground: oklch(0.95 0.01 27);
-  --border: oklch(0.25 0.02 264);
-  --input: oklch(0.25 0.02 264);
-  --ring: oklch(0.65 0.24 264);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
