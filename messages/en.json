@@ -1,0 +1,137 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "company": "Business Brothers And Partners LLC",
+    "title": "Multi-Sector Company in Uzbekistan",
+    "subtitle": "A dynamically growing multi-sector company. We operate in food trade, restaurant business, imports, and halal tourism.",
+    "cta1": "View Projects",
+    "cta2": "Contact Us",
+    "stats": {
+      "sectors": "Main sectors",
+      "service": "Professional service",
+      "halal": "Halal standards"
+    }
+  },
+  "about": {
+    "title": "Business Brothers And Partners LLC",
+    "description": "A dynamically growing multi-sector company in Uzbekistan. We professionally operate in food trade, restaurant business, imports, and halal tourism. Our goal is to build a high-quality consumer culture and provide the best services to our clients.",
+    "directions": {
+      "food": {
+        "title": "Food Trade",
+        "description": "Import and distribution of quality food products that meet halal standards"
+      },
+      "restaurant": {
+        "title": "Restaurant Business",
+        "description": "Modern and professional restaurant services, halal cuisine, and customer convenience"
+      },
+      "import": {
+        "title": "Import Activities",
+        "description": "Import of quality products from international markets and delivery to the Uzbekistan market"
+      },
+      "tourism": {
+        "title": "Halal Tourism",
+        "description": "Tourism services that meet halal standards and special programs for travelers"
+      }
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "2020": {
+        "title": "Establishment",
+        "description": "Business Brothers And Partners LLC company was established"
+      },
+      "2021": {
+        "title": "Food Trade",
+        "description": "Started import and distribution of halal food products"
+      },
+      "2022": {
+        "title": "Restaurant Business",
+        "description": "Opened professional restaurant services and halal cuisine division"
+      },
+      "2023": {
+        "title": "Halal Tourism",
+        "description": "Launched tourism services that meet halal standards"
+      },
+      "2024": {
+        "title": "Expansion",
+        "description": "Professional services and new projects in all directions"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Business Directions",
+    "subtitle": "As a dynamically growing multi-sector company in Uzbekistan, we provide professional services in 4 main directions",
+    "food": {
+      "title": "Food Trade",
+      "description": "Quality food products that meet halal standards",
+      "details": "Import, storage and distribution of halal food products that meet international standards. Quality control and certification services."
+    },
+    "restaurant": {
+      "title": "Restaurant Business",
+      "description": "Professional restaurant services and halal cuisine",
+      "details": "Modern restaurants, halal dishes, professional kitchen equipment and high-quality customer service."
+    },
+    "import": {
+      "title": "Import Activities",
+      "description": "Import of quality products from international markets",
+      "details": "Import of products for various industries, logistics services, customs clearance and delivery of goods to the Uzbekistan market."
+    },
+    "tourism": {
+      "title": "Halal Tourism",
+      "description": "Tourism services that meet halal standards",
+      "details": "Halal tourism programs, special services for travelers, Umrah and Hajj trips, halal hotels and restaurants."
+    },
+    "learnMore": "Learn More",
+    "close": "Close"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Successfully completed and ongoing projects of Business Brothers And Partners LLC company",
+    "foodCenter": {
+      "title": "Halal Food Center",
+      "category": "Food Trade"
+    },
+    "restaurantNetwork": {
+      "title": "Premium Restaurant Network",
+      "category": "Restaurant Business"
+    },
+    "importTerminal": {
+      "title": "International Import Terminal",
+      "category": "Import Activities"
+    },
+    "tourismAgency": {
+      "title": "Halal Tourism Agency",
+      "category": "Halal Tourism"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Your questions and suggestions are important to us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send"
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working Hours"
+    }
+  },
+  "footer": {
+    "company": "Business Brothers And Partners LLC",
+    "description": "A dynamically growing multi-sector company in Uzbekistan",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "rights": "All rights reserved"
+  }
+}

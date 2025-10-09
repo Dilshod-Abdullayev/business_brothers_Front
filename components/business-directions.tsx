@@ -5,38 +5,38 @@ import { ShoppingCart, Utensils, Package, Plane } from "lucide-react"
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { useTranslations } from 'next-intl'
 
 const businesses = [
   {
     icon: ShoppingCart,
-    title: "Oziq-ovqat Savdosi",
-    description: "Halal standartlarga muvofiq sifatli oziq-ovqat mahsulotlari",
-    details:
-      "Xalqaro standartlarga muvofiq halal oziq-ovqat mahsulotlarini import qilish, saqlash va tarqatish. Sifat nazorati va sertifikatlash xizmatlari.",
+    title: "food.title",
+    description: "food.description",
+    details: "food.details",
   },
   {
     icon: Utensils,
-    title: "Restoran Biznesi",
-    description: "Professional restoran xizmatlari va halal taomlar",
-    details:
-      "Zamonaviy restoranlar, halal taomlar, professional oshxona jihozlari va mijozlar uchun yuqori darajadagi xizmat ko'rsatish.",
+    title: "restaurant.title",
+    description: "restaurant.description",
+    details: "restaurant.details",
   },
   {
     icon: Package,
-    title: "Import Faoliyati",
-    description: "Xalqaro bozordan sifatli mahsulotlarni import qilish",
-    details: "Turli sohalar uchun mahsulotlarni import qilish, logistika xizmatlari, bojxona rasmiylashtirish va O'zbekiston bozoriga yetkazib berish.",
+    title: "import.title",
+    description: "import.description",
+    details: "import.details",
   },
   {
     icon: Plane,
-    title: "Halal Turizm",
-    description: "Halal standartlarga muvofiq turizm xizmatlari",
-    details: "Halal turizm dasturlari, sayyohlar uchun maxsus xizmatlar, Umra va Haj safarlari, halal mehmonxonalar va restoranlar.",
+    title: "tourism.title",
+    description: "tourism.description",
+    details: "tourism.details",
   },
 ]
 
 export function BusinessDirections() {
   const [selectedBusiness, setSelectedBusiness] = useState<number | null>(null)
+  const t = useTranslations('services')
 
   return (
     <section id="xizmatlar" className="relative py-32 overflow-hidden">
@@ -51,10 +51,10 @@ export function BusinessDirections() {
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6">
-            Bizning Faoliyat Yo'nalishlari
+            {t('title')}
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya sifatida 4 asosiy yo'nalishda professional xizmatlar
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -76,15 +76,15 @@ export function BusinessDirections() {
                     <business.icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">
-                    {business.title}
+                    {t(business.title)}
                   </h3>
-                  <p className="text-muted-foreground mb-4">{business.description}</p>
+                  <p className="text-muted-foreground mb-4">{t(business.description)}</p>
                   <Button
                     variant="ghost"
                     size="sm"
                     className="text-primary hover:text-primary/80 p-0 h-auto font-medium"
                   >
-                    {selectedBusiness === index ? "Yopish" : "Batafsil"}
+                    {selectedBusiness === index ? t('close') : t('learnMore')}
                   </Button>
 
                   {selectedBusiness === index && (
@@ -95,7 +95,7 @@ export function BusinessDirections() {
                       transition={{ duration: 0.3 }}
                       className="mt-4 pt-4 border-t border-border overflow-hidden"
                     >
-                      <p className="text-sm text-muted-foreground leading-relaxed">{business.details}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{t(business.details)}</p>
                     </motion.div>
                   )}
                 </div>

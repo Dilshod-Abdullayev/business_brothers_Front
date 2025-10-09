@@ -2,29 +2,31 @@
 
 import { motion } from "framer-motion"
 import { Target, Lightbulb, Users, TrendingUp } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function AboutSection() {
+  const t = useTranslations('about')
 
   const values = [
     {
       icon: Target,
-      title: "Oziq-ovqat Savdosi",
-      description: "Halal standartlarga muvofiq sifatli oziq-ovqat mahsulotlarini import qilish va tarqatish",
+      title: t('directions.food.title'),
+      description: t('directions.food.description'),
     },
     {
       icon: Lightbulb,
-      title: "Restoran Biznesi",
-      description: "Zamonaviy va professional restoran xizmatlari, halal taomlar va mijozlar uchun qulaylik",
+      title: t('directions.restaurant.title'),
+      description: t('directions.restaurant.description'),
     },
     {
       icon: Users,
-      title: "Import Faoliyati",
-      description: "Xalqaro bozordan sifatli mahsulotlarni import qilish va O'zbekiston bozoriga yetkazib berish",
+      title: t('directions.import.title'),
+      description: t('directions.import.description'),
     },
     {
       icon: TrendingUp,
-      title: "Halal Turizm",
-      description: "Halal standartlarga muvofiq turizm xizmatlari va sayyohlar uchun maxsus dasturlar",
+      title: t('directions.tourism.title'),
+      description: t('directions.tourism.description'),
     },
   ]
 
@@ -41,12 +43,10 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6">
-              Business Brothers And Partners LLC
+              {t('title')}
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-              O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya. Biz oziq-ovqat savdosi, restoran biznesi, 
-              import va halal turizm sohalarida professional faoliyat yuritamiz. Bizning maqsadimiz – yuqori sifatli 
-              iste'mol madaniyatini shakllantirish va mijozlarimizga eng yaxshi xizmatlarni taqdim etish.
+              {t('description')}
             </p>
           </motion.div>
         </div>
@@ -82,15 +82,15 @@ export function AboutSection() {
           className="mt-32 max-w-4xl mx-auto"
         >
           <h3 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-poppins)] text-center mb-16">
-            Bizning yo'limiz
+            {t('timeline.title')}
           </h3>
           <div className="space-y-12">
             {[
-              { year: "2020", title: "Tashkil etilish", desc: "Business Brothers And Partners LLC kompaniyasi tashkil etildi" },
-              { year: "2021", title: "Oziq-ovqat Savdosi", desc: "Halal oziq-ovqat mahsulotlarini import qilish va tarqatish boshlandi" },
-              { year: "2022", title: "Restoran Biznesi", desc: "Professional restoran xizmatlari va halal taomlar bo'limi ochildi" },
-              { year: "2023", title: "Halal Turizm", desc: "Halal standartlarga muvofiq turizm xizmatlari ishga tushirildi" },
-              { year: "2024", title: "Kengayish", desc: "Barcha yo'nalishlarda professional xizmatlar va yangi loyihalar" },
+              { year: "2020", title: t('timeline.2020.title'), desc: t('timeline.2020.description') },
+              { year: "2021", title: t('timeline.2021.title'), desc: t('timeline.2021.description') },
+              { year: "2022", title: t('timeline.2022.title'), desc: t('timeline.2022.description') },
+              { year: "2023", title: t('timeline.2023.title'), desc: t('timeline.2023.description') },
+              { year: "2024", title: t('timeline.2024.title'), desc: t('timeline.2024.description') },
             ].map((item, index) => (
               <motion.div
                 key={item.year}

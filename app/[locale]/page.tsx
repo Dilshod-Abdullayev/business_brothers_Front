@@ -4,20 +4,22 @@ import { BusinessDirections } from "@/components/business-directions"
 import { ProjectsSection } from "@/components/projects-section"
 import { PartnersSection } from "@/components/partners-section"
 import { ContactSection } from "@/components/contact-section"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
 
-export default function Home() {
+export default async function Home({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params;
+  
   return (
     <main className="relative overflow-hidden">
-      <Navigation />
       <HeroSection />
       <AboutSection />
       <BusinessDirections />
       <ProjectsSection />
       <PartnersSection />
       <ContactSection />
-      <Footer />
     </main>
   )
 }

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRef, useState, useEffect } from "react"
+import { useTranslations } from 'next-intl'
 
 const backgroundImages = [
   "/modern-residential-complex-architecture.jpg",
@@ -15,6 +16,7 @@ const backgroundImages = [
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const t = useTranslations('hero')
   
   // Simplified scroll effects
   const { scrollYProgress } = useScroll({
@@ -89,7 +91,7 @@ export function HeroSection() {
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-base font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Business Brothers And Partners LLC
+              {t('company')}
             </span>
           </motion.div>
 
@@ -99,11 +101,11 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold font-[family-name:var(--font-poppins)] mb-8 leading-tight"
           >
-            <span className="block mb-2">O'zbekistonda</span>
+            <span className="block mb-2">{t('title').split(' ')[0]}</span>
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-              Ko'p Tarmoqli
+              {t('title').split(' ')[1]}
             </span>
-            <span className="block">Kompaniya</span>
+            <span className="block">{t('title').split(' ')[2]}</span>
           </motion.h1>
 
           <motion.p
@@ -112,9 +114,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
           >
-            <span className="font-semibold text-primary">Dinamik rivojlanayotgan</span> kompaniya.
-            <br className="hidden md:block" />
-            Oziq-ovqat savdosi, restoran biznesi, import va halal turizm sohalarida faoliyat yuritamiz.
+{t('subtitle')}
           </motion.p>
 
           <motion.div
@@ -127,7 +127,7 @@ export function HeroSection() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl"
             >
-              Loyihalarni Ko'rish
+              {t('cta1')}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
@@ -135,7 +135,7 @@ export function HeroSection() {
               variant="outline"
               className="border-primary/50 hover:bg-primary/10 px-8 py-4 text-lg font-semibold rounded-xl"
             >
-              Biz Bilan Bog'lanish
+              {t('cta2')}
             </Button>
           </motion.div>
           
@@ -147,9 +147,9 @@ export function HeroSection() {
             className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mt-16"
           >
             {[
-              { value: "4+", label: "Asosiy soha" },
-              { value: "24/7", label: "Professional xizmat" },
-              { value: "100%", label: "Halal standart" },
+              { value: "4+", label: t('stats.sectors') },
+              { value: "24/7", label: t('stats.service') },
+              { value: "100%", label: t('stats.halal') },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
