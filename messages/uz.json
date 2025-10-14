@@ -20,51 +20,59 @@
     }
   },
   "about": {
-    "title": "Business Brothers And Partners LLC",
-    "description": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya. Biz oziq-ovqat savdosi, restoran biznesi, import va halal turizm sohalarida professional faoliyat yuritamiz. Bizning maqsadimiz – yuqori sifatli iste'mol madaniyatini shakllantirish va mijozlarimizga eng yaxshi xizmatlarni taqdim etish.",
+    "badge": "Kompaniya haqida",
+    "title": "Kompaniya haqida",
+    "description": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya. Oziq-ovqat savdosi, restoran biznesi, import va halal turizm sohalarida faoliyat yuritamiz. Maqsadimiz - yuqori sifatli iste'mol madaniyatini shakllantirish.",
+    "vision": {
+      "title": "Vizyon va Missiya",
+      "vision": "O'zbekistonda yangi halal iqtisodiy yo'nalishlarni shakllantirish",
+      "mission": "Sog'lom, zamonaviy va madaniy boy tajribalarni taqdim etish"
+    },
     "directions": {
       "food": {
-        "title": "Oziq-ovqat Savdosi",
-        "description": "Halal standartlarga muvofiq sifatli oziq-ovqat mahsulotlarini import qilish va tarqatish"
+        "title": "Import",
+        "description": "Milaf Cola va boshqa ichimliklar"
       },
       "restaurant": {
-        "title": "Restoran Biznesi",
-        "description": "Zamonaviy va professional restoran xizmatlari, halal taomlar va mijozlar uchun qulaylik"
+        "title": "Restoranlar",
+        "description": "Rivojlanayotgan premium ovqatlanish joylari"
       },
       "import": {
-        "title": "Import Faoliyati",
-        "description": "Xalqaro bozordan sifatli mahsulotlarni import qilish va O'zbekiston bozoriga yetkazib berish"
+        "title": "Eksport (Rejalashtirilgan)",
+        "description": "Halal va tabiiy o'zbek mahsulotlari"
       },
       "tourism": {
         "title": "Halal Turizm",
-        "description": "Halal standartlarga muvofiq turizm xizmatlari va sayyohlar uchun maxsus dasturlar"
+        "description": "Halal standartlarga muvofiq turizm xizmatlari"
       }
     },
     "timeline": {
+      "badge": "Bizning yo'limiz",
       "title": "Bizning yo'limiz",
       "2020": {
         "title": "Tashkil etilish",
         "description": "Business Brothers And Partners LLC kompaniyasi tashkil etildi"
       },
       "2021": {
-        "title": "Oziq-ovqat Savdosi",
-        "description": "Halal oziq-ovqat mahsulotlarini import qilish va tarqatish boshlandi"
+        "title": "Import faoliyati",
+        "description": "Milaf Cola va boshqa ichimliklarni import qilish boshlandi"
       },
       "2022": {
-        "title": "Restoran Biznesi",
-        "description": "Professional restoran xizmatlari va halal taomlar bo'limi ochildi"
+        "title": "Restoran biznesi",
+        "description": "Premium restoranlar rivojlantirish boshlandi"
       },
       "2023": {
-        "title": "Halal Turizm",
-        "description": "Halal standartlarga muvofiq turizm xizmatlari ishga tushirildi"
+        "title": "Halal turizm",
+        "description": "Halal turizm xizmatlari ishga tushirildi"
       },
       "2024": {
-        "title": "Kengayish",
-        "description": "Barcha yo'nalishlarda professional xizmatlar va yangi loyihalar"
+        "title": "FOOD BAZAR loyihasi",
+        "description": "22 million dollarlik halal turizm markazi loyihasi"
       }
     }
   },
   "services": {
+    "badge": "Bizning Xizmatlar",
     "title": "Bizning Faoliyat Yo'nalishlari",
     "subtitle": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya sifatida 4 asosiy yo'nalishda professional xizmatlar",
     "food": {
@@ -91,23 +99,40 @@
     "close": "Yopish"
   },
   "projects": {
-    "title": "Bizning Loyihalarimiz",
-    "subtitle": "Business Brothers And Partners LLC kompaniyasining muvaffaqiyatli amalga oshirilgan va davom etayotgan loyihalari",
+    "badge": "Premium Loyihalar",
+    "title": "Asosiy Loyiha - FOOD BAZAR",
+    "subtitle": "22 million dollarlik halal turizm markazi loyihasi",
     "foodCenter": {
-      "title": "Halal Oziq-ovqat Markazi",
-      "category": "Oziq-ovqat Savdosi"
+      "title": "FOOD BAZAR - Halal Turizm Markazi",
+      "category": "Halal Turizm",
+      "description": "Toshkent shahrida 22 million dollarlik halal turizm markazi. Halal oziq-ovqat markazi, turizm xizmatlari va mahalliy bozor.",
+      "goal": "O'zbekistonni Markaziy Osiyoning halal markaziga aylantirish",
+      "location": "Toshkent",
+      "status": "Rivojlanmoqda"
     },
     "restaurantNetwork": {
-      "title": "Premium Restoranlar Tarmog'i",
-      "category": "Restoran Biznesi"
+      "title": "Premium Restoranlar",
+      "category": "Restoran Biznesi",
+      "description": "Rivojlanayotgan premium ovqatlanish joylari",
+      "restaurants": "Rivojlanmoqda",
+      "cuisine": "Halal",
+      "status": "Kengaymoqda"
     },
     "importTerminal": {
-      "title": "Xalqaro Import Terminali",
-      "category": "Import Faoliyati"
+      "title": "Milaf Cola Import",
+      "category": "Import Faoliyati",
+      "description": "Milaf Cola va boshqa ichimliklarni import qilish",
+      "products": "Milaf Cola",
+      "beverages": "Boshqa ichimliklar",
+      "status": "Faol"
     },
     "tourismAgency": {
-      "title": "Halal Turizm Agentligi",
-      "category": "Halal Turizm"
+      "title": "Halal Turizm Xizmatlari",
+      "category": "Halal Turizm",
+      "description": "Halal standartlarga muvofiq turizm xizmatlari",
+      "services": "Halal",
+      "tourism": "Turizm",
+      "status": "Rivojlanmoqda"
     }
   },
   "contact": {
@@ -115,6 +140,28 @@
     "title": "Bog'lanish",
     "subtitle": "Hamkorlikni boshlaylik. Biz bilan bog'laning va loyihangizni muhokama qiling",
     "infoTitle": "Aloqa ma'lumotlari",
+    "legal": {
+      "title": "Huquqiy va moliyaviy ma'lumotlar",
+      "registeredLabel": "Ro'yxatdan o'tgan",
+      "capitalLabel": "Ustav kapitali",
+      "plannedLabel": "Rejalashtirilgan",
+      "formLabel": "Huquqiy shakli",
+      "registered": "2024 yilda Toshkent, O'zbekistonda ro'yxatdan o'tgan",
+      "capital": "$600,000",
+      "planned": "$1.5 million (yil oxirigacha)",
+      "form": "Mas'uliyati cheklangan jamiyat (MChJ)"
+    },
+    "partnership": {
+      "title": "Hamkorlik imkoniyatlari",
+      "booths": "Halal oziq-ovqat ishlab chiqaruvchilari uchun stendlar",
+      "franchise": "Franshiza va investitsiya modellari mavjud",
+      "agencies": "Agentliklar va elchixonalar bilan hamkorlik"
+    },
+    "future": {
+      "title": "Kelajakdagi rejalar",
+      "expansion": "FOOD BAZAR loyihasini boshqa shaharlarga kengaytirish",
+      "export": "Eksportga yo'naltirilgan halal mahsulotlar ishlab chiqish"
+    },
     "form": {
       "name": "Ism",
       "namePlaceholder": "Ismingizni kiriting",
@@ -146,10 +193,22 @@
     }
   },
   "team": {
-    "badge": "Professional Jamoa",
+    "badge": "Rahbariyat jamoasi",
     "title": "Bizning",
-    "titleHighlight": "Dream Team",
-    "description": "Bizning jamoamiz - bu tajribali mutaxassislar, ularning har biri o'z sohasida professional yechimlar yaratadi"
+    "titleHighlight": "Rahbariyat",
+    "description": "Professional rahbariyat jamoasi - har biri o'z sohasida ekspert bo'lgan tajribali rahbarlar",
+    "founder": {
+      "name": "Faxriddin Maksimov",
+      "title": "Asoschi & Bosh Direktor",
+      "experience": "15 yillik soha tajribasi",
+      "expertise": "Restoran boshqaruvi va xalqaro savdo sohasida ekspert"
+    },
+    "positions": {
+      "ceo": "CEO - Bosh Ijrochi Direktor",
+      "cto": "CTO - Bosh Texnologiya Direktori",
+      "cfo": "CFO - Bosh Moliyaviy Direktor",
+      "coo": "COO - Bosh Operatsion Direktor"
+    }
   },
   "achievements": {
     "badge": "Bizning Yutuqlarimiz",

@@ -252,7 +252,7 @@ export function BusinessDirections() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-            <span className="text-sm font-semibold text-primary">Bizning Xizmatlar</span>
+            <span className="text-sm font-semibold text-primary">{t('badge')}</span>
           </motion.div>
 
           <motion.h2

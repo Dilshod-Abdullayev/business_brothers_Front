@@ -76,7 +76,7 @@ export function AboutSection() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <CheckCircle2 className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Kompaniya haqida</span>
+            <span className="text-sm font-semibold text-primary">{t('badge')}</span>
           </motion.div>
 
           <motion.div
@@ -163,7 +163,7 @@ export function AboutSection() {
           >
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Sparkles className="w-5 h-5 text-primary" />
-              <span className="text-sm font-semibold text-primary">Bizning yo'limiz</span>
+              <span className="text-sm font-semibold text-primary">{t('timeline.badge')}</span>
             </div>
             <h3 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-poppins)] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('timeline.title')}

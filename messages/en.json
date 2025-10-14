@@ -20,51 +20,59 @@
     }
   },
   "about": {
-    "title": "Business Brothers And Partners LLC",
-    "description": "A dynamically growing multi-sector company in Uzbekistan. We professionally operate in food trade, restaurant business, imports, and halal tourism. Our goal is to build a high-quality consumer culture and provide the best services to our clients.",
+    "badge": "About the Company",
+    "title": "About the Company",
+    "description": "A dynamically growing multi-sector company in Uzbekistan. We operate in food trade, restaurant business, imports, and halal tourism. Our goal is to build a high-quality consumer culture.",
+    "vision": {
+      "title": "Vision & Mission",
+      "vision": "Shape new halal economic directions in Uzbekistan",
+      "mission": "Deliver healthy, modern, and culturally rich experiences"
+    },
     "directions": {
       "food": {
-        "title": "Food Trade",
-        "description": "Import and distribution of quality food products that meet halal standards"
+        "title": "Import",
+        "description": "Milaf Cola and other beverages"
       },
       "restaurant": {
-        "title": "Restaurant Business",
-        "description": "Modern and professional restaurant services, halal cuisine, and customer convenience"
+        "title": "Restaurants",
+        "description": "Premium dining establishments in development"
       },
       "import": {
-        "title": "Import Activities",
-        "description": "Import of quality products from international markets and delivery to the Uzbekistan market"
+        "title": "Export (Planned)",
+        "description": "Halal and natural Uzbek products"
       },
       "tourism": {
         "title": "Halal Tourism",
-        "description": "Tourism services that meet halal standards and special programs for travelers"
+        "description": "Tourism services that meet halal standards"
       }
     },
     "timeline": {
+      "badge": "Our Journey",
       "title": "Our Journey",
       "2020": {
         "title": "Establishment",
         "description": "Business Brothers And Partners LLC company was established"
       },
       "2021": {
-        "title": "Food Trade",
-        "description": "Started import and distribution of halal food products"
+        "title": "Import Activities",
+        "description": "Started import of Milaf Cola and other beverages"
       },
       "2022": {
         "title": "Restaurant Business",
-        "description": "Opened professional restaurant services and halal cuisine division"
+        "description": "Started development of premium restaurants"
       },
       "2023": {
         "title": "Halal Tourism",
-        "description": "Launched tourism services that meet halal standards"
+        "description": "Launched halal tourism services"
       },
       "2024": {
-        "title": "Expansion",
-        "description": "Professional services and new projects in all directions"
+        "title": "FOOD BAZAR Project",
+        "description": "$22 million halal tourism center project"
       }
     }
   },
   "services": {
+    "badge": "Our Services",
     "title": "Our Business Directions",
     "subtitle": "As a dynamically growing multi-sector company in Uzbekistan, we provide professional services in 4 main directions",
     "food": {
@@ -91,23 +99,40 @@
     "close": "Close"
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Successfully completed and ongoing projects of Business Brothers And Partners LLC company",
+    "badge": "Premium Projects",
+    "title": "Major Project - FOOD BAZAR",
+    "subtitle": "$22 million halal tourism center project",
     "foodCenter": {
-      "title": "Halal Food Center",
-      "category": "Food Trade"
+      "title": "FOOD BAZAR - Halal Tourism Center",
+      "category": "Halal Tourism",
+      "description": "$22 million halal tourism center in Tashkent. Features: Halal food hub, tourism services, local market.",
+      "goal": "Make Uzbekistan the halal hub of Central Asia",
+      "location": "Tashkent",
+      "status": "In Development"
     },
     "restaurantNetwork": {
-      "title": "Premium Restaurant Network",
-      "category": "Restaurant Business"
+      "title": "Premium Restaurants",
+      "category": "Restaurant Business",
+      "description": "Premium dining establishments in development",
+      "restaurants": "In Development",
+      "cuisine": "Halal",
+      "status": "Expanding"
     },
     "importTerminal": {
-      "title": "International Import Terminal",
-      "category": "Import Activities"
+      "title": "Milaf Cola Import",
+      "category": "Import Activities",
+      "description": "Import of Milaf Cola and other beverages",
+      "products": "Milaf Cola",
+      "beverages": "Other Beverages",
+      "status": "Active"
     },
     "tourismAgency": {
-      "title": "Halal Tourism Agency",
-      "category": "Halal Tourism"
+      "title": "Halal Tourism Services",
+      "category": "Halal Tourism",
+      "description": "Tourism services that meet halal standards",
+      "services": "Halal",
+      "tourism": "Tourism",
+      "status": "In Development"
     }
   },
   "contact": {
@@ -115,6 +140,28 @@
     "title": "Get in Touch",
     "subtitle": "Let's start a partnership. Contact us and discuss your project",
     "infoTitle": "Contact Information",
+    "legal": {
+      "title": "Legal & Financial Information",
+      "registeredLabel": "Registered",
+      "capitalLabel": "Charter Capital",
+      "plannedLabel": "Planned",
+      "formLabel": "Legal Form",
+      "registered": "Registered in 2024, Tashkent, Uzbekistan",
+      "capital": "$600,000",
+      "planned": "$1.5 million (by year-end)",
+      "form": "Limited Liability Company (LLC)"
+    },
+    "partnership": {
+      "title": "Partnership Opportunities",
+      "booths": "Booths for halal food producers",
+      "franchise": "Franchise & investment models available",
+      "agencies": "Partnerships with agencies and embassies"
+    },
+    "future": {
+      "title": "Future Plans",
+      "expansion": "FOOD BAZAR expansion to other cities",
+      "export": "Export-focused halal product development"
+    },
     "form": {
       "name": "Name",
       "namePlaceholder": "Enter your name",
@@ -146,10 +193,22 @@
     }
   },
   "team": {
-    "badge": "Professional Team",
+    "badge": "Leadership Team",
     "title": "Our",
-    "titleHighlight": "Dream Team",
-    "description": "Our team consists of experienced specialists, each creating professional solutions in their field"
+    "titleHighlight": "Leadership",
+    "description": "Professional leadership team - experienced leaders who are experts in their respective fields",
+    "founder": {
+      "name": "Fakhriddin Maksumov",
+      "title": "Founder & CEO",
+      "experience": "15 years of industry experience",
+      "expertise": "Expert in restaurant management and international trade"
+    },
+    "positions": {
+      "ceo": "CEO - Chief Executive Officer",
+      "cto": "CTO - Chief Technology Officer",
+      "cfo": "CFO - Chief Financial Officer",
+      "coo": "COO - Chief Operating Officer"
+    }
   },
   "achievements": {
     "badge": "Our Achievements",

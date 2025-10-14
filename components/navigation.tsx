@@ -2,13 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { Menu, X, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
 import { useTranslations, useLocale } from 'next-intl'
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { setActiveSection, setScrolled, toggleMobileMenu, setMobileMenuOpen } from '@/store/slices/navigationSlice'
-import { openModal } from '@/store/slices/modalSlice'
 
 export function Navigation() {
   const dispatch = useAppDispatch()
@@ -28,7 +26,7 @@ export function Navigation() {
       dispatch(setScrolled(window.scrollY > 50))
 
       // Update active section based on scroll position
-      const sections = ["bosh", "haqimizda", "xizmatlar", "loyihalar", "hamkorlar", "aloqa"]
+      const sections = ["bosh", "haqimizda", "xizmatlar", "loyihalar", "aloqa"]
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -49,7 +47,6 @@ export function Navigation() {
     { href: "#haqimizda", label: t('about'), section: 'haqimizda' },
     { href: "#xizmatlar", label: t('services'), section: 'xizmatlar' },
     { href: "#loyihalar", label: t('projects'), section: 'loyihalar' },
-    { href: "#hamkorlar", label: t('partners'), section: 'hamkorlar' },
     { href: "#aloqa", label: t('contact'), section: 'aloqa' },
   ]
 
@@ -142,23 +139,6 @@ export function Navigation() {
               ))}
               
               <LanguageSwitcher />
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  onClick={() => dispatch(openModal({ type: 'contact' }))}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/30 group relative overflow-hidden ml-2"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  <Sparkles className="w-4 h-4 mr-2 relative z-10" />
-                  <span className="relative z-10">Biz bilan bog'laning</span>
-                </Button>
-              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -241,22 +221,6 @@ export function Navigation() {
                   </motion.a>
                 ))}
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  className="pt-4"
-                >
-                  <Button 
-                    onClick={() => dispatch(openModal({ type: 'contact' }))}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full shadow-lg shadow-primary/30 group relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    <Sparkles className="w-4 h-4 mr-2 relative z-10" />
-                    <span className="relative z-10">Biz bilan bog'laning</span>
-                  </Button>
-                </motion.div>
 
                 {/* Decorative Elements - CSS animated */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-float opacity-40" />

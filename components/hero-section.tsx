@@ -8,10 +8,9 @@ import { useTranslations } from 'next-intl'
 import Image from "next/image"
 
 const backgroundImages = [
-  "https://cdn.pixabay.com/photo/2016/11/21/06/53/beautiful-natural-image-1844362_640.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSltM5IaC7GLv6eInS2XZs7jRh7B_NtaOstKzwGLKgVTCuUCsJ11OEo9gGUVGtCJZD1cTM&usqp=CAU",
-  "https://thumbs.dreamstime.com/b/typical-bavarian-foothills-alps-291223936.jpg",
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
+  "/images/samarkand.jpg",
+  "/images/samarkand2.jpg",
+  "/images/iskandar-kambaraliyev-U6UuPXyyINo-unsplash.jpg",
 ]
 
 
@@ -158,24 +157,32 @@ export function HeroSection() {
             >
               <Image
                 src={image}
-                alt={`Business slide ${index + 1}`}
+                alt={`Uzbekistan Heritage ${index + 1}`}
                 fill
                 className="object-cover"
                 priority={index === 0}
-                quality={90}
+                quality={95}
+                sizes="100vw"
               />
-              {/* Animated overlay */}
+              {/* Enhanced overlay for Samarkand images */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-transparent"
+                className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
                 transition={{ duration: 1 }}
               />
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
                 transition={{ duration: 1.2 }}
+              />
+              {/* Additional warm overlay for Samarkand */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-orange-900/20 via-transparent to-blue-900/20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
+                transition={{ duration: 1.5 }}
               />
             </motion.div>
           ))}

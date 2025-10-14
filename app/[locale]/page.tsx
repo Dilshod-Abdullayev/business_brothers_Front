@@ -4,7 +4,6 @@ import { AchievementsSection } from "@/components/achievements-section"
 import { TeamSection } from "@/components/team-section"
 import { BusinessDirections } from "@/components/business-directions"
 import { ProjectsSection } from "@/components/projects-section"
-import { PartnersSection } from "@/components/partners-section"
 import { ContactSection } from "@/components/contact-section"
 
 export default async function Home({
@@ -22,7 +21,6 @@ export default async function Home({
       <TeamSection />
       <BusinessDirections />
       <ProjectsSection />
-      <PartnersSection />
       <ContactSection />
     </main>
   )

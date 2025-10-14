@@ -5,37 +5,9 @@ import { ArrowRight, Sparkles, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState } from "react"
+import { useTranslations } from 'next-intl'
 
-const projects = [
-  {
-    title: "Halal Oziq-ovqat Markazi",
-    category: "Oziq-ovqat Savdosi",
-    image: "/modern-business-training-center.jpg",
-    stats: { products: "500+", partners: "50+", status: "Faol" },
-    gradient: "from-emerald-500/20 to-green-600/20",
-  },
-  {
-    title: "Premium Restoranlar Tarmog'i",
-    category: "Restoran Biznesi",
-    image: "/modern-residential-complex-architecture.jpg",
-    stats: { branches: "10+", customers: "50,000+", status: "Kengaymoqda" },
-    gradient: "from-orange-500/20 to-red-600/20",
-  },
-  {
-    title: "Xalqaro Import Terminali",
-    category: "Import Faoliyati",
-    image: "/international-trade-logistics-center.jpg",
-    stats: { countries: "20+", products: "1000+", status: "Faol" },
-    gradient: "from-blue-500/20 to-indigo-600/20",
-  },
-  {
-    title: "Halal Turizm Agentligi",
-    category: "Halal Turizm",
-    image: "/smart-city-technology-dashboard.jpg",
-    stats: { tours: "50+", travelers: "5,000+", status: "Rivojlanmoqda" },
-    gradient: "from-purple-500/20 to-pink-600/20",
-  },
-]
+// Projects data will be created inside the component to use translations
 
 function ProjectCard({ project, index }: any) {
   const [isHovered, setIsHovered] = useState(false)
@@ -176,6 +148,44 @@ function ProjectCard({ project, index }: any) {
 }
 
 export function ProjectsSection() {
+  const t = useTranslations('projects')
+  
+  const projects = [
+    {
+      title: t('foodCenter.title'),
+      category: t('foodCenter.category'),
+      image: "/international-trade-logistics-center.jpg",
+      stats: { investment: "$22M", location: t('foodCenter.location'), status: t('foodCenter.status') },
+      gradient: "from-emerald-500/20 to-green-600/20",
+      description: t('foodCenter.description'),
+      goal: t('foodCenter.goal')
+    },
+    {
+      title: t('restaurantNetwork.title'),
+      category: t('restaurantNetwork.category'),
+      image: "/modern-residential-complex-architecture.jpg",
+      stats: { restaurants: t('restaurantNetwork.restaurants'), cuisine: t('restaurantNetwork.cuisine'), status: t('restaurantNetwork.status') },
+      gradient: "from-orange-500/20 to-red-600/20",
+      description: t('restaurantNetwork.description')
+    },
+    {
+      title: t('importTerminal.title'),
+      category: t('importTerminal.category'),
+      image: "/smart-city-technology-dashboard.jpg",
+      stats: { products: t('importTerminal.products'), beverages: t('importTerminal.beverages'), status: t('importTerminal.status') },
+      gradient: "from-blue-500/20 to-indigo-600/20",
+      description: t('importTerminal.description')
+    },
+    {
+      title: t('tourismAgency.title'),
+      category: t('tourismAgency.category'),
+      image: "/modern-business-training-center.jpg",
+      stats: { services: t('tourismAgency.services'), tourism: t('tourismAgency.tourism'), status: t('tourismAgency.status') },
+      gradient: "from-purple-500/20 to-pink-600/20",
+      description: t('tourismAgency.description')
+    },
+  ]
+  
   return (
     <section id="loyihalar" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800" />
@@ -195,7 +205,7 @@ export function ProjectsSection() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-            <span className="text-sm font-semibold text-primary">Premium Loyihalar</span>
+            <span className="text-sm font-semibold text-primary">{t('badge')}</span>
           </motion.div>
 
         <motion.div
@@ -212,7 +222,7 @@ export function ProjectsSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Bizning Loyihalarimiz
+                Asosiy Loyiha - FOOD BAZAR
               </span>
             </motion.h2>
             <motion.p
@@ -222,7 +232,7 @@ export function ProjectsSection() {
               viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-            Business Brothers And Partners LLC kompaniyasining muvaffaqiyatli amalga oshirilgan va davom etayotgan loyihalari
+            22 million dollarlik halal turizm markazi loyihasi
             </motion.p>
         </motion.div>
       </div>
