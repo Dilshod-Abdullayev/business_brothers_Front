@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Quote, Star } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 const partners = [
   "Uzbekistan Airways",
@@ -37,37 +38,15 @@ const testimonials = [
 ]
 
 export function PartnersSection() {
+  const t = useTranslations('partners')
+  
   return (
     <section id="hamkorlar" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
       
       {/* Animated Background Orbs */}
-      <motion.div
-        className="absolute top-1/3 left-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 40, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.3, 1, 1.3],
-          x: [0, -40, 0],
-          y: [0, 20, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
+      <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-delayed" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -79,13 +58,13 @@ export function PartnersSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Star className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">100+ Mamnun mijozlar</span>
+            <span className="text-sm font-medium text-primary">{t('badge')}</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6">
-            Hamkorlarimiz
+            {t('title')} <span className="text-primary">{t('titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Yirik kompaniyalar va tashkilotlar bilan muvaffaqiyatli hamkorlik
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -115,7 +94,7 @@ export function PartnersSection() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
               className="relative group will-change-transform"

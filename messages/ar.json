@@ -111,27 +111,114 @@
     }
   },
   "contact": {
-    "title": "تواصل معنا",
-    "subtitle": "أسئلتكم واقتراحاتكم مهمة بالنسبة لنا",
+    "badge": "تواصل معنا",
+    "title": "تواصل",
+    "subtitle": "لنبدأ شراكة. تواصل معنا وناقش مشروعك",
+    "infoTitle": "معلومات الاتصال",
     "form": {
       "name": "الاسم",
+      "namePlaceholder": "أدخل اسمك",
+      "nameLabel": "اسمك",
       "email": "البريد الإلكتروني",
+      "emailPlaceholder": "email@example.com",
+      "emailLabel": "البريد الإلكتروني",
       "phone": "الهاتف",
+      "phoneLabel": "رقم الهاتف",
+      "phonePlaceholder": "+998 __ ___ __ __",
       "message": "الرسالة",
-      "send": "إرسال"
+      "messageLabel": "الرسالة",
+      "messagePlaceholder": "اكتب رسالتك...",
+      "send": "إرسال",
+      "sendButton": "إرسال رسالة",
+      "title": "إرسال رسالة",
+      "subtitle": "اترك لنا رسالة حول مشروعك"
     },
     "info": {
       "address": "العنوان",
       "phone": "الهاتف",
       "email": "البريد الإلكتروني",
       "hours": "ساعات العمل"
+    },
+    "stats": {
+      "clients": "العملاء",
+      "satisfaction": "الرضا",
+      "support": "الدعم"
     }
+  },
+  "team": {
+    "badge": "فريق محترف",
+    "title": "فريقنا",
+    "titleHighlight": "المميز",
+    "description": "فريقنا يتكون من متخصصين ذوي خبرة، كل منهم يقدم حلولاً مهنية في مجاله"
+  },
+  "achievements": {
+    "badge": "إنجازاتنا",
+    "title": "النجاح",
+    "titleHighlight": "بالأرقام",
+    "subtitle": "نتائج أنشطتنا المهنية في سوق أوزبكستان",
+    "items": {
+      "projects": {
+        "label": "مشاريع ناجحة",
+        "description": "منفذة في البناء والأعمال"
+      },
+      "clients": {
+        "label": "عملاء راضون",
+        "description": "في جميع أنحاء أوزبكستان والسوق الدولية"
+      },
+      "revenue": {
+        "label": "الإيرادات السنوية",
+        "description": "نمو مستقر وتطور"
+      },
+      "awards": {
+        "label": "جوائز",
+        "description": "اعتراف وطني ودولي"
+      },
+      "success": {
+        "label": "معدل النجاح",
+        "description": "جودة عالية وموثوقية"
+      },
+      "countries": {
+        "label": "دول",
+        "description": "تعاون دولي وتصدير"
+      }
+    }
+  },
+  "partners": {
+    "badge": "شركاؤنا",
+    "title": "شراكة",
+    "titleHighlight": "موثوقة",
+    "subtitle": "تعاون استراتيجي مع شركات دولية ومحلية"
   },
   "footer": {
     "company": "Business Brothers And Partners LLC",
-    "description": "شركة متعددة القطاعات تنمو ديناميكياً في أوزبكستان",
+    "description": "شريك موثوق للأعمال التجارية النزيهة والتطوير في أوزبكستان. معنا النجاح حقيقة!",
+    "newsletter": "اشترك في نشرتنا الإخبارية",
+    "emailPlaceholder": "عنوان بريدك الإلكتروني",
+    "subscribe": "اشتراك",
     "quickLinks": "روابط سريعة",
     "contactInfo": "معلومات الاتصال",
-    "rights": "جميع الحقوق محفوظة"
+    "rights": "جميع الحقوق محفوظة",
+    "categories": {
+      "company": "الشركة",
+      "services": "الخدمات",
+      "support": "الدعم"
+    },
+    "links": {
+      "about": "معلومات عنا",
+      "services": "الخدمات",
+      "projects": "المشاريع",
+      "partners": "الشركاء",
+      "construction": "البناء",
+      "finance": "المالية",
+      "education": "التعليم",
+      "technology": "التكنولوجيا",
+      "helpCenter": "مركز المساعدة",
+      "faq": "الأسئلة الشائعة",
+      "contact": "اتصل بنا",
+      "careers": "الوظائف",
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الخدمة"
+    },
+    "tagline": "شركة مهنية مبنية على الأعمال التجارية النزيهة"
   }
 }

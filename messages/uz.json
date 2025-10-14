@@ -111,27 +111,114 @@
     }
   },
   "contact": {
-    "title": "Biz Bilan Bog'laning",
-    "subtitle": "Sizning savollar va takliflaringiz biz uchun muhim",
+    "badge": "Biz bilan bog'laning",
+    "title": "Bog'lanish",
+    "subtitle": "Hamkorlikni boshlaylik. Biz bilan bog'laning va loyihangizni muhokama qiling",
+    "infoTitle": "Aloqa ma'lumotlari",
     "form": {
       "name": "Ism",
+      "namePlaceholder": "Ismingizni kiriting",
+      "nameLabel": "Ismingiz",
       "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "emailLabel": "Email",
       "phone": "Telefon",
+      "phoneLabel": "Telefon raqam",
+      "phonePlaceholder": "+998 __ ___ __ __",
       "message": "Xabar",
-      "send": "Yuborish"
+      "messageLabel": "Xabar",
+      "messagePlaceholder": "Xabaringizni yozing...",
+      "send": "Yuborish",
+      "sendButton": "Xabar yuborish",
+      "title": "Xabar Yuboring",
+      "subtitle": "Loyihangiz haqida bizga xabar qoldiring"
     },
     "info": {
       "address": "Manzil",
       "phone": "Telefon",
       "email": "Email",
       "hours": "Ish vaqti"
+    },
+    "stats": {
+      "clients": "Mijozlar",
+      "satisfaction": "Mamnunlik",
+      "support": "Qo'llab-quvvatlash"
     }
+  },
+  "team": {
+    "badge": "Professional Jamoa",
+    "title": "Bizning",
+    "titleHighlight": "Dream Team",
+    "description": "Bizning jamoamiz - bu tajribali mutaxassislar, ularning har biri o'z sohasida professional yechimlar yaratadi"
+  },
+  "achievements": {
+    "badge": "Bizning Yutuqlarimiz",
+    "title": "Muvaffaqiyatlar",
+    "titleHighlight": "Raqamlarda",
+    "subtitle": "O'zbekiston bozoridagi professional faoliyatimiz natijalari",
+    "items": {
+      "projects": {
+        "label": "Muvaffaqiyatli Loyihalar",
+        "description": "Qurilish va biznes sohasida amalga oshirilgan"
+      },
+      "clients": {
+        "label": "Qoniqarli Mijozlar",
+        "description": "Butun O'zbekiston va xalqaro bozorda"
+      },
+      "revenue": {
+        "label": "Yillik Aylanma",
+        "description": "Barqaror o'sish va rivojlanish"
+      },
+      "awards": {
+        "label": "Mukofotlar",
+        "description": "Milliy va xalqaro tan olinish"
+      },
+      "success": {
+        "label": "Muvaffaqiyat Darajasi",
+        "description": "Yuqori sifat va ishonchlilik"
+      },
+      "countries": {
+        "label": "Mamlakatlar",
+        "description": "Xalqaro hamkorlik va eksport"
+      }
+    }
+  },
+  "partners": {
+    "badge": "Bizning Hamkorlarimiz",
+    "title": "Ishonchli",
+    "titleHighlight": "Hamkorlik",
+    "subtitle": "Xalqaro va mahalliy kompaniyalar bilan strategik hamkorlik"
   },
   "footer": {
     "company": "Business Brothers And Partners LLC",
-    "description": "O'zbekistonda dinamik rivojlanayotgan ko'p tarmoqli kompaniya",
+    "description": "O'zbekistonda halol biznes va rivojlanishning ishonchli hamkori. Biz bilan muvaffaqiyat - bu haqiqat!",
+    "newsletter": "Yangiliklar uchun obuna bo'ling",
+    "emailPlaceholder": "Email manzilingiz",
+    "subscribe": "Obuna",
     "quickLinks": "Tezkor havolalar",
     "contactInfo": "Aloqa ma'lumotlari",
-    "rights": "Barcha huquqlar himoyalangan"
+    "rights": "Barcha huquqlar himoyalangan",
+    "categories": {
+      "company": "Kompaniya",
+      "services": "Xizmatlar",
+      "support": "Qo'llab-quvvatlash"
+    },
+    "links": {
+      "about": "Biz haqimizda",
+      "services": "Xizmatlar",
+      "projects": "Loyihalar",
+      "partners": "Hamkorlar",
+      "construction": "Qurilish",
+      "finance": "Moliya",
+      "education": "Ta'lim",
+      "technology": "Texnologiya",
+      "helpCenter": "Yordam markazi",
+      "faq": "FAQ",
+      "contact": "Aloqa",
+      "careers": "Vakansiyalar",
+      "privacy": "Maxfiylik siyosati",
+      "terms": "Foydalanish shartlari"
+    },
+    "tagline": "Halol biznes asosida qurilgan professional kompaniya"
   }
 }

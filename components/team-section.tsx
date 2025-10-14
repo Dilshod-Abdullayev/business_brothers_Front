@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
 import { Users, Linkedin, Mail, Phone, Sparkles } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 const team = [
   {
@@ -59,6 +60,7 @@ const team = [
 export function TeamSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const t = useTranslations('team')
 
   return (
     <section ref={ref} className="relative py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -76,18 +78,18 @@ export function TeamSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
             <Users className="w-5 h-5 text-primary" />
-            <span className="text-sm font-bold text-white">Professional Jamoa</span>
+            <span className="text-sm font-bold text-white">{t('badge')}</span>
             <Sparkles className="w-4 h-4 text-accent" />
           </div>
 
           {/* Title */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            Bizning <span className="text-primary">Dream Team</span>
+            {t('title')} <span className="text-primary">{t('titleHighlight')}</span>
           </h2>
 
           {/* Description */}
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Bizning jamoamiz - bu tajribali mutaxassislar, ularning har biri o'z sohasida professional yechimlar yaratadi
+            {t('description')}
           </p>
         </motion.div>
 
@@ -104,7 +106,7 @@ export function TeamSection() {
 
 function TeamCard({ member, index }: { member: any; index: number }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <motion.div

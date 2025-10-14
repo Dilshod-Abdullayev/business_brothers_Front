@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
-import { Languages, Globe } from "lucide-react"
+import { Languages, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -15,10 +15,10 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { setLanguage } from '@/store/slices/languageSlice'
 
 const languages = [
-  { code: 'uz', name: 'Oʻzbek', flag: '🇺🇿' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+  { code: 'uz', name: 'Oʻzbekcha', flag: '🇺🇿', nativeName: "O'zbek" },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺', nativeName: "Русский" },
+  { code: 'en', name: 'English', flag: '🇬🇧', nativeName: "English" },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', nativeName: "العربية" },
 ]
 
 export function LanguageSwitcher() {
@@ -29,9 +29,8 @@ export function LanguageSwitcher() {
   const pathname = usePathname()
   const t = useTranslations()
   const language = useAppSelector((state) => state.language)
-  const currentLanguage = language?.availableLanguages?.find((lang: any) => lang.code === locale) || languages[0]
+  const currentLanguage = language?.availableLanguages?.find((lang: any) => lang.code === locale) || languages.find(l => l.code === locale) || languages[0]
   const availableLanguages = language?.availableLanguages || languages
-
 
   const handleLanguageChange = (newLocale: string) => {
     dispatch(setLanguage(newLocale))
@@ -48,26 +47,46 @@ export function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+          className="flex items-center gap-2 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors relative group"
         >
-          <Globe className="w-4 h-4" />
-          <span className="hidden sm:inline">{currentLanguage.flag}</span>
+          <Languages className="w-4 h-4 group-hover:text-primary transition-colors" />
+          <span className="text-2xl leading-none" style={{ fontFamily: 'system-ui' }}>
+            {currentLanguage.flag}
+          </span>
           <span className="hidden md:inline text-sm font-medium">
-            {currentLanguage.name}
+            {currentLanguage.nativeName}
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent 
+        align="end" 
+        className="w-56 bg-[#1f2937] border-gray-700 shadow-2xl shadow-primary/10"
+      >
+        <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          Tilni tanlang
+        </div>
         {availableLanguages.map((language: any) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className="flex items-center gap-3 cursor-pointer"
+            className={`flex items-center gap-3 cursor-pointer px-3 py-2.5 rounded-lg transition-all ${
+              language.code === locale 
+                ? 'bg-primary/10 text-primary' 
+                : 'hover:bg-primary/5 text-foreground'
+            }`}
           >
-            <span className="text-lg">{language.flag}</span>
-            <span className="font-medium">{language.name}</span>
+            <span 
+              className="text-2xl leading-none" 
+              style={{ fontFamily: 'system-ui' }}
+            >
+              {language.flag}
+            </span>
+            <div className="flex-1">
+              <div className="font-medium">{language.nativeName}</div>
+              <div className="text-xs text-muted-foreground">{language.name}</div>
+            </div>
             {language.code === locale && (
-              <span className="ml-auto text-primary">✓</span>
+              <Check className="w-4 h-4 text-primary" />
             )}
           </DropdownMenuItem>
         ))}

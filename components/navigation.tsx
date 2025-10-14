@@ -91,40 +91,17 @@ export function Navigation() {
 
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            {/* Logo - CSS animated for performance */}
             <motion.a
               href="#bosh"
               className="text-2xl font-bold font-[family-name:var(--font-poppins)] tracking-tight relative group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.span
-                className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
-                style={{
-                  backgroundSize: "200% auto",
-                }}
-              >
+              <span className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
                 Business Brothers
-              </motion.span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -177,12 +154,7 @@ export function Navigation() {
                   onClick={() => dispatch(openModal({ type: 'contact' }))}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/30 group relative overflow-hidden ml-2"
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
-                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <Sparkles className="w-4 h-4 mr-2 relative z-10" />
                   <span className="relative z-10">Biz bilan bog'laning</span>
                 </Button>
@@ -276,30 +248,18 @@ export function Navigation() {
                   exit={{ opacity: 0, y: 20 }}
                   className="pt-4"
                 >
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full shadow-lg shadow-primary/30 group relative overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                      animate={{ x: ["-100%", "100%"] }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    />
+                  <Button 
+                    onClick={() => dispatch(openModal({ type: 'contact' }))}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full shadow-lg shadow-primary/30 group relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                     <Sparkles className="w-4 h-4 mr-2 relative z-10" />
                     <span className="relative z-10">Biz bilan bog'laning</span>
                   </Button>
                 </motion.div>
 
-                {/* Decorative Elements */}
-                <motion.div
-                  className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  }}
-                />
+                {/* Decorative Elements - CSS animated */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-float opacity-40" />
               </div>
             </motion.div>
           </>

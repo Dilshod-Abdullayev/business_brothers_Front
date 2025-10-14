@@ -64,7 +64,7 @@ function ProjectCard({ project, index }: any) {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       style={{
         rotateX: isHovered ? rotateX : 0,
@@ -118,7 +118,7 @@ function ProjectCard({ project, index }: any) {
               className="text-3xl font-bold font-[family-name:var(--font-poppins)] mb-6 text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
             >
               {project.title}
@@ -129,7 +129,7 @@ function ProjectCard({ project, index }: any) {
               className="grid grid-cols-3 gap-4 mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
             >
               {Object.entries(project.stats).map(([key, value], idx) => (
@@ -149,7 +149,7 @@ function ProjectCard({ project, index }: any) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
             >
               <Button
@@ -181,32 +181,8 @@ export function ProjectsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800" />
 
       {/* Animated Background Orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 50, 0],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, -50, 0],
-          opacity: [0.5, 0.3, 0.5],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float opacity-40" />
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-delayed opacity-40" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}

@@ -3,14 +3,18 @@
 import { motion } from "framer-motion"
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, ArrowUp, Heart, Sparkles } from "lucide-react"
 import { useState } from "react"
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+  const t = useTranslations('footer')
+  const tCat = useTranslations('footer.categories')
+  const tLinks = useTranslations('footer.links')
 
   const footerLinks = {
-    Kompaniya: ["Biz haqimizda", "Xizmatlar", "Loyihalar", "Hamkorlar"],
-    Xizmatlar: ["Qurilish", "Moliya", "Ta'lim", "Texnologiya"],
-    "Qo'llab-quvvatlash": ["Yordam markazi", "FAQ", "Aloqa", "Vakansiyalar"],
+    [tCat('company')]: [tLinks('about'), tLinks('services'), tLinks('projects'), tLinks('partners')],
+    [tCat('services')]: [tLinks('construction'), tLinks('finance'), tLinks('education'), tLinks('technology')],
+    [tCat('support')]: [tLinks('helpCenter'), tLinks('faq'), tLinks('contact'), tLinks('careers')],
   }
 
   const socialLinks = [
@@ -27,34 +31,10 @@ export function Footer() {
 
   return (
     <footer className="relative bg-[#1a1f2e] border-t border-gray-700 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30">
-        <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
+      {/* CSS Animated Background - GPU optimized */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 py-16 relative z-10">
@@ -64,127 +44,65 @@ export function Footer() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6 }}
             >
               <motion.h3 
-                className="text-2xl font-bold font-[family-name:var(--font-poppins)] mb-4 relative inline-block"
+                className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
                 whileHover={{ scale: 1.02 }}
               >
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                  Business Brothers Partners
-                </span>
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                />
+                {t('company')}
               </motion.h3>
-              <motion.p 
-                className="text-muted-foreground leading-relaxed mb-6 max-w-md"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Biznesni yangi bosqichga olib chiqamiz. Ishonchli hamkorlaringiz muvaffaqiyat sari yo'lda.
-              </motion.p>
-              <div className="flex items-center gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: 0.3 + index * 0.05,
-                      type: "spring",
-                      bounce: 0.5
-                    }}
-                    whileHover={{ 
-                      scale: 1.2, 
-                      y: -5,
-                      rotate: 360,
-                      transition: { duration: 0.6 }
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-11 h-11 rounded-xl bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-all duration-300 group relative overflow-hidden"
-                    aria-label={social.label}
+              <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
+                {t('description')}
+              </p>
+              
+              {/* Newsletter */}
+              <div className="space-y-4">
+                <p className="text-sm font-semibold text-primary">{t('newsletter')}</p>
+                <div className="flex gap-3">
+                  <input
+                    type="email"
+                    placeholder={t('emailPlaceholder')}
+                    className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-primary transition-colors"
+                  />
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg text-sm font-semibold shadow-lg shadow-primary/30 transition-all hover:shadow-primary/50"
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      animate={{
-                        rotate: [0, 360],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "linear",
-                      }}
-                    />
-                    <social.icon className="w-5 h-5 text-primary relative z-10" />
-                  </motion.a>
-                ))}
+                    {t('subscribe')}
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([title, links], columnIndex) => (
+          {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
             <motion.div
-              key={title}
+              key={category}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 + columnIndex * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
             >
-              <motion.h4 
-                className="font-semibold mb-4 relative inline-block"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                {title}
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-8 h-0.5 bg-primary"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + columnIndex * 0.1 }}
-                />
-              </motion.h4>
+              <h4 className="font-bold text-white mb-6 flex items-center gap-2">
+                <div className="h-1 w-8 bg-gradient-to-r from-primary to-accent rounded-full" />
+                {category}
+              </h4>
               <ul className="space-y-3">
-                {links.map((link, linkIndex) => (
-                  <motion.li
-                    key={link}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.4 + columnIndex * 0.1 + linkIndex * 0.05 }}
-                  >
+                {links.map((link, index) => (
+                  <motion.li key={index}>
                     <motion.a
                       href="#"
-                      className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                      className="text-gray-400 hover:text-primary transition-colors text-sm relative inline-block group"
+                      onHoverStart={() => setHoveredLink(`${category}-${link}`)}
+                      onHoverEnd={() => setHoveredLink(null)}
                       whileHover={{ x: 5 }}
-                      onMouseEnter={() => setHoveredLink(link)}
-                      onMouseLeave={() => setHoveredLink(null)}
                     >
-                      <motion.span
-                        animate={{
-                          opacity: hoveredLink === link ? 1 : 0,
-                          x: hoveredLink === link ? 0 : -10,
-                        }}
-                        transition={{ duration: 0.2 }}
-                        className="text-primary"
-                      >
-                        →
-                      </motion.span>
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">
-                        {link}
-                      </span>
+                      {link}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                     </motion.a>
                   </motion.li>
                 ))}
@@ -193,72 +111,86 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom */}
+        {/* Social Links */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="pt-8 border-t border-border"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-4 py-8 border-t border-gray-700"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <motion.p 
-              className="text-sm text-muted-foreground flex items-center gap-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+          {socialLinks.map((social, index) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              whileHover={{ scale: 1.15, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              className="group relative"
+              aria-label={social.label}
             >
-              © 2025 Business Brothers Partners. Barcha huquqlar himoyalangan.
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+              <div 
+                className="w-12 h-12 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300"
+                style={{
+                  boxShadow: `0 0 20px ${social.color}20`,
+                }}
               >
-                <Heart className="w-4 h-4 text-primary fill-primary inline" />
-              </motion.span>
-            </motion.p>
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              {["Maxfiylik siyosati", "Foydalanish shartlari"].map((item, index) => (
-                <motion.a
-                  key={item}
-                  href="#"
-                  className="hover:text-primary transition-colors relative group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                  whileHover={{ y: -2 }}
-                >
-                  {item}
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-primary"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
-              ))}
-            </div>
-          </div>
+                <social.icon 
+                  className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" 
+                />
+                {/* CSS sparkle - no JS infinity */}
+                <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity animate-ping" />
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
 
-          {/* Made with love */}
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-gray-700 flex flex-col md:flex-row items-center justify-between gap-6">
           <motion.div
-            className="mt-6 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-2 text-sm text-gray-400"
           >
-            <motion.p 
-              className="text-xs text-muted-foreground flex items-center justify-center gap-2"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-            >
-              <Sparkles className="w-3 h-3 text-primary" />
-              <span>Muhabbat bilan ishlab chiqildi</span>
-              <Sparkles className="w-3 h-3 text-primary" />
-            </motion.p>
+            © 2025 {t('company')}. {t('rights')}.
+            {/* CSS heart pulse */}
+            <Heart className="w-4 h-4 text-primary fill-primary inline animate-pulse" />
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-6"
+          >
+            <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">
+              {tLinks('privacy')}
+            </a>
+            <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">
+              {tLinks('terms')}
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Premium Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-8 text-center"
+        >
+          <p className="text-xs text-muted-foreground flex items-center justify-center gap-2 opacity-60">
+            <Sparkles className="w-3 h-3 text-primary" />
+            {t('tagline')}
+            <Sparkles className="w-3 h-3 text-primary" />
+          </p>
         </motion.div>
       </div>
 
@@ -267,38 +199,14 @@ export function Footer() {
         onClick={scrollToTop}
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
-        whileHover={{ 
-          scale: 1.1,
-          y: -5,
-          transition: { duration: 0.2 }
-        }}
+        viewport={{ once: true, amount: 0.1 }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-2xl shadow-primary/50 flex items-center justify-center group overflow-hidden"
-        aria-label="Yuqoriga chiqish"
+        className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/50 border border-primary/20 backdrop-blur-sm group"
+        aria-label="Scroll to top"
       >
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary"
-          animate={{
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          style={{
-            backgroundSize: "200% auto",
-          }}
-        />
-        <motion.div
-          animate={{ y: [-2, 2, -2] }}
-          transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          className="relative z-10"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl opacity-0 group-hover:opacity-20 animate-shimmer-slow" />
+        <ArrowUp className="w-6 h-6 text-white relative z-10" />
       </motion.button>
     </footer>
   )

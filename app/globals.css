@@ -505,6 +505,10 @@ label {
   animation: float 6s ease-in-out infinite;
 }
 
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite 1s;
+}
+
 .animate-float-rotate {
   animation: float-rotate 8s ease-in-out infinite;
 }
@@ -518,6 +522,17 @@ label {
   );
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
+}
+
+.animate-shimmer-slow {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(var(--primary) / 0.1),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 5s infinite;
 }
 
 .animate-slide-up {

@@ -34,72 +34,84 @@ export function HeroSection() {
     let isTransitioning = false
     let lastScrollTime = 0
     let transitionTimeout: NodeJS.Timeout
-    const SCROLL_THRESHOLD = 30 // Minimal scroll amount
-    const TRANSITION_DURATION = 900 // Transition cooldown
-    const DEBOUNCE_TIME = 150 // Min time between scrolls
+    const SCROLL_THRESHOLD = 25 // Minimal scroll amount  
+    const TRANSITION_DURATION = 600 // Transition cooldown - faster
+    const DEBOUNCE_TIME = 100 // Min time between scrolls - faster
 
     const handleWheel = (e: WheelEvent) => {
       if (!sectionRef.current) return
       
       const rect = sectionRef.current.getBoundingClientRect()
-      const isInHeroSection = rect.top <= 100 && rect.bottom > window.innerHeight * 0.3
+      const isInHeroSection = rect.top <= 0 && rect.bottom >= window.innerHeight * 0.5
       
-      if (!isInHeroSection) return
-      
-      const now = Date.now()
-      
-      // Birinchi rasmda yuqoriga scroll - normal scroll
-      if (currentImageIndex === 0 && e.deltaY < 0) {
-        return
-      }
-      
-      // Oxirgi rasmda pastga scroll - unlock
-      if (currentImageIndex === backgroundImages.length - 1 && e.deltaY > 0) {
-        if (!scrollLocked) return
-        setScrollLocked(false)
-        return
-      }
-      
-      // MUHIM: Scroll'ni to'liq block qilamiz
-      e.preventDefault()
-      e.stopPropagation()
-      
-      // Agar transition davomida yoki juda tez scroll bo'lsa - ignore
-      if (isTransitioning || now - lastScrollTime < DEBOUNCE_TIME) {
-        return
-      }
-      
-      // Threshold check
-      if (Math.abs(e.deltaY) >= SCROLL_THRESHOLD) {
-        lastScrollTime = now
-        isTransitioning = true
+      // iPhone style: Section ichida bo'lsa scroll block qilamiz
+      if (isInHeroSection && scrollLocked) {
+        const now = Date.now()
         
-        if (e.deltaY > 0 && currentImageIndex < backgroundImages.length - 1) {
-          // Pastga - keyingi rasm
-          setCurrentImageIndex(prev => prev + 1)
-        } else if (e.deltaY < 0 && currentImageIndex > 0) {
-          // Yuqoriga - oldingi rasm
-          setCurrentImageIndex(prev => prev - 1)
-        } else {
-          isTransitioning = false
+        // Birinchi rasmda yuqoriga scroll - allow
+        if (currentImageIndex === 0 && e.deltaY < 0) {
+          return // Yuqoriga chiqish
+        }
+        
+        // MUHIM: Hero section ichida scroll'ni to'liq block qilamiz
+        e.preventDefault()
+        e.stopPropagation()
+        
+        // Agar transition davomida yoki juda tez scroll bo'lsa - ignore
+        if (isTransitioning || now - lastScrollTime < DEBOUNCE_TIME) {
           return
         }
         
-        // Transition cooldown - animatsiya tugaguncha
-        clearTimeout(transitionTimeout)
-        transitionTimeout = setTimeout(() => {
-          isTransitioning = false
-        }, TRANSITION_DURATION)
+        // Threshold check
+        if (Math.abs(e.deltaY) >= SCROLL_THRESHOLD) {
+          lastScrollTime = now
+          isTransitioning = true
+          
+          if (e.deltaY > 0) {
+            // Pastga scroll
+            if (currentImageIndex < backgroundImages.length - 1) {
+              // Keyingi rasm
+              setCurrentImageIndex(prev => prev + 1)
+            } else {
+              // Oxirgi rasm - unlock scroll va pastga o'tkazish
+              setScrollLocked(false)
+              isTransitioning = false
+              
+              // Smooth scroll pastga
+              setTimeout(() => {
+                window.scrollTo({
+                  top: window.innerHeight,
+                  behavior: 'smooth'
+                })
+              }, 100)
+              
+              return
+            }
+          } else if (e.deltaY < 0 && currentImageIndex > 0) {
+            // Yuqoriga - oldingi rasm
+            setCurrentImageIndex(prev => prev - 1)
+          } else {
+            isTransitioning = false
+            return
+          }
+          
+          // Transition cooldown
+          clearTimeout(transitionTimeout)
+          transitionTimeout = setTimeout(() => {
+            isTransitioning = false
+          }, TRANSITION_DURATION)
+        }
       }
     }
 
-    // Section reset
+    // Section reset - yuqoriga scroll qilganda
     const handleScroll = () => {
       if (!sectionRef.current) return
       
       const rect = sectionRef.current.getBoundingClientRect()
       
-      if (rect.top >= -50 && rect.top <= 50) {
+      // Agar section yuqoriga qaytgan bo'lsa - reset
+      if (rect.top >= 0) {
         setScrollLocked(true)
         setCurrentImageIndex(0)
         isTransitioning = false
@@ -120,10 +132,11 @@ export function HeroSection() {
     <section 
       ref={sectionRef}
       id="bosh"
-      className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="relative h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      style={{ height: '100vh', minHeight: '100vh' }}
     >
       {/* Full screen container */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-full w-full overflow-hidden">
         
         {/* Background Images with Premium Animated Crossfade */}
         <div className="absolute inset-0">
@@ -137,9 +150,9 @@ export function HeroSection() {
                 filter: currentImageIndex === index ? "blur(0px)" : "blur(8px)"
               }}
               transition={{ 
-                opacity: { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] },
-                scale: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] },
-                filter: { duration: 0.5, ease: "easeOut" }
+                opacity: { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] },
+                scale: { duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] },
+                filter: { duration: 0.4, ease: "easeOut" }
               }}
               className="absolute inset-0"
             >
@@ -174,20 +187,6 @@ export function HeroSection() {
           <div className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-accent/5 rounded-full blur-[100px]" />
         </div>
 
-          {/* Image Progress Indicators - Side */}
-          <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-            {backgroundImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-12 rounded-full transition-all duration-300 ${
-                  index === currentImageIndex
-                    ? "bg-primary w-3 shadow-lg shadow-primary/50"
-                    : "bg-gray-600 hover:bg-primary/60"
-                }`}
-              />
-            ))}
-          </div>
 
         {/* Content - Static (no hydration issues) */}
         <div className="relative h-full flex items-center justify-center px-4 lg:px-8">
@@ -233,34 +232,28 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Button
+                size="lg"
+                className="relative overflow-hidden bg-gradient-to-r from-primary to-accent text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 group"
               >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-xl shadow-primary/30 group"
-                >
-                  <span className="flex items-center gap-2">
-                    {t('cta1')}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-              </motion.div>
+                <span className="relative z-10 flex items-center gap-2">
+                  {t('cta1')}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Button>
               
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Button
+                size="lg"
+                variant="outline"
+                className="relative overflow-hidden border-2 border-white/40 hover:border-primary/60 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 group"
               >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white/30 hover:bg-white/10 text-white px-8 py-6 text-lg font-semibold rounded-xl backdrop-blur-sm group"
-                >
-                  <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   {t('cta2')}
-                </Button>
-              </motion.div>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Button>
             </motion.div>
             
             {/* Stats */}

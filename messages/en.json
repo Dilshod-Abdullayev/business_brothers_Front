@@ -111,27 +111,114 @@
     }
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Your questions and suggestions are important to us",
+    "badge": "Contact us",
+    "title": "Get in Touch",
+    "subtitle": "Let's start a partnership. Contact us and discuss your project",
+    "infoTitle": "Contact Information",
     "form": {
       "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "nameLabel": "Your name",
       "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "emailLabel": "Email",
       "phone": "Phone",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "+998 __ ___ __ __",
       "message": "Message",
-      "send": "Send"
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message...",
+      "send": "Send",
+      "sendButton": "Send message",
+      "title": "Send Message",
+      "subtitle": "Leave us a message about your project"
     },
     "info": {
       "address": "Address",
       "phone": "Phone",
       "email": "Email",
       "hours": "Working Hours"
+    },
+    "stats": {
+      "clients": "Clients",
+      "satisfaction": "Satisfaction",
+      "support": "Support"
     }
+  },
+  "team": {
+    "badge": "Professional Team",
+    "title": "Our",
+    "titleHighlight": "Dream Team",
+    "description": "Our team consists of experienced specialists, each creating professional solutions in their field"
+  },
+  "achievements": {
+    "badge": "Our Achievements",
+    "title": "Success",
+    "titleHighlight": "In Numbers",
+    "subtitle": "Results of our professional activities in the Uzbekistan market",
+    "items": {
+      "projects": {
+        "label": "Successful Projects",
+        "description": "Implemented in construction and business"
+      },
+      "clients": {
+        "label": "Satisfied Clients",
+        "description": "Throughout Uzbekistan and international market"
+      },
+      "revenue": {
+        "label": "Annual Revenue",
+        "description": "Stable growth and development"
+      },
+      "awards": {
+        "label": "Awards",
+        "description": "National and international recognition"
+      },
+      "success": {
+        "label": "Success Rate",
+        "description": "High quality and reliability"
+      },
+      "countries": {
+        "label": "Countries",
+        "description": "International cooperation and export"
+      }
+    }
+  },
+  "partners": {
+    "badge": "Our Partners",
+    "title": "Reliable",
+    "titleHighlight": "Partnership",
+    "subtitle": "Strategic cooperation with international and local companies"
   },
   "footer": {
     "company": "Business Brothers And Partners LLC",
-    "description": "A dynamically growing multi-sector company in Uzbekistan",
+    "description": "Trusted partner of honest business and development in Uzbekistan. With us, success is reality!",
+    "newsletter": "Subscribe to our newsletter",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Information",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "categories": {
+      "company": "Company",
+      "services": "Services",
+      "support": "Support"
+    },
+    "links": {
+      "about": "About Us",
+      "services": "Services",
+      "projects": "Projects",
+      "partners": "Partners",
+      "construction": "Construction",
+      "finance": "Finance",
+      "education": "Education",
+      "technology": "Technology",
+      "helpCenter": "Help Center",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "careers": "Careers",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "tagline": "Professional company built on honest business"
   }
 }

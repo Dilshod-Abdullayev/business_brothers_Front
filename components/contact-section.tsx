@@ -5,35 +5,41 @@ import { Mail, Phone, MapPin, Send, Check, Clock, MessageCircle } from "lucide-r
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Telefon",
-    details: ["+998 71 123 45 67", "+998 90 123 45 67"],
-    delay: 0,
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    details: ["info@businessbrothers.uz", "contact@businessbrothers.uz"],
-    delay: 0.1,
-  },
-  {
-    icon: MapPin,
-    title: "Manzil",
-    details: ["Toshkent shahri, Yunusobod tumani,", "Amir Temur ko'chasi, 107A"],
-    delay: 0.2,
-  },
-]
-
-const stats = [
-  { icon: MessageCircle, value: "1000+", label: "Mijozlar" },
-  { icon: Check, value: "98%", label: "Mamnunlik" },
-  { icon: Clock, value: "24/7", label: "Qo'llab-quvvatlash" },
-]
+import { useTranslations } from 'next-intl'
 
 export function ContactSection() {
+  const t = useTranslations('contact')
+  const tInfo = useTranslations('contact.info')
+  const tStats = useTranslations('contact.stats')
+  const tForm = useTranslations('contact.form')
+  
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: tInfo('phone'),
+      details: ["+998 71 123 45 67", "+998 90 123 45 67"],
+      delay: 0,
+    },
+    {
+      icon: Mail,
+      title: tInfo('email'),
+      details: ["info@businessbrothers.uz", "contact@businessbrothers.uz"],
+      delay: 0.1,
+    },
+    {
+      icon: MapPin,
+      title: tInfo('address'),
+      details: ["Toshkent shahri, Yunusobod tumani,", "Amir Temur ko'chasi, 107A"],
+      delay: 0.2,
+    },
+  ]
+
+  const stats = [
+    { icon: MessageCircle, value: "1000+", label: tStats('clients') },
+    { icon: Check, value: "98%", label: tStats('satisfaction') },
+    { icon: Clock, value: "24/7", label: tStats('support') },
+  ]
+  
   return (
     <section id="aloqa" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
@@ -48,13 +54,13 @@ export function ContactSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <MessageCircle className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Biz bilan bog'laning</span>
+            <span className="text-sm font-medium text-primary">{t('badge')}</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6">
-            Bog'lanish
+            {t('title')}
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Hamkorlikni boshlaylik. Biz bilan bog'laning va loyihangizni muhokama qiling
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -99,7 +105,7 @@ export function ContactSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                Aloqa ma'lumotlari
+                {t('infoTitle')}
               </motion.h3>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
@@ -140,37 +146,37 @@ export function ContactSection() {
           >
             <form className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Ismingiz</label>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">{tForm('nameLabel')}</label>
                 <Input 
                   id="name"
                   type="text"
-                  placeholder="Ismingizni kiriting"
+                  placeholder={tForm('namePlaceholder')}
                   className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">Telefon raqam</label>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2">{tForm('phoneLabel')}</label>
                 <Input 
                   id="phone"
                   type="tel"
-                  placeholder="+998 __ ___ __ __"
+                  placeholder={tForm('phonePlaceholder')}
                   className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">{tForm('emailLabel')}</label>
                 <Input 
                   id="email"
                   type="email"
-                  placeholder="email@example.com"
+                  placeholder={tForm('emailPlaceholder')}
                   className="bg-[#1f2937] border-gray-700 focus:border-primary text-white"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Xabar</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">{tForm('messageLabel')}</label>
                 <Textarea
                   id="message"
-                  placeholder="Xabaringizni yozing..."
+                  placeholder={tForm('messagePlaceholder')}
                   rows={5}
                   className="bg-[#1f2937] border-gray-700 resize-none focus:border-primary text-white"
                 />
@@ -180,7 +186,7 @@ export function ContactSection() {
                 size="lg"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 group"
               >
-                Xabar yuborish
+                {tForm('sendButton')}
                 <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
