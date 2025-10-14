@@ -131,8 +131,8 @@ export function HeroSection() {
     <section 
       ref={sectionRef}
       id="bosh"
-      className="relative h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-      style={{ height: '100vh', minHeight: '100vh' }}
+      className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      style={{ minHeight: '100vh', height: 'auto' }}
     >
       {/* Full screen container */}
       <div className="relative h-full w-full overflow-hidden">
@@ -196,15 +196,15 @@ export function HeroSection() {
 
 
         {/* Content - Static (no hydration issues) */}
-        <div className="relative h-full flex items-center justify-center px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center">
+        <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="max-w-6xl mx-auto text-center w-full">
             
             {/* Company Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/20 backdrop-blur-xl border border-primary/40 mb-8 shadow-2xl"
+              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/20 backdrop-blur-xl border border-primary/40 mb-6 sm:mb-8 shadow-2xl"
             >
               <Sparkles className="w-5 h-5 text-primary" />
               <span className="text-base font-bold text-white">
@@ -217,7 +217,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
             >
               {t('title')}
             </motion.h1>
@@ -227,7 +227,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 md:mb-10 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2"
             >
               {t('subtitle')}
             </motion.p>
@@ -237,11 +237,11 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 px-2"
             >
               <Button
                 size="lg"
-                className="relative overflow-hidden bg-gradient-to-r from-primary to-accent text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 group"
+                className="relative overflow-hidden bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 group w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t('cta1')}
@@ -253,7 +253,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="relative overflow-hidden border-2 border-white/40 hover:border-primary/60 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 group"
+                className="relative overflow-hidden border-2 border-white/40 hover:border-primary/60 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 group w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -268,7 +268,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-10"
+              className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto mb-8 sm:mb-10 px-2"
             >
               {[
                 { value: "4+", label: t('stats.sectors') },
@@ -277,16 +277,16 @@ export function HeroSection() {
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-primary/20 group"
+                  className="p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-black/40 backdrop-blur-xl border border-primary/20 group"
                   whileHover={{ 
                     scale: 1.05,
                     borderColor: "rgba(88, 101, 242, 0.4)",
                   }}
                 >
-                  <div className="text-4xl font-black text-white mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-1 sm:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-300 font-medium">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-300 font-medium leading-tight">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>

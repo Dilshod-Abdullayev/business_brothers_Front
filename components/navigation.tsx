@@ -86,12 +86,12 @@ export function Navigation() {
           />
         )}
 
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo - CSS animated for performance */}
             <motion.a
               href="#bosh"
-              className="text-2xl font-bold font-[family-name:var(--font-poppins)] tracking-tight relative group"
+              className="text-lg sm:text-xl lg:text-2xl font-bold font-[family-name:var(--font-poppins)] tracking-tight relative group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -102,7 +102,7 @@ export function Navigation() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-1 lg:gap-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
@@ -113,7 +113,7 @@ export function Navigation() {
                 >
                   <motion.a
                     href={link.href}
-                    className={`text-sm font-medium px-4 py-2 rounded-lg transition-colors relative z-10 ${
+                    className={`text-xs sm:text-sm font-medium px-2 sm:px-3 lg:px-4 py-2 rounded-lg transition-colors relative z-10 ${
                       activeSection === link.section
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"
@@ -143,7 +143,7 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden text-foreground relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-primary/10 transition-colors"
+              className="md:hidden text-foreground relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-primary/10 transition-colors"
               onClick={() => dispatch(toggleMobileMenu())}
               whileTap={{ scale: 0.9 }}
             >
@@ -194,7 +194,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-[#1f2937] border-l border-gray-700 z-50 lg:hidden overflow-y-auto shadow-2xl"
+              className="fixed top-16 sm:top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-[#1f2937] border-l border-gray-700 z-50 md:hidden overflow-y-auto shadow-2xl"
             >
               <div className="p-6 space-y-2">
                 {navLinks.map((link, index) => (
@@ -205,7 +205,7 @@ export function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     exit={{ opacity: 0, x: 50 }}
-                    className={`block text-sm font-medium px-4 py-3 rounded-lg transition-all ${
+                    className={`block text-sm font-medium px-4 py-4 rounded-lg transition-all touch-manipulation ${
                       activeSection === link.section
                         ? "bg-primary/10 text-primary border border-primary/20"
                         : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
@@ -221,6 +221,18 @@ export function Navigation() {
                   </motion.a>
                 ))}
                 
+                {/* Language Switcher in Mobile Menu */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
+                  exit={{ opacity: 0, x: 50 }}
+                  className="mt-6 pt-6 border-t border-gray-700"
+                >
+                  <div className="px-4 py-2">
+                    <LanguageSwitcher />
+                  </div>
+                </motion.div>
 
                 {/* Decorative Elements - CSS animated */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-float opacity-40" />

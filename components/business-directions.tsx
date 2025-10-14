@@ -94,7 +94,7 @@ function BusinessCard({ business, index, isSelected, onToggle }: any) {
     >
       <Card className="h-full bg-[#1f2937] border-gray-700 hover:border-primary/50 transition-all duration-500 overflow-hidden">
         {/* Image Background */}
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
           <motion.div
             className="absolute inset-0"
             whileHover={{ scale: 1.1 }}
@@ -150,15 +150,15 @@ function BusinessCard({ business, index, isSelected, onToggle }: any) {
         </div>
 
         {/* Content */}
-        <div className="p-6 relative">
+        <div className="p-4 sm:p-6 relative">
           <motion.h3
-            className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors"
+            className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors"
             whileHover={{ x: 5 }}
           >
             {t(business.title)}
           </motion.h3>
           
-          <p className="text-muted-foreground mb-4 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
             {t(business.description)}
           </p>
 
@@ -169,8 +169,8 @@ function BusinessCard({ business, index, isSelected, onToggle }: any) {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pt-4 border-t border-border mb-4">
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="pt-3 sm:pt-4 border-t border-border mb-3 sm:mb-4">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {t(business.details)}
               </p>
             </div>
@@ -181,7 +181,7 @@ function BusinessCard({ business, index, isSelected, onToggle }: any) {
             variant="ghost"
             size="sm"
             onClick={onToggle}
-            className="group/btn text-primary hover:text-primary/80 p-0 h-auto font-medium flex items-center gap-2"
+            className="group/btn text-primary hover:text-primary/80 p-0 h-auto font-medium flex items-center gap-2 text-sm sm:text-base"
           >
             <span>{isSelected ? t('close') : t('learnMore')}</span>
             <motion.div
@@ -223,7 +223,7 @@ export function BusinessDirections() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={sectionRef} id="xizmatlar" className="relative py-32 overflow-hidden">
+    <section ref={sectionRef} id="xizmatlar" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
       
@@ -234,7 +234,7 @@ export function BusinessDirections() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float opacity-40" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-delayed opacity-40" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           style={{ opacity }}
@@ -242,21 +242,21 @@ export function BusinessDirections() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center mb-20"
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8"
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -268,7 +268,7 @@ export function BusinessDirections() {
           </motion.h2>
           
           <motion.p
-            className="text-xl text-muted-foreground leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -279,7 +279,7 @@ export function BusinessDirections() {
         </motion.div>
 
         {/* Business Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {businesses.map((business, index) => (
             <BusinessCard
               key={business.title}

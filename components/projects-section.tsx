@@ -51,7 +51,7 @@ function ProjectCard({ project, index }: any) {
       {/* Glow Effect */}
       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
       
-      <div className="relative overflow-hidden rounded-3xl bg-[#1f2937] border border-gray-700 h-[550px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#1f2937] border border-gray-700 h-[450px] sm:h-[500px] lg:h-[550px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
         {/* Image with Zoom */}
         <div className="relative h-full overflow-hidden">
           <motion.div
@@ -76,18 +76,18 @@ function ProjectCard({ project, index }: any) {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-            className="absolute top-6 left-6 z-10"
+            className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10"
           >
-            <div className="px-5 py-2 rounded-full bg-black/80 backdrop-blur-md border border-primary/30 flex items-center gap-2 shadow-lg">
+            <div className="px-3 sm:px-5 py-1 sm:py-2 rounded-full bg-black/80 backdrop-blur-md border border-primary/30 flex items-center gap-2 shadow-lg">
               <Star className="w-4 h-4 text-primary fill-primary" />
-              <span className="text-sm font-semibold text-primary">{project.category}</span>
+              <span className="text-xs sm:text-sm font-semibold text-primary">{project.category}</span>
             </div>
           </motion.div>
 
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 z-20">
             <motion.h3
-              className="text-3xl font-bold font-[family-name:var(--font-poppins)] mb-6 text-white drop-shadow-lg"
+              className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6 text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -98,7 +98,7 @@ function ProjectCard({ project, index }: any) {
 
             {/* Stats Grid */}
             <motion.div
-              className="grid grid-cols-3 gap-4 mb-6"
+              className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -107,11 +107,11 @@ function ProjectCard({ project, index }: any) {
               {Object.entries(project.stats).map(([key, value], idx) => (
                   <motion.div
                   key={key}
-                  className="backdrop-blur-sm bg-black/60 rounded-xl p-3 border border-primary/20"
+                  className="backdrop-blur-sm bg-black/60 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-primary/20"
                   whileHover={{ y: -5, scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-2xl font-bold text-primary">{String(value)}</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">{String(value)}</div>
                   <div className="text-xs text-muted-foreground uppercase font-medium">{key}</div>
                 </motion.div>
               ))}
@@ -126,7 +126,7 @@ function ProjectCard({ project, index }: any) {
             >
               <Button
                 variant="outline"
-                className="border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/60 backdrop-blur-sm shadow-lg"
+                className="border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/60 backdrop-blur-sm shadow-lg text-sm sm:text-base"
               >
                 Ko'proq bilish
                 <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -187,22 +187,22 @@ export function ProjectsSection() {
   ]
   
   return (
-    <section id="loyihalar" className="relative py-32 overflow-hidden">
+    <section id="loyihalar" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800" />
 
       {/* Animated Background Orbs */}
       <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float opacity-40" />
       <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-delayed opacity-40" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8"
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
@@ -215,7 +215,7 @@ export function ProjectsSection() {
           transition={{ duration: 0.6 }}
           >
             <motion.h2
-              className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -226,7 +226,7 @@ export function ProjectsSection() {
               </span>
             </motion.h2>
             <motion.p
-              className="text-xl text-muted-foreground leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -238,7 +238,7 @@ export function ProjectsSection() {
       </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}

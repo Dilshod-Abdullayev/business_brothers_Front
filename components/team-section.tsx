@@ -82,32 +82,32 @@ export function TeamSection() {
   ]
 
   return (
-    <section ref={ref} className="relative py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <section ref={ref} className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Simple Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(88,101,242,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(88,101,242,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-4xl mx-auto"
+          className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4 sm:mb-6">
             <Users className="w-5 h-5 text-primary" />
             <span className="text-sm font-bold text-white">{t('badge')}</span>
             <Sparkles className="w-4 h-4 text-accent" />
           </div>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
             {t('title')} <span className="text-primary">{t('titleHighlight')}</span>
           </h2>
 
           {/* Description */}
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
             {t('description')}
           </p>
 
@@ -121,17 +121,17 @@ export function TeamSection() {
         {/* Organizational Chart */}
         <div className="relative max-w-6xl mx-auto">
           {/* Founder - Top Level */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-8 sm:mb-12 lg:mb-16">
             <TeamCard member={team[0]} index={0} isFounder={true} />
           </div>
 
           {/* Connecting Lines from Founder */}
-          <div className="flex justify-center mb-8">
-            <div className="w-px h-16 bg-gradient-to-b from-primary to-accent"></div>
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-primary to-accent"></div>
           </div>
 
           {/* Executive Team - Second Level */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {team.slice(1).map((member, index) => (
               <div key={member.name} className="relative">
                 {/* Connecting Line */}
@@ -165,7 +165,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
       }`}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden ${isFounder ? "h-80" : "h-64"}`}>
+      <div className={`relative overflow-hidden ${isFounder ? "h-64 sm:h-80" : "h-48 sm:h-64"}`}>
         <Image
           src={member.image}
           alt={member.name}
@@ -177,20 +177,20 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
         <div className={`absolute inset-0 ${isFounder ? "bg-gradient-to-t from-primary/20 via-primary/10 to-transparent" : "bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"}`} />
         
         {/* Experience Badge */}
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-lg backdrop-blur-sm border ${
+        <div className={`absolute top-3 sm:top-4 right-3 sm:right-4 px-2 sm:px-3 py-1 rounded-lg backdrop-blur-sm border ${
           isFounder 
             ? "bg-primary/80 border-primary text-white" 
             : "bg-black/60 border-primary/30"
         }`}>
-          <div className={`text-sm font-bold ${isFounder ? "text-white" : "text-primary"}`}>
+          <div className={`text-xs sm:text-sm font-bold ${isFounder ? "text-white" : "text-primary"}`}>
             {member.experience} years
           </div>
         </div>
 
         {/* Founder Badge */}
         {isFounder && (
-          <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg">
-            <div className="text-sm font-bold text-white">ASOSCHI</div>
+          <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-3 sm:px-4 py-1 sm:py-2 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg">
+            <div className="text-xs sm:text-sm font-bold text-white">ASOSCHI</div>
           </div>
         )}
 
@@ -209,22 +209,22 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
       </div>
 
       {/* Content */}
-      <div className={`p-5 ${isFounder ? "pb-6" : ""}`}>
+      <div className={`p-4 sm:p-5 ${isFounder ? "pb-5 sm:pb-6" : ""}`}>
         <h3 className={`font-bold mb-1 group-hover:text-primary transition-colors ${
-          isFounder ? "text-2xl text-white" : "text-xl text-white"
+          isFounder ? "text-xl sm:text-2xl text-white" : "text-lg sm:text-xl text-white"
         }`}>
           {member.name}
         </h3>
         <div className={`h-0.5 rounded-full mb-2 ${
           isFounder ? "w-16 bg-gradient-to-r from-primary to-accent" : "w-10 bg-primary"
         }`} />
-        <p className={`font-semibold uppercase tracking-wider mb-3 ${
-          isFounder ? "text-primary text-sm" : "text-primary text-xs"
+        <p className={`font-semibold uppercase tracking-wider mb-2 sm:mb-3 ${
+          isFounder ? "text-primary text-xs sm:text-sm" : "text-primary text-xs"
         }`}>
           {member.position}
         </p>
         <p className={`leading-relaxed ${
-          isFounder ? "text-gray-300 text-base" : "text-gray-400 text-sm"
+          isFounder ? "text-gray-300 text-sm sm:text-base" : "text-gray-400 text-xs sm:text-sm"
         }`}>
           {member.bio}
         </p>

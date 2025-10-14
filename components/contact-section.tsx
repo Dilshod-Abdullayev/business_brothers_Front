@@ -33,7 +33,7 @@ export function ContactSection() {
   const t = useTranslations('contact')
 
   return (
-    <section id="aloqa" className="relative py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <section id="aloqa" className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(88,101,242,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(88,101,242,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float opacity-40" />
@@ -46,21 +46,21 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8"
           >
             <Send className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -70,13 +70,13 @@ export function ContactSection() {
               {t('title')}
             </span>
           </motion.h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12 sm:mb-16">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -100,7 +100,7 @@ export function ContactSection() {
         </div>
 
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.title}
@@ -108,15 +108,15 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#1f2937] border border-gray-700 rounded-2xl p-6 text-center hover:border-primary/50 transition-colors"
+              className="bg-[#1f2937] border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:border-primary/50 transition-colors"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <info.icon className="w-6 h-6 text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h4 className="font-semibold text-white mb-3">{info.title}</h4>
+              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">{info.title}</h4>
               <div className="space-y-1">
                 {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-muted-foreground text-sm">{detail}</p>
+                  <p key={idx} className="text-muted-foreground text-xs sm:text-sm">{detail}</p>
                 ))}
               </div>
             </motion.div>
@@ -124,7 +124,7 @@ export function ContactSection() {
         </div>
 
         {/* Main Content - Balanced Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
