@@ -26,16 +26,13 @@ export function HeroSection() {
     setIsMounted(true)
   }, [])
 
-  // Premium Apple-style scroll: smooth and controlled
+  // Ultra smooth scroll-based transitions - iPhone style
   useEffect(() => {
     if (!isMounted) return
 
-    let isTransitioning = false
-    let lastScrollTime = 0
-    let transitionTimeout: NodeJS.Timeout
-    const SCROLL_THRESHOLD = 25 // Minimal scroll amount  
-    const TRANSITION_DURATION = 600 // Transition cooldown - faster
-    const DEBOUNCE_TIME = 100 // Min time between scrolls - faster
+    let animationFrame: number | null = null
+    let targetIndex = currentImageIndex
+    let isAnimating = false
 
     const handleWheel = (e: WheelEvent) => {
       if (!sectionRef.current) return
@@ -43,78 +40,91 @@ export function HeroSection() {
       const rect = sectionRef.current.getBoundingClientRect()
       const isInHeroSection = rect.top <= 0 && rect.bottom >= window.innerHeight * 0.5
       
-      // iPhone style: Section ichida bo'lsa scroll block qilamiz
       if (isInHeroSection && scrollLocked) {
-        const now = Date.now()
-        
         // Birinchi rasmda yuqoriga scroll - allow
         if (currentImageIndex === 0 && e.deltaY < 0) {
-          return // Yuqoriga chiqish
-        }
-        
-        // MUHIM: Hero section ichida scroll'ni to'liq block qilamiz
-        e.preventDefault()
-        e.stopPropagation()
-        
-        // Agar transition davomida yoki juda tez scroll bo'lsa - ignore
-        if (isTransitioning || now - lastScrollTime < DEBOUNCE_TIME) {
           return
         }
         
-        // Threshold check
-        if (Math.abs(e.deltaY) >= SCROLL_THRESHOLD) {
-          lastScrollTime = now
-          isTransitioning = true
-          
-          if (e.deltaY > 0) {
-            // Pastga scroll
-            if (currentImageIndex < backgroundImages.length - 1) {
-              // Keyingi rasm
-              setCurrentImageIndex(prev => prev + 1)
-            } else {
-              // Oxirgi rasm - unlock scroll va pastga o'tkazish
-              setScrollLocked(false)
-              isTransitioning = false
+        // Hero section ichida scroll'ni block qilamiz
+        e.preventDefault()
+        e.stopPropagation()
+        
+        // Agar animatsiya davomida bo'lsa - ignore
+        if (isAnimating) return
+        
+        isAnimating = true
+        
+        if (e.deltaY > 0) {
+          // Pastga scroll
+          if (targetIndex < backgroundImages.length - 1) {
+            targetIndex++
+            
+            // Smooth transition bilan keyingi rasmga
+            setTimeout(() => {
+              setCurrentImageIndex(targetIndex)
               
-              // Smooth scroll pastga
+              // Oxirgi rasmga yetganda
+              if (targetIndex === backgroundImages.length - 1) {
+                setTimeout(() => {
+                  setScrollLocked(false)
+                  
+                  // Pastga scroll
+                  setTimeout(() => {
+                    window.scrollTo({
+                      top: window.innerHeight,
+                      behavior: 'smooth'
+                    })
+                  }, 500)
+                }, 1200)
+              }
+              
               setTimeout(() => {
-                window.scrollTo({
-                  top: window.innerHeight,
-                  behavior: 'smooth'
-                })
-              }, 100)
-              
-              return
-            }
-          } else if (e.deltaY < 0 && currentImageIndex > 0) {
-            // Yuqoriga - oldingi rasm
-            setCurrentImageIndex(prev => prev - 1)
+                isAnimating = false
+              }, 1200)
+            }, 50)
           } else {
-            isTransitioning = false
-            return
+            // Oxirgi rasmda - unlock
+            setScrollLocked(false)
+            isAnimating = false
+            
+            setTimeout(() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+              })
+            }, 100)
           }
-          
-          // Transition cooldown
-          clearTimeout(transitionTimeout)
-          transitionTimeout = setTimeout(() => {
-            isTransitioning = false
-          }, TRANSITION_DURATION)
+        } else if (e.deltaY < 0) {
+          // Yuqoriga scroll
+          if (targetIndex > 0) {
+            targetIndex--
+            
+            setTimeout(() => {
+              setCurrentImageIndex(targetIndex)
+              
+              setTimeout(() => {
+                isAnimating = false
+              }, 1200)
+            }, 50)
+          } else {
+            isAnimating = false
+          }
         }
       }
     }
 
-    // Section reset - yuqoriga scroll qilganda
+    // Section reset
     const handleScroll = () => {
       if (!sectionRef.current) return
       
       const rect = sectionRef.current.getBoundingClientRect()
       
-      // Agar section yuqoriga qaytgan bo'lsa - reset
       if (rect.top >= 0) {
         setScrollLocked(true)
         setCurrentImageIndex(0)
-        isTransitioning = false
-        lastScrollTime = 0
+        targetIndex = 0
+        isAnimating = false
       }
     }
 
@@ -124,7 +134,7 @@ export function HeroSection() {
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('scroll', handleScroll)
-      clearTimeout(transitionTimeout)
+      if (animationFrame) cancelAnimationFrame(animationFrame)
     }
   }, [currentImageIndex, scrollLocked, isMounted])
   return (
@@ -137,55 +147,37 @@ export function HeroSection() {
       {/* Full screen container */}
       <div className="relative h-full w-full overflow-hidden">
         
-        {/* Background Images with Premium Animated Crossfade */}
-        <div className="absolute inset-0">
-          {backgroundImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: index === 0 ? 1 : 0 }}
-              animate={{ 
-                opacity: currentImageIndex === index ? 1 : 0,
-                scale: currentImageIndex === index ? 1.05 : 1,
-                filter: currentImageIndex === index ? "blur(0px)" : "blur(8px)"
-              }}
-              transition={{ 
-                opacity: { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] },
-                scale: { duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] },
-                filter: { duration: 0.4, ease: "easeOut" }
-              }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={image}
-                alt={`Uzbekistan Heritage ${index + 1}`}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={95}
-                sizes="100vw"
-              />
-              {/* Enhanced overlay for Samarkand images */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-                transition={{ duration: 1 }}
-              />
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-                transition={{ duration: 1.2 }}
-              />
-              {/* Additional warm overlay for Samarkand */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-orange-900/20 via-transparent to-blue-900/20"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-                transition={{ duration: 1.5 }}
-              />
-            </motion.div>
-          ))}
+          {/* Background Images with Ultra Smooth Crossfade */}
+          <div className="absolute inset-0">
+            {backgroundImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: index === 0 ? 1 : 0 }}
+                animate={{ 
+                  opacity: currentImageIndex === index ? 1 : 0,
+                  scale: currentImageIndex === index ? 1 : 1.05,
+                }}
+                transition={{ 
+                  opacity: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
+                  scale: { duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }
+                }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={image}
+                  alt={`Uzbekistan Heritage ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                  quality={95}
+                  sizes="100vw"
+                />
+                {/* Enhanced overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 via-transparent to-blue-900/20" />
+              </motion.div>
+            ))}
         </div>
 
         {/* Simple static gradient overlay */}
