@@ -1,0 +1,22 @@
+{
+  "name": "Business Brothers and Partners LLC - Fakhriddin Maksumov",
+  "short_name": "BB Partners",
+  "description": "Business Brothers and Partners LLC - halal business company founded by Fakhriddin Maksumov. $22 million FOOD BAZAR project, Milaf Cola import, premium restaurants and halal tourism.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5865f2",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

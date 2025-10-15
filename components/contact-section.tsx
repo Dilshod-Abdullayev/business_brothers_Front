@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, Send } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from 'next-intl'
 
