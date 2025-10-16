@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemapEntries.push({
       url: `${baseUrl}/${locale}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
       priority: 1.0,
       alternates: {
         languages: {
@@ -23,6 +23,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ar: `${baseUrl}/ar`,
         },
       },
+    })
+    
+    // About section
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}#haqimizda`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })
+    
+    // Services section
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}#xizmatlar`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })
+    
+    // Projects section
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}#loyihalar`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    })
+    
+    // Contact section
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}#aloqa`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     })
   })
 

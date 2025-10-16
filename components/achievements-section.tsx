@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, animate } from "framer-motion"
+import { m, useScroll, useTransform, useInView, useMotionValue, useSpring, animate } from "framer-motion"
 import { useRef, useEffect, memo } from "react"
 import { TrendingUp, Users, Award, Building2, DollarSign, Globe } from "lucide-react"
 import { useTranslations } from 'next-intl'
@@ -89,7 +89,7 @@ export function AchievementsSection() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div
+        <m.div
           style={{ opacity }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export function AchievementsSection() {
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -150,7 +150,7 @@ const AchievementCard = memo(function AchievementCard({ achievement, index }: { 
   }, [isInView, achievement.value, count])
 
   return (
-    <motion.div
+    <m.div
       ref={cardRef}
       style={{ 
         y,
@@ -167,27 +167,27 @@ const AchievementCard = memo(function AchievementCard({ achievement, index }: { 
       
       <div className="relative bg-[#1f2937] border border-gray-700 rounded-3xl p-8 hover:border-primary/50 transition-all duration-500 h-full">
         {/* Icon */}
-        <motion.div
+        <m.div
           initial={{ scale: 0, rotate: -90 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.2, type: "spring", bounce: 0.4 }}
           className="relative mb-6"
         >
-          <motion.div
+          <m.div
             whileHover={{ scale: 1.1, rotate: 5 }}
             className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${achievement.gradient} backdrop-blur-md flex items-center justify-center border border-white/10 shadow-2xl relative overflow-hidden`}
           >
             <achievement.icon className={`w-8 h-8 ${achievement.iconColor} relative z-10`} />
             {/* CSS pulse - no JS */}
             <div className={`absolute inset-0 bg-gradient-to-br ${achievement.gradient} animate-ping opacity-20`} />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Counter */}
         <div className="mb-4">
           <div className="text-5xl font-bold text-white mb-2 font-[family-name:var(--font-poppins)]">
-            <motion.span>{displayValue}</motion.span>
+            <m.span>{displayValue}</m.span>
             <span className="text-primary">{achievement.suffix}</span>
           </div>
           <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
@@ -199,14 +199,14 @@ const AchievementCard = memo(function AchievementCard({ achievement, index }: { 
         </div>
 
         {/* Progress Bar */}
-        <motion.div
+        <m.div
           className="h-1 bg-gray-700 rounded-full overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.1 + 0.4 }}
         >
-          <motion.div
+          <m.div
             className={`h-full bg-gradient-to-r ${achievement.gradient} relative overflow-hidden`}
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
@@ -215,17 +215,17 @@ const AchievementCard = memo(function AchievementCard({ achievement, index }: { 
           >
             {/* Shimmer effect - CSS only */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Hover shine - no infinity loop */}
-        <motion.div
+        <m.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-3xl pointer-events-none"
           initial={{ x: "-100%" }}
           whileHover={{ x: "100%" }}
           transition={{ duration: 0.8 }}
         />
       </div>
-    </motion.div>
+    </m.div>
   )
 })

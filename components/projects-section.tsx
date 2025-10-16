@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { m, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { ArrowRight, Sparkles, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -33,7 +33,7 @@ function ProjectCard({ project, index }: any) {
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -54,7 +54,7 @@ function ProjectCard({ project, index }: any) {
       <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#1f2937] border border-gray-700 h-[450px] sm:h-[500px] lg:h-[550px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
         {/* Image with Zoom */}
         <div className="relative h-full overflow-hidden">
-          <motion.div
+          <m.div
             className="absolute inset-0"
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.6 }}
@@ -68,10 +68,10 @@ function ProjectCard({ project, index }: any) {
             />
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-          </motion.div>
+          </m.div>
 
           {/* Floating Badge */}
-          <motion.div
+          <m.div
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: false }}
@@ -82,11 +82,11 @@ function ProjectCard({ project, index }: any) {
               <Star className="w-4 h-4 text-primary fill-primary" />
               <span className="text-xs sm:text-sm font-semibold text-primary">{project.category}</span>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Content */}
           <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 z-20">
-            <motion.h3
+            <m.h3
               className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6 text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -94,10 +94,10 @@ function ProjectCard({ project, index }: any) {
               transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
             >
               {project.title}
-            </motion.h3>
+            </m.h3>
 
             {/* Stats Grid */}
-            <motion.div
+            <m.div
               className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ function ProjectCard({ project, index }: any) {
               transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
             >
               {Object.entries(project.stats).map(([key, value], idx) => (
-                  <motion.div
+                  <m.div
                   key={key}
                   className="backdrop-blur-sm bg-black/60 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-primary/20"
                   whileHover={{ y: -5, scale: 1.05 }}
@@ -113,12 +113,12 @@ function ProjectCard({ project, index }: any) {
                 >
                   <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">{String(value)}</div>
                   <div className="text-xs text-muted-foreground uppercase font-medium">{key}</div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Button */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -131,11 +131,11 @@ function ProjectCard({ project, index }: any) {
                 Ko'proq bilish
                 <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Shine Effect */}
-          <motion.div
+          <m.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
             initial={{ x: "-100%" }}
             animate={{ x: isHovered ? "100%" : "-100%" }}
@@ -143,7 +143,7 @@ function ProjectCard({ project, index }: any) {
           />
         </div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -197,7 +197,7 @@ export function ProjectsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false }}
@@ -206,15 +206,15 @@ export function ProjectsSection() {
           >
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
-          </motion.div>
+          </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           >
-            <motion.h2
+            <m.h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -224,8 +224,8 @@ export function ProjectsSection() {
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Asosiy Loyiha - FOOD BAZAR
               </span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,8 +233,8 @@ export function ProjectsSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
             22 million dollarlik halal turizm markazi loyihasi
-            </motion.p>
-        </motion.div>
+            </m.p>
+        </m.div>
       </div>
 
         {/* Projects Grid */}

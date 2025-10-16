@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { useTranslations } from 'next-intl'
 import Image from "next/image"
@@ -60,7 +60,7 @@ export function HorizontalScrollSection() {
       <div className="sticky top-0 h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
         {/* Header */}
         <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -76,16 +76,16 @@ export function HorizontalScrollSection() {
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Premium sifat va professional yondashuv
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Horizontal Scroll Container */}
-        <motion.div
+        <m.div
           style={{ x }}
           className="absolute top-1/2 -translate-y-1/2 flex gap-8 px-8 h-[500px]"
         >
           {services.map((service, index) => (
-            <motion.div
+            <m.div
               key={service.id}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -114,12 +114,12 @@ export function HorizontalScrollSection() {
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-end p-8 z-10">
                   {/* Icon */}
-                  <motion.div
+                  <m.div
                     className="inline-flex w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 items-center justify-center mb-6"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
                     <service.icon className="w-8 h-8 text-primary" />
-                  </motion.div>
+                  </m.div>
 
                   {/* Title */}
                   <h3 className="text-3xl font-bold mb-4 text-white">
@@ -132,7 +132,7 @@ export function HorizontalScrollSection() {
                   </p>
 
                   {/* Button */}
-                  <motion.div whileHover={{ x: 5 }}>
+                  <m.div whileHover={{ x: 5 }}>
                     <Button
                       variant="outline"
                       className="border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/60 backdrop-blur-sm"
@@ -140,20 +140,20 @@ export function HorizontalScrollSection() {
                       Batafsil
                       <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
-                  </motion.div>
+                  </m.div>
                 </div>
 
                 {/* Shine Effect */}
-                <motion.div
+                <m.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.8 }}
                 />
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Scroll Hint */}
         <div className="absolute bottom-8 right-8 z-20">

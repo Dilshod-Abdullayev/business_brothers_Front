@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Phone, Mail, MapPin, Send } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -42,14 +42,14 @@ export function ContactSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -58,9 +58,9 @@ export function ContactSection() {
           >
             <Send className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,16 +70,16 @@ export function ContactSection() {
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               {t('title')}
             </span>
-          </motion.h2>
+          </m.h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12 sm:mb-16">
           {stats.map((stat, index) => (
-            <motion.div
+            <m.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -96,14 +96,14 @@ export function ContactSection() {
                 <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Contact Info Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
-            <motion.div
+            <m.div
               key={info.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,75 +120,18 @@ export function ContactSection() {
                   <p key={idx} className="text-muted-foreground text-xs sm:text-sm">{detail}</p>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        {/* Main Content - Balanced Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="bg-[#1f2937] border border-gray-700 rounded-2xl p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-white">{t('form.title')}</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">{t('form.nameLabel')}</label>
-                  <input
-                    type="text"
-                    placeholder={t('form.namePlaceholder')}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">{t('form.phoneLabel')}</label>
-                  <input
-                    type="tel"
-                    placeholder={t('form.phonePlaceholder')}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">{t('form.emailLabel')}</label>
-                <input
-                  type="email"
-                  placeholder={t('form.emailPlaceholder')}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">{t('form.messageLabel')}</label>
-                <textarea
-                  rows={4}
-                  placeholder={t('form.messagePlaceholder')}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors resize-none"
-                />
-              </div>
-              <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-3 rounded-lg transition-all duration-300">
-                {t('form.submit')}
-                <Send className="w-4 h-4 ml-2" />
-              </Button>
-            </form>
-          </motion.div>
-
-          {/* Company Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
+        {/* Main Content - Ideal Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Left Column - Legal & Partnership */}
+          <div className="space-y-6">
             {/* Legal & Financial Information */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <m.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-6 shadow-xl"
@@ -220,14 +163,14 @@ export function ContactSection() {
                   <span className="text-white font-medium text-sm">{t('legal.form')}</span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Partnership Opportunities */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <m.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-600 rounded-2xl p-6 shadow-xl"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -253,22 +196,73 @@ export function ContactSection() {
                   <p className="text-white text-sm">{t('partnership.agencies')}</p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
+          </div>
 
-            {/* Map */}
-            <div className="relative h-48 rounded-2xl overflow-hidden border border-gray-600 group">
-              <img 
-                src="/tashkent-city-map.jpg" 
-                alt="Tashkent City Map" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3">
-                <h4 className="text-white font-bold text-sm mb-1">Toshkent shahri</h4>
-                <p className="text-white/80 text-xs">Amir Temur ko'chasi, 107A</p>
+          {/* Right Column - NestOne Location */}
+          <div className="space-y-6">
+            {/* NestOne Location */}
+            <m.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              {/* NestOne Business Center Info */}
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white">NestOne Business Center</h4>
+                    <p className="text-sm text-gray-300">Premium Business Location</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <span className="text-white text-sm">📍 Toshkent shahar, Chilonzor tumani</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full" />
+                    <span className="text-white text-sm">🏢 NestOne Business Center, 5-qavat</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full" />
+                    <span className="text-white text-sm">⏰ Dushanba - Juma: 09:00 - 18:00</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+              
+              {/* Interactive Map */}
+              <div className="relative h-64 rounded-2xl overflow-hidden border border-gray-600 group cursor-pointer">
+                <img 
+                  src="/tashkent-city-map.jpg" 
+                  alt="NestOne Business Center Location" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                
+                {/* Location Pin */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center animate-pulse">
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 left-4">
+                  <h4 className="text-white font-bold text-lg mb-1">NestOne Business Center</h4>
+                  <p className="text-white/90 text-sm">Toshkent, Chilonzor tumani</p>
+                  <button className="mt-2 px-3 py-1 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-primary text-xs font-medium transition-colors">
+                    Xarita ko'rish
+                  </button>
+                </div>
+              </div>
+            </m.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
+import { m, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useTranslations, useLocale } from 'next-intl'
 import { LanguageSwitcher } from "@/components/language-switcher"
@@ -68,7 +68,7 @@ export function Navigation() {
 
   return (
     <>
-      <motion.nav
+      <m.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
@@ -78,7 +78,7 @@ export function Navigation() {
       >
         {/* Animated Border Bottom */}
         {isScrolled && (
-          <motion.div
+          <m.div
             className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -89,29 +89,29 @@ export function Navigation() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo - CSS animated for performance */}
-            <motion.a
+            <m.a
               href="#bosh"
               className="text-lg sm:text-xl lg:text-2xl font-bold font-[family-name:var(--font-poppins)] tracking-tight relative group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                Business Brothers
+                BusinessBrothersPartners
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </motion.a>
+            </m.a>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1 lg:gap-2">
               {navLinks.map((link, index) => (
-                <motion.div
+                <m.div
                   key={link.href}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="relative"
                 >
-                  <motion.a
+                  <m.a
                     href={link.href}
                     className={`text-xs sm:text-sm font-medium px-2 sm:px-3 lg:px-4 py-2 rounded-lg transition-colors relative z-10 ${
                       activeSection === link.section
@@ -127,29 +127,29 @@ export function Navigation() {
                   >
                     {link.label}
                     {activeSection === link.section && (
-                      <motion.div
+                      <m.div
                         layoutId="activeNav"
                         className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
-                  </motion.a>
-                </motion.div>
+                  </m.a>
+                </m.div>
               ))}
               
               <LanguageSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
-            <motion.button
+            <m.button
               className="md:hidden text-foreground relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-primary/10 transition-colors"
               onClick={() => dispatch(toggleMobileMenu())}
               whileTap={{ scale: 0.9 }}
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
-                  <motion.div
+                  <m.div
                     key="close"
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
@@ -157,9 +157,9 @@ export function Navigation() {
                     transition={{ duration: 0.2 }}
                   >
                     <X size={24} />
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="menu"
                     initial={{ rotate: 90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
@@ -167,20 +167,20 @@ export function Navigation() {
                     transition={{ duration: 0.2 }}
                   >
                     <Menu size={24} />
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
-            </motion.button>
+            </m.button>
           </div>
         </div>
-      </motion.nav>
+      </m.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -189,7 +189,7 @@ export function Navigation() {
             />
 
             {/* Menu Panel */}
-            <motion.div
+            <m.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -198,7 +198,7 @@ export function Navigation() {
             >
               <div className="p-6 space-y-2">
                 {navLinks.map((link, index) => (
-                  <motion.a
+                  <m.a
                     key={link.href}
                     href={link.href}
                     initial={{ opacity: 0, x: 50 }}
@@ -218,11 +218,11 @@ export function Navigation() {
                     whileTap={{ scale: 0.98 }}
                   >
                     {link.label}
-                  </motion.a>
+                  </m.a>
                 ))}
                 
                 {/* Language Switcher in Mobile Menu */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
@@ -232,12 +232,12 @@ export function Navigation() {
                   <div className="px-4 py-2">
                     <LanguageSwitcher />
                   </div>
-                </motion.div>
+                </m.div>
 
                 {/* Decorative Elements - CSS animated */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-float opacity-40" />
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

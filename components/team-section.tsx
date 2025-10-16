@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
+import { m, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
 import { Users, Linkedin, Mail, Phone, Sparkles } from "lucide-react"
@@ -88,7 +88,7 @@ export function TeamSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -116,7 +116,7 @@ export function TeamSection() {
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Tashkiliy tuzilma</span>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Organizational Chart */}
         <div className="relative max-w-6xl mx-auto">
@@ -153,7 +153,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -229,6 +229,6 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
           {member.bio}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   )
 }

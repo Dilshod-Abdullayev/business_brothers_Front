@@ -1,8 +1,11 @@
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { HeroSection } from "@/components/hero-section"
 
 // Dynamic imports for performance - Lazy load sections
+const HeroSection = dynamic(() => import("@/components/hero-section").then(mod => ({ default: mod.HeroSection })), {
+  loading: () => <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />,
+})
+
 const AboutSection = dynamic(() => import("@/components/about-section").then(mod => ({ default: mod.AboutSection })), {
   loading: () => <div className="min-h-screen" />,
 })
@@ -67,14 +70,14 @@ export default async function Home({
   return (
     <main className="relative overflow-hidden">
       {/* SEO: Semantic HTML with proper heading hierarchy */}
-      <h1 className="sr-only">Business Brothers and Partners LLC - Fakhriddin Maksumov - Halal Business Tashkent Uzbekistan</h1>
+      <h1 className="sr-only">Business Brothers Partners LLC - Fakhriddin Maksumov - Halal Business Tashkent Uzbekistan</h1>
       <HeroSection />
-      <AboutSection />
-      <AchievementsSection />
-      <TeamSection />
-      <BusinessDirections />
-      <ProjectsSection />
-      <ContactSection />
+      <section id="haqimizda"><AboutSection /></section>
+      <section id="yutuqlar"><AchievementsSection /></section>
+      <section id="jamoa"><TeamSection /></section>
+      <section id="xizmatlar"><BusinessDirections /></section>
+      <section id="loyihalar"><ProjectsSection /></section>
+      <section id="aloqa"><ContactSection /></section>
     </main>
   )
 }

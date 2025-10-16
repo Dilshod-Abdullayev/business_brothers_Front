@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight, Sparkles, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useRef } from "react"
@@ -24,6 +24,18 @@ export function HeroSection() {
   // Fix hydration error
   useEffect(() => {
     setIsMounted(true)
+  }, [])
+
+  // Preload first image for better LCP
+  useEffect(() => {
+    if (backgroundImages[0]) {
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = backgroundImages[0]
+      link.fetchPriority = 'high'
+      document.head.appendChild(link)
+    }
   }, [])
 
   // Ultra smooth scroll-based transitions - iPhone style
@@ -141,7 +153,7 @@ export function HeroSection() {
     <section 
       ref={sectionRef}
       id="bosh"
-      className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="hero-section relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
       style={{ minHeight: '100vh', height: 'auto' }}
     >
       {/* Full screen container */}
@@ -150,7 +162,7 @@ export function HeroSection() {
           {/* Background Images with Ultra Smooth Crossfade */}
           <div className="absolute inset-0">
             {backgroundImages.map((image, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: index === 0 ? 1 : 0 }}
                 animate={{ 
@@ -169,16 +181,20 @@ export function HeroSection() {
                   fill
                   className="object-cover"
                   priority={index === 0}
-                  quality={95}
+                  quality={index === 0 ? 90 : 75}
                   sizes="100vw"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                  fetchPriority={index === 0 ? "high" : "auto"}
                 />
                 {/* Enhanced overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 via-transparent to-blue-900/20" />
-              </motion.div>
+              </m.div>
             ))}
-        </div>
+          </div>
 
         {/* Simple static gradient overlay */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -192,7 +208,7 @@ export function HeroSection() {
           <div className="max-w-6xl mx-auto text-center w-full">
             
             {/* Company Badge */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -202,30 +218,30 @@ export function HeroSection() {
               <span className="text-base font-bold text-white">
                 {t('company')}
               </span>
-            </motion.div>
+            </m.div>
 
             {/* Title - Simplified */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight text-white"
             >
               {t('title')}
-            </motion.h1>
+            </m.h1>
 
             {/* Subtitle */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 md:mb-10 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2"
             >
               {t('subtitle')}
-            </motion.p>
+            </m.p>
 
             {/* CTA Buttons */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -234,6 +250,12 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="relative overflow-hidden bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 group w-full sm:w-auto"
+                onClick={() => {
+                  const element = document.getElementById('loyihalar')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t('cta1')}
@@ -246,6 +268,12 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="relative overflow-hidden border-2 border-white/40 hover:border-primary/60 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 group w-full sm:w-auto"
+                onClick={() => {
+                  const element = document.getElementById('aloqa')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -253,10 +281,10 @@ export function HeroSection() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
-            </motion.div>
+            </m.div>
             
             {/* Stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -267,7 +295,7 @@ export function HeroSection() {
                 { value: "24/7", label: t('stats.service') },
                 { value: "100%", label: t('stats.halal') },
               ].map((stat, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   className="p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-black/40 backdrop-blur-xl border border-primary/20 group"
                   whileHover={{ 
@@ -279,12 +307,12 @@ export function HeroSection() {
                     {stat.value}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-300 font-medium leading-tight">{stat.label}</div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
               {/* Slide Indicators - Bottom */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.1 }}
@@ -292,7 +320,7 @@ export function HeroSection() {
               >
                 {backgroundImages.map((_, index) => (
                   <div key={index} className="relative">
-                    <motion.button
+                    <m.button
                       onClick={() => setCurrentImageIndex(index)}
                       animate={{
                         width: index === currentImageIndex ? 80 : 12,
@@ -316,10 +344,10 @@ export function HeroSection() {
                     )}
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
 
             {/* Scroll Indicator */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.3 }}
@@ -328,7 +356,7 @@ export function HeroSection() {
               <div className="w-8 h-12 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 cursor-pointer hover:border-primary transition-colors mx-auto backdrop-blur-sm">
                 <div className="w-2 h-2 bg-gradient-to-b from-primary to-accent rounded-full shadow-lg shadow-primary/50 animate-bounce" />
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
         </div>

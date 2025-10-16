@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { m, useScroll, useTransform } from "framer-motion"
 import { Target, Lightbulb, Users, TrendingUp, Sparkles, CheckCircle2 } from "lucide-react"
 import { useTranslations } from 'next-intl'
 import Image from "next/image"
@@ -67,8 +67,8 @@ export function AboutSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div style={{ opacity }} className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
-          <motion.div
+        <m.div style={{ opacity }} className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -77,15 +77,15 @@ export function AboutSection() {
           >
             <CheckCircle2 className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">{t('badge')}</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.h2
+            <m.h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,8 +95,8 @@ export function AboutSection() {
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 {t('title')}
               </span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -104,14 +104,14 @@ export function AboutSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {t('description')}
-            </motion.p>
-          </motion.div>
-        </motion.div>
+            </m.p>
+          </m.div>
+        </m.div>
 
         {/* Values Cards */}
-        <motion.div style={{ y }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-24 lg:mb-32">
+        <m.div style={{ y }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-24 lg:mb-32">
           {values.map((value, index) => (
-            <motion.div
+            <m.div
               key={value.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export function AboutSection() {
               
               <div className="relative bg-[#1f2937] border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full hover:border-primary/50 transition-all duration-300 overflow-hidden">
                 {/* Icon with Animation */}
-                <motion.div
+                <m.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
@@ -134,7 +134,7 @@ export function AboutSection() {
                   className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl ${value.bgColor} flex items-center justify-center mb-3 sm:mb-4 relative z-10`}
                 >
                   <value.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${value.iconColor}`} />
-                </motion.div>
+                </m.div>
 
                 <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 relative z-10">{value.title}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed relative z-10">{value.description}</p>
@@ -142,19 +142,19 @@ export function AboutSection() {
                 {/* Decorative Element - CSS pulse */}
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl animate-pulse opacity-40" />
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Timeline */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false }}
@@ -168,7 +168,7 @@ export function AboutSection() {
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-poppins)] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('timeline.title')}
             </h3>
-          </motion.div>
+          </m.div>
 
           <div className="relative">
             {/* Timeline Line - Hidden on mobile, visible on desktop */}
@@ -182,7 +182,7 @@ export function AboutSection() {
                 { year: "2023", title: t('timeline.2023.title'), desc: t('timeline.2023.description') },
                 { year: "2024", title: t('timeline.2024.title'), desc: t('timeline.2024.description') },
               ].map((item, index) => (
-                <motion.div
+                <m.div
                   key={item.year}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -191,7 +191,7 @@ export function AboutSection() {
                   className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 group"
                 >
                   {/* Year Badge */}
-                  <motion.div
+                  <m.div
                     className="flex-shrink-0 w-full md:w-28 text-left md:text-right"
                     whileHover={{ scale: 1.1 }}
                   >
@@ -200,10 +200,10 @@ export function AboutSection() {
                         {item.year}
                       </span>
                     </div>
-                  </motion.div>
+                  </m.div>
 
                   {/* Timeline Dot - Hidden on mobile */}
-                  <motion.div
+                  <m.div
                     className="flex-shrink-0 relative z-10 hidden md:block"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -214,10 +214,10 @@ export function AboutSection() {
                     <div className="w-6 h-6 rounded-full bg-primary shadow-lg shadow-primary/50 ring-4 ring-background relative">
                       <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-50" />
                     </div>
-                  </motion.div>
+                  </m.div>
 
                   {/* Content Card */}
-                  <motion.div
+                  <m.div
                     className="flex-1 relative group/card"
                     whileHover={{ x: 10 }}
                   >
@@ -229,12 +229,12 @@ export function AboutSection() {
                       </h4>
                       <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{item.desc}</p>
                     </div>
-                  </motion.div>
-                </motion.div>
+                  </m.div>
+                </m.div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

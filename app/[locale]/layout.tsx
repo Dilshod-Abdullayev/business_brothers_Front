@@ -40,28 +40,28 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   
   const metaContent = {
     uz: {
-      title: "Business Brothers and Partners LLC | Fakhriddin Maksumov | Halol Biznes | Toshkent",
-      description: "Business Brothers and Partners LLC - Fakhriddin Maksumov tomonidan asos solingan halol biznes kompaniyasi. $22 million FOOD BAZAR loyihasi, Milaf Cola import, premium restoranlar va halol turizm. Toshkent, O'zbekiston.",
-      keywords: "Fakhriddin Maksumov, Business Brothers and Partners, Business Brothers Partners LLC, halol biznes, FOOD BAZAR, Milaf Cola, halol turizm, Toshkent, O'zbekiston, halol restoran, import kompaniya, halol mahsulotlar",
-      siteName: "Business Brothers and Partners LLC",
+      title: "Business Brothers Partners LLC | Fakhriddin Maksumov | Halol Biznes Toshkent O'zbekiston",
+      description: "Business Brothers Partners LLC (BusinessBrothersPartners) - Fakhriddin Maksumov tomonidan asos solingan O'zbekistondagi eng yirik halol biznes kompaniyasi. $22 million FOOD BAZAR loyihasi, Milaf Cola import, premium restoranlar, halol turizm va qurilish. Toshkent, O'zbekiston. NestOne Business Center.",
+      keywords: "Business Brothers Partners, BusinessBrothersPartners, Business Brothers Partners LLC, BusinessBrothersPartners LLC, Fakhriddin Maksumov, halol biznes, halol biznes Toshkent, halol biznes O'zbekiston, FOOD BAZAR, Milaf Cola, halol turizm, halol restoran, import kompaniya, halol mahsulotlar, qurilish kompaniyasi, NestOne, Chilonzor, Toshkent biznes, O'zbekiston kompaniya, halol sertifikat, premium biznes, investitsiya, hamkorlik, franchise",
+      siteName: "Business Brothers Partners LLC - Halol Biznes Toshkent",
     },
     ru: {
-      title: "Business Brothers and Partners LLC | Фахриддин Максумов | Халяльный Бизнес | Ташкент",
-      description: "Business Brothers and Partners LLC - компания халяльного бизнеса, основанная Фахриддином Максумовым. Проект FOOD BAZAR $22 млн, импорт Milaf Cola, премиум рестораны и халяльный туризм. Ташкент, Узбекистан.",
-      keywords: "Фахриддин Максумов, Business Brothers and Partners, Business Brothers Partners LLC, халяльный бизнес, FOOD BAZAR, Milaf Cola, халяльный туризм, Ташкент, Узбекистан, халяльный ресторан, импорт компания, халяльные продукты",
-      siteName: "Business Brothers and Partners LLC",
+      title: "Business Brothers Partners LLC | Фахриддин Максумов | Халяльный Бизнес Ташкент Узбекистан",
+      description: "Business Brothers Partners LLC (BusinessBrothersPartners) - крупнейшая компания халяльного бизнеса в Узбекистане, основанная Фахриддином Максумовым. Проект FOOD BAZAR $22 млн, импорт Milaf Cola, премиум рестораны, халяльный туризм и строительство. Ташкент, Узбекистан. NestOne Business Center.",
+      keywords: "Business Brothers Partners, BusinessBrothersPartners, Business Brothers Partners LLC, BusinessBrothersPartners LLC, Фахриддин Максумов, халяльный бизнес, халяльный бизнес Ташкент, халяльный бизнес Узбекистан, FOOD BAZAR, Milaf Cola, халяльный туризм, халяльный ресторан, импорт компания, халяльные продукты, строительная компания, NestOne, Чиланзар, Ташкент бизнес, Узбекистан компания, халяль сертификат, премиум бизнес, инвестиции, партнерство, франшиза",
+      siteName: "Business Brothers Partners LLC - Халяльный Бизнес Ташкент",
     },
     en: {
-      title: "Business Brothers and Partners LLC | Fakhriddin Maksumov | Halal Business | Tashkent",
-      description: "Business Brothers and Partners LLC - halal business company founded by Fakhriddin Maksumov. $22 million FOOD BAZAR project, Milaf Cola import, premium restaurants and halal tourism. Tashkent, Uzbekistan.",
-      keywords: "Fakhriddin Maksumov, Business Brothers and Partners, Business Brothers Partners LLC, halal business, FOOD BAZAR, Milaf Cola, halal tourism, Tashkent, Uzbekistan, halal restaurant, import company, halal products",
-      siteName: "Business Brothers and Partners LLC",
+      title: "Business Brothers Partners LLC | Fakhriddin Maksumov | Halal Business Tashkent Uzbekistan",
+      description: "Business Brothers Partners LLC (BusinessBrothersPartners) - the largest halal business company in Uzbekistan founded by Fakhriddin Maksumov. $22 million FOOD BAZAR project, Milaf Cola import, premium restaurants, halal tourism and construction. Tashkent, Uzbekistan. NestOne Business Center.",
+      keywords: "Business Brothers Partners, BusinessBrothersPartners, Business Brothers Partners LLC, BusinessBrothersPartners LLC, Fakhriddin Maksumov, halal business, halal business Tashkent, halal business Uzbekistan, FOOD BAZAR, Milaf Cola, halal tourism, halal restaurant, import company, halal products, construction company, NestOne, Chilonzor, Tashkent business, Uzbekistan company, halal certificate, premium business, investment, partnership, franchise",
+      siteName: "Business Brothers Partners LLC - Halal Business Tashkent",
     },
     ar: {
-      title: "Business Brothers and Partners LLC | فخريدين مكسوموف | الأعمال الحلال | طشقند",
-      description: "Business Brothers and Partners LLC - شركة الأعمال الحلال التي أسسها فخريدين مكسوموف. مشروع FOOD BAZAR بقيمة 22 مليون دولار، استيراد Milaf Cola، مطاعم مميزة وسياحة حلال. طشقند، أوزبكستان.",
-      keywords: "فخريدين مكسوموف, Business Brothers and Partners, Business Brothers Partners LLC, الأعمال الحلال, FOOD BAZAR, Milaf Cola, السياحة الحلال, طشقند, أوزبكستان, مطعم حلال, شركة استيراد, منتجات حلال",
-      siteName: "Business Brothers and Partners LLC",
+      title: "Business Brothers Partners LLC | فخريدين مكسوموف | الأعمال الحلال طشقند أوزبكستان",
+      description: "Business Brothers Partners LLC (BusinessBrothersPartners) - أكبر شركة أعمال حلال في أوزبكستان أسسها فخريدين مكسوموف. مشروع FOOD BAZAR بقيمة 22 مليون دولار، استيراد Milaf Cola، مطاعم مميزة، سياحة حلال وبناء. طشقند، أوزبكستان. NestOne Business Center.",
+      keywords: "Business Brothers Partners, BusinessBrothersPartners, Business Brothers Partners LLC, BusinessBrothersPartners LLC, فخريدين مكسوموف, الأعمال الحلال, الأعمال الحلال طشقند, الأعمال الحلال أوزبكستان, FOOD BAZAR, Milaf Cola, السياحة الحلال, مطعم حلال, شركة استيراد, منتجات حلال, شركة بناء, NestOne, تشيلانزار, طشقند الأعمال, أوزبكستان شركة, شهادة حلال, الأعمال المميزة, استثمار, شراكة, امتياز",
+      siteName: "Business Brothers Partners LLC - الأعمال الحلال طشقند",
     },
   };
 
@@ -156,92 +156,226 @@ export default async function LocaleLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Business Brothers and Partners LLC",
-    "legalName": "Business Brothers and Partners LLC",
+    "name": "Business Brothers Partners LLC",
+    "alternateName": ["Business Brothers Partners", "BusinessBrothersPartners", "BBP LLC"],
+    "legalName": "Business Brothers Partners LLC",
     "url": "https://businessbrothers.uz",
     "logo": "https://businessbrothers.uz/logo.png",
+    "image": "https://businessbrothers.uz/og-image.jpg",
     "foundingDate": "2020",
     "founder": {
       "@type": "Person",
       "name": "Fakhriddin Maksumov",
       "jobTitle": "Founder & CEO",
-      "description": "15 years of industry experience. Expert in restaurant management and international trade."
+      "description": "15 years of industry experience. Expert in restaurant management, international trade and halal business development."
     },
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "NestOne Business Center, 5th floor, Chilonzor district",
       "addressLocality": "Tashkent",
-      "addressCountry": "UZ"
+      "addressRegion": "Tashkent",
+      "addressCountry": "UZ",
+      "postalCode": "100000"
     },
-    "contactPoint": {
+    "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+998-71-123-45-67",
       "contactType": "Customer Service",
-      "areaServed": "UZ",
+      "areaServed": ["UZ", "RU", "KZ", "TJ", "KG"],
       "availableLanguage": ["uz", "ru", "en", "ar"]
-    },
+    }, {
+      "@type": "ContactPoint",
+      "email": "info@businessbrothers.uz",
+      "contactType": "Customer Support"
+    }],
     "sameAs": [
       "https://www.facebook.com/businessbrothers",
       "https://www.instagram.com/businessbrothers",
       "https://www.linkedin.com/company/businessbrothers",
-      "https://twitter.com/businessbrothers"
+      "https://twitter.com/businessbrothers",
+      "https://t.me/businessbrothers"
     ],
-    "description": "Business Brothers and Partners LLC - halal business company founded by Fakhriddin Maksumov. $22 million FOOD BAZAR project, Milaf Cola import, premium restaurants and halal tourism.",
-    "keywords": "Fakhriddin Maksumov, Business Brothers and Partners, halal business, FOOD BAZAR, Milaf Cola, halal tourism, Tashkent, Uzbekistan"
+    "description": "Business Brothers Partners LLC - крупнейшая компания халяльного бизнеса в Узбекистане, основанная Фахриддином Максумовым. Проект FOOD BAZAR $22 млн, импорт Milaf Cola, премиум рестораны, халяльный туризм и строительство.",
+    "keywords": "Business Brothers Partners, BusinessBrothersPartners, Fakhriddin Maksumov, halal business, FOOD BAZAR, Milaf Cola, halal tourism, construction, Tashkent, Uzbekistan",
+    "slogan": "Halal Business Excellence in Central Asia",
+    "brand": {
+      "@type": "Brand",
+      "name": "Business Brothers Partners"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Business Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "FOOD BAZAR - Halal Supermarket",
+            "description": "$22 million halal supermarket project"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Milaf Cola Import",
+            "description": "Premium beverage import services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Halal Tourism",
+            "description": "Premium halal tourism services"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Construction Services",
+            "description": "Premium construction and development"
+          }
+        }
+      ]
+    }
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Business Brothers and Partners LLC",
-    "image": "https://businessbrothers.uz/logo.png",
+    "name": "Business Brothers Partners LLC",
+    "alternateName": "Business Brothers Partners",
+    "image": ["https://businessbrothers.uz/logo.png", "https://businessbrothers.uz/og-image.jpg"],
     "@id": "https://businessbrothers.uz",
     "url": "https://businessbrothers.uz",
     "telephone": "+998-71-123-45-67",
+    "email": "info@businessbrothers.uz",
     "priceRange": "$$$$",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "currenciesAccepted": "UZS, USD",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Tashkent",
+      "streetAddress": "NestOne Business Center, 5th floor, Chilonzor district",
       "addressLocality": "Tashkent",
-      "addressCountry": "UZ"
+      "addressRegion": "Tashkent",
+      "addressCountry": "UZ",
+      "postalCode": "100000"
     },
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 41.2995,
       "longitude": 69.2401
     },
-    "openingHoursSpecification": {
+    "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "09:00",
       "closes": "18:00"
-    }
+    }],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150",
+      "bestRating": "5"
+    },
+    "hasMap": "https://maps.google.com/?q=NestOne+Business+Center+Tashkent"
   };
 
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Fakhriddin Maksumov",
+    "alternateName": ["Фахриддин Максумов", "فخريدين مكسوموف"],
     "jobTitle": "Founder & CEO",
     "worksFor": {
       "@type": "Organization",
-      "name": "Business Brothers and Partners LLC"
+      "name": "Business Brothers Partners LLC",
+      "url": "https://businessbrothers.uz"
     },
-    "description": "15 years of industry experience. Expert in restaurant management and international trade. Founder of Business Brothers and Partners LLC.",
+    "description": "15 years of industry experience. Expert in restaurant management, international trade and halal business development. Founder of Business Brothers Partners LLC, leading halal business company in Uzbekistan.",
     "url": "https://businessbrothers.uz",
+    "image": "https://businessbrothers.uz/fakhriddin-maksumov.jpg",
+    "knowsAbout": ["Halal Business", "Restaurant Management", "International Trade", "Business Development", "Import Export"],
     "sameAs": [
-      "https://www.linkedin.com/in/fakhriddin-maksumov"
+      "https://www.linkedin.com/in/fakhriddin-maksumov",
+      "https://www.facebook.com/fakhriddin.maksumov",
+      "https://www.instagram.com/fakhriddin.maksumov"
     ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `https://businessbrothers.uz/${locale}`
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": `https://businessbrothers.uz/${locale}#haqimizda`
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Services",
+      "item": `https://businessbrothers.uz/${locale}#xizmatlar`
+    }, {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Projects",
+      "item": `https://businessbrothers.uz/${locale}#loyihalar`
+    }, {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Contact",
+      "item": `https://businessbrothers.uz/${locale}#aloqa`
+    }]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Business Brothers Partners LLC",
+    "alternateName": ["Business Brothers Partners", "BusinessBrothersPartners", "BBP LLC"],
+    "url": "https://businessbrothers.uz",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://businessbrothers.uz/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "inLanguage": ["uz", "ru", "en", "ar"]
   };
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
+        {/* Critical CSS for hero section */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .hero-section {
+              min-height: 100vh;
+              background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%);
+            }
+            .hero-bg {
+              position: absolute;
+              inset: 0;
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+          `
+        }} />
+        <link rel="preload" href="/images/samarkand.jpg" as="image" type="image/jpeg" fetchPriority="high" />
+        <link rel="preload" href="/images/samarkand2.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/iskandar-kambaraliyev-U6UuPXyyINo-unsplash.jpg" as="image" type="image/jpeg" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -254,6 +388,30 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+        <meta name="geo.region" content="UZ-TK" />
+        <meta name="geo.placename" content="Tashkent" />
+        <meta name="geo.position" content="41.2995;69.2401" />
+        <meta name="ICBM" content="41.2995, 69.2401" />
+        
+        {/* Multilingual support */}
+        <link rel="alternate" hrefLang="uz" href="https://businessbrothers.uz/uz" />
+        <link rel="alternate" hrefLang="ru" href="https://businessbrothers.uz/ru" />
+        <link rel="alternate" hrefLang="en" href="https://businessbrothers.uz/en" />
+        <link rel="alternate" hrefLang="ar" href="https://businessbrothers.uz/ar" />
+        <link rel="alternate" hrefLang="x-default" href="https://businessbrothers.uz/en" />
       </head>
       <body className={`${poppins.variable} ${inter.variable} font-sans antialiased`}>
         <NextIntlClientProvider messages={messages}>

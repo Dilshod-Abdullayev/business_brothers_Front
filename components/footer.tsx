@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, ArrowUp, Heart, Sparkles } from "lucide-react"
 import { useState } from "react"
 import { useTranslations } from 'next-intl'
@@ -12,9 +12,8 @@ export function Footer() {
   const tLinks = useTranslations('footer.links')
 
   const footerLinks = {
-    [tCat('company')]: [tLinks('about'), tLinks('services'), tLinks('projects'), tLinks('partners')],
-    [tCat('services')]: [tLinks('construction'), tLinks('finance'), tLinks('education'), tLinks('technology')],
-    [tCat('support')]: [tLinks('helpCenter'), tLinks('faq'), tLinks('contact'), tLinks('careers')],
+    [tCat('company')]: [tLinks('about'), tLinks('services'), tLinks('projects')],
+    [tCat('support')]: [tLinks('helpCenter'), tLinks('contact')],
   }
 
   const socialLinks = [
@@ -38,49 +37,50 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <motion.div
+          <div className="md:col-span-2">
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6 }}
             >
-              <motion.h3 
+              <m.h3 
                 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
                 whileHover={{ scale: 1.02 }}
               >
                 {t('company')}
-              </motion.h3>
-              <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
+              </m.h3>
+              <p className="text-gray-300 leading-relaxed max-w-md mb-6">
                 {t('description')}
               </p>
               
-              {/* Newsletter */}
-              <div className="space-y-4">
-                <p className="text-sm font-semibold text-primary">{t('newsletter')}</p>
-                <div className="flex gap-3">
-                  <input
-                    type="email"
-                    placeholder={t('emailPlaceholder')}
-                    className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg text-sm font-semibold shadow-lg shadow-primary/30 transition-all hover:shadow-primary/50"
-                  >
-                    {t('subscribe')}
-                  </motion.button>
+              {/* Contact Info */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm">info@businessbrothers.uz</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm">+998 71 123 45 67</span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-            <motion.div
+            <m.div
               key={category}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -92,65 +92,55 @@ export function Footer() {
                 {category}
               </h4>
               <ul className="space-y-3">
-                {links.map((link, index) => (
-                  <motion.li key={index}>
-                    <motion.a
-                      href="#"
-                      className="text-gray-400 hover:text-primary transition-colors text-sm relative inline-block group"
-                      onHoverStart={() => setHoveredLink(`${category}-${link}`)}
-                      onHoverEnd={() => setHoveredLink(null)}
-                      whileHover={{ x: 5 }}
-                    >
-                      {link}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-                    </motion.a>
-                  </motion.li>
-                ))}
+                {links.map((link, index) => {
+                  // Link mapping for proper navigation
+                  const linkMap: { [key: string]: string } = {
+                    'Haqimizda': '#haqimizda', 
+                    'Xizmatlar': '#xizmatlar',
+                    'Loyihalar': '#loyihalar',
+                    'Aloqa': '#aloqa',
+                    'About': '#haqimizda',
+                    'Services': '#xizmatlar', 
+                    'Projects': '#loyihalar',
+                    'Contact': '#aloqa',
+                    'Help Center': '#aloqa'
+                  }
+                  
+                  const href = linkMap[link] || '#'
+                  
+                  return (
+                    <m.li key={index}>
+                      <m.a
+                        href={href}
+                        className="text-gray-400 hover:text-primary transition-colors text-sm relative inline-block group"
+                        onHoverStart={() => setHoveredLink(`${category}-${link}`)}
+                        onHoverEnd={() => setHoveredLink(null)}
+                        whileHover={{ x: 5 }}
+                        onClick={(e) => {
+                          if (href.startsWith('#')) {
+                            e.preventDefault()
+                            const targetId = href.replace('#', '')
+                            const element = document.getElementById(targetId)
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' })
+                            }
+                          }
+                        }}
+                      >
+                        {link}
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+                      </m.a>
+                    </m.li>
+                  )
+                })}
               </ul>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-4 py-8 border-t border-gray-700"
-        >
-          {socialLinks.map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ scale: 1.15, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-              className="group relative"
-              aria-label={social.label}
-            >
-              <div 
-                className="w-12 h-12 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300"
-                style={{
-                  boxShadow: `0 0 20px ${social.color}20`,
-                }}
-              >
-                <social.icon 
-                  className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" 
-                />
-                {/* CSS sparkle - no JS infinity */}
-                <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity animate-ping" />
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
-
-        {/* Bottom Bar */}
+        {/* Bottom Bar with Social Links */}
         <div className="pt-8 border-t border-gray-700 flex flex-col md:flex-row items-center justify-between gap-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -160,26 +150,39 @@ export function Footer() {
             © 2025 {t('company')}. {t('rights')}.
             {/* CSS heart pulse */}
             <Heart className="w-4 h-4 text-primary fill-primary inline animate-pulse" />
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          {/* Social Links */}
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-6"
+            className="flex items-center gap-3"
           >
-            <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">
-              {tLinks('privacy')}
-            </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">
-              {tLinks('terms')}
-            </a>
-          </motion.div>
+            {socialLinks.map((social, index) => (
+              <m.a
+                key={social.label}
+                href={social.href}
+                whileHover={{ scale: 1.15, y: -3 }}
+                whileTap={{ scale: 0.9 }}
+                className="group relative"
+                aria-label={social.label}
+              >
+                <div 
+                  className="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300"
+                >
+                  <social.icon 
+                    className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" 
+                  />
+                </div>
+              </m.a>
+            ))}
+          </m.div>
         </div>
 
         {/* Premium Badge */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
@@ -191,11 +194,11 @@ export function Footer() {
             {t('tagline')}
             <Sparkles className="w-3 h-3 text-primary" />
           </p>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Scroll to Top Button */}
-      <motion.button
+      <m.button
         onClick={scrollToTop}
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -207,7 +210,7 @@ export function Footer() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl opacity-0 group-hover:opacity-20 animate-shimmer-slow" />
         <ArrowUp className="w-6 h-6 text-white relative z-10" />
-      </motion.button>
+      </m.button>
     </footer>
   )
 }
