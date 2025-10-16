@@ -46,10 +46,6 @@ export default function robots(): MetadataRoute.Robots {
     ],
     sitemap: [
       'https://www.bbp.co.uz/sitemap.xml',
-      'https://www.bbp.co.uz/uz/sitemap.xml',
-      'https://www.bbp.co.uz/ru/sitemap.xml',
-      'https://www.bbp.co.uz/en/sitemap.xml',
-      'https://www.bbp.co.uz/ar/sitemap.xml',
     ],
     host: 'https://www.bbp.co.uz',
   }
