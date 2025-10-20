@@ -45,13 +45,9 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      'https://businessbrothers.uz/sitemap.xml',
-      'https://businessbrothers.uz/uz/sitemap.xml',
-      'https://businessbrothers.uz/ru/sitemap.xml',
-      'https://businessbrothers.uz/en/sitemap.xml',
-      'https://businessbrothers.uz/ar/sitemap.xml',
+      'https://www.bbp.co.uz/sitemap.xml',
     ],
-    host: 'https://businessbrothers.uz',
+    host: 'https://www.bbp.co.uz',
   }
 }
 
