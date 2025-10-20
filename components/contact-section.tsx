@@ -9,25 +9,25 @@ import { useTranslations } from 'next-intl'
 const contactInfo = [
   {
     icon: Phone,
-    title: "Telefon",
-    details: ["+998 71 123 45 67", "+998 90 123 45 67"]
+    title: "phone",
+    details: ["+998 93 398 50 50"]
   },
   {
     icon: Mail,
-    title: "Email",
-    details: ["info@businessbrothers.uz", "contact@businessbrothers.uz"]
+    title: "email",
+    details: ["businessbrotherspartners@gmail.com"]
   },
   {
     icon: MapPin,
-    title: "Manzil",
-    details: ["Toshkent shahri, Yunusobod tumani", "Amir Temur ko'chasi, 107A"]
+    title: "address",
+    details: ["Nest one C block 2-qavat, Shayxontohur tumani, Toshkent"]
   }
 ]
 
 const stats = [
-  { label: "Loyihalar", value: "10+", icon: Phone },
-  { label: "Hamkorlar", value: "50+", icon: Mail },
-  { label: "Tajriba", value: "5+", icon: MapPin }
+  { label: "projects", value: "10+", icon: Phone },
+  { label: "partners", value: "50+", icon: Mail },
+  { label: "experience", value: "5+", icon: MapPin }
 ]
 
 export function ContactSection() {
@@ -94,7 +94,7 @@ export function ContactSection() {
                   <stat.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">{t(`stats.${stat.label}`)}</div>
               </div>
             </m.div>
           ))}
@@ -114,7 +114,7 @@ export function ContactSection() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">{info.title}</h4>
+              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">{t(`info.${info.title}`)}</h4>
               <div className="space-y-1">
                 {info.details.map((detail, idx) => (
                   <p key={idx} className="text-muted-foreground text-xs sm:text-sm">{detail}</p>
@@ -209,30 +209,30 @@ export function ContactSection() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              {/* NestOne Business Center Info */}
+              {/* Office Location Info */}
               <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-white">NestOne Business Center</h4>
-                    <p className="text-sm text-gray-300">Premium Business Location</p>
+                    <h4 className="text-lg font-bold text-white">{t('officeTitle')}</h4>
+                    <p className="text-sm text-gray-300">{t('officeSubtitle')}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-white text-sm">📍 Toshkent shahar, Chilonzor tumani</span>
+                    <span className="text-white text-sm">📍 {t('officeLocation')}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-accent rounded-full" />
-                    <span className="text-white text-sm">🏢 NestOne Business Center, 5-qavat</span>
+                    <span className="text-white text-sm">🏢 {t('officeAddress')}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-green-400 rounded-full" />
-                    <span className="text-white text-sm">⏰ Dushanba - Juma: 09:00 - 18:00</span>
+                    <span className="text-white text-sm">⏰ {t('officeHours')}</span>
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export function ContactSection() {
               <div className="relative h-64 rounded-2xl overflow-hidden border border-gray-600 group cursor-pointer">
                 <img 
                   src="/tashkent-city-map.jpg" 
-                  alt="NestOne Business Center Location" 
+                  alt="Office Location" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -254,11 +254,16 @@ export function ContactSection() {
                 </div>
                 
                 <div className="absolute bottom-4 left-4">
-                  <h4 className="text-white font-bold text-lg mb-1">NestOne Business Center</h4>
-                  <p className="text-white/90 text-sm">Toshkent, Chilonzor tumani</p>
-                  <button className="mt-2 px-3 py-1 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-primary text-xs font-medium transition-colors">
-                    Xarita ko'rish
-                  </button>
+                  <h4 className="text-white font-bold text-lg mb-1">{t('officeTitle')}</h4>
+                  <p className="text-white/90 text-sm">{t('officeLocation')}</p>
+                  <a 
+                    href="https://maps.google.com/maps?q=41.307941,69.237445&ll=41.307941,69.237445&z=16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 px-3 py-1 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-primary text-xs font-medium transition-colors inline-block"
+                  >
+                    {t('viewMap')}
+                  </a>
                 </div>
               </div>
             </m.div>

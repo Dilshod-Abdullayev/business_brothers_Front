@@ -135,6 +135,9 @@
     "title": "Связаться",
     "subtitle": "Давайте начнем сотрудничество. Свяжитесь с нами и обсудите свой проект",
     "infoTitle": "Контактная информация",
+    "phone": "+998 93 398 50 50",
+    "email": "businessbrotherspartners@gmail.com",
+    "address": "Nest one C block 2-й этаж, Шайхантахурский район, Ташкент",
     "legal": {
       "title": "Правовая и финансовая информация",
       "registeredLabel": "Зарегистрирована",
@@ -182,10 +185,19 @@
       "email": "Email",
       "hours": "Время работы"
     },
+    "officeTitle": "Nest one C block",
+    "officeSubtitle": "Премиальное Бизнес Местоположение",
+    "officeLocation": "Ташкент, Шайхантахурский район",
+    "officeAddress": "Nest one C block, 2-й этаж",
+    "officeHours": "Понедельник - Пятница: 09:00 - 18:00",
+    "viewMap": "Посмотреть карту",
     "stats": {
       "clients": "Клиенты",
       "satisfaction": "Удовлетворенность",
-      "support": "Поддержка"
+      "support": "Поддержка",
+      "projects": "Проекты",
+      "partners": "Партнеры",
+      "experience": "Опыт"
     }
   },
   "team": {

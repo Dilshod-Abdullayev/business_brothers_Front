@@ -140,6 +140,9 @@
     "title": "Get in Touch",
     "subtitle": "Let's start a partnership. Contact us and discuss your project",
     "infoTitle": "Contact Information",
+    "phone": "+998 93 398 50 50",
+    "email": "businessbrotherspartners@gmail.com",
+    "address": "Nest one C block 2nd floor, Shayxontohur district, Tashkent",
     "legal": {
       "title": "Legal & Financial Information",
       "registeredLabel": "Registered",
@@ -187,10 +190,19 @@
       "email": "Email",
       "hours": "Working Hours"
     },
+    "officeTitle": "Nest one C block",
+    "officeSubtitle": "Premium Business Location",
+    "officeLocation": "Tashkent, Shayxontohur district",
+    "officeAddress": "Nest one C block, 2nd floor",
+    "officeHours": "Monday - Friday: 09:00 - 18:00",
+    "viewMap": "View Map",
     "stats": {
       "clients": "Clients",
       "satisfaction": "Satisfaction",
-      "support": "Support"
+      "support": "Support",
+      "projects": "Projects",
+      "partners": "Partners",
+      "experience": "Experience"
     }
   },
   "team": {

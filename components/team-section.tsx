@@ -17,27 +17,27 @@ export function TeamSection() {
     {
       name: "Fakhriddin Maksumov",
       position: t('founder.title'),
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop",
+      image: "/images/fakhriddin.jpg",
       bio: t('founder.expertise'),
       experience: "15+",
       level: "founder",
       social: {
         linkedin: "#",
-        email: "fakhriddin@businessbrothers.uz",
-        phone: "+998 90 123 45 67"
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
       }
     },
     {
-      name: "Sardor Rahimov",
+      name: "Mardon",
       position: t('positions.ceo'),
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=800&fit=crop",
+      image: "/images/mardon.jpg",
       bio: "12 yillik tajribaga ega, strategik rejalashtirish va biznes rivojlantirish sohasida ekspert.",
       experience: "12+",
       level: "ceo",
       social: {
         linkedin: "#",
-        email: "sardor@businessbrothers.uz",
-        phone: "+998 90 123 45 68"
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
       }
     },
     {
@@ -49,8 +49,8 @@ export function TeamSection() {
       level: "cto",
       social: {
         linkedin: "#",
-        email: "dilshod@businessbrothers.uz",
-        phone: "+998 90 123 45 69"
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
       }
     },
     {
@@ -62,8 +62,8 @@ export function TeamSection() {
       level: "cfo",
       social: {
         linkedin: "#",
-        email: "nodira@businessbrothers.uz",
-        phone: "+998 90 123 45 70"
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
       }
     },
     {
@@ -75,8 +75,8 @@ export function TeamSection() {
       level: "coo",
       social: {
         linkedin: "#",
-        email: "javohir@businessbrothers.uz",
-        phone: "+998 90 123 45 71"
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
       }
     }
   ]

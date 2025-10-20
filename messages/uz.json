@@ -140,6 +140,9 @@
     "title": "Bog'lanish",
     "subtitle": "Hamkorlikni boshlaylik. Biz bilan bog'laning va loyihangizni muhokama qiling",
     "infoTitle": "Aloqa ma'lumotlari",
+    "phone": "+998 93 398 50 50",
+    "email": "businessbrotherspartners@gmail.com",
+    "address": "Nest one C block 2-qavat, Shayxontohur tumani, Toshkent",
     "legal": {
       "title": "Huquqiy va moliyaviy ma'lumotlar",
       "registeredLabel": "Ro'yxatdan o'tgan",
@@ -187,10 +190,19 @@
       "email": "Email",
       "hours": "Ish vaqti"
     },
+    "officeTitle": "Nest one C block",
+    "officeSubtitle": "Premium Business Location",
+    "officeLocation": "Toshkent shahar, Shayxontohur tumani",
+    "officeAddress": "Nest one C block, 2-qavat",
+    "officeHours": "Dushanba - Juma: 09:00 - 18:00",
+    "viewMap": "Xarita ko'rish",
     "stats": {
       "clients": "Mijozlar",
       "satisfaction": "Mamnunlik",
-      "support": "Qo'llab-quvvatlash"
+      "support": "Qo'llab-quvvatlash",
+      "projects": "Loyihalar",
+      "partners": "Hamkorlar",
+      "experience": "Tajriba"
     }
   },
   "team": {

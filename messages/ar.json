@@ -135,6 +135,9 @@
     "title": "تواصل",
     "subtitle": "لنبدأ شراكة. تواصل معنا وناقش مشروعك",
     "infoTitle": "معلومات الاتصال",
+    "phone": "+998 93 398 50 50",
+    "email": "businessbrotherspartners@gmail.com",
+    "address": "Nest one C block الطابق الثاني، حي شيخانتهور، طشقند",
     "legal": {
       "title": "المعلومات القانونية والمالية",
       "registeredLabel": "مسجلة",
@@ -182,10 +185,19 @@
       "email": "البريد الإلكتروني",
       "hours": "ساعات العمل"
     },
+    "officeTitle": "Nest one C block",
+    "officeSubtitle": "موقع أعمال مميز",
+    "officeLocation": "طشقند، حي شيخانتهور",
+    "officeAddress": "Nest one C block، الطابق الثاني",
+    "officeHours": "الاثنين - الجمعة: 09:00 - 18:00",
+    "viewMap": "عرض الخريطة",
     "stats": {
       "clients": "العملاء",
       "satisfaction": "الرضا",
-      "support": "الدعم"
+      "support": "الدعم",
+      "projects": "المشاريع",
+      "partners": "الشركاء",
+      "experience": "الخبرة"
     }
   },
   "team": {

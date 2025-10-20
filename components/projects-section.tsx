@@ -222,7 +222,7 @@ export function ProjectsSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Asosiy Loyiha - FOOD BAZAR
+{t('title')}
               </span>
             </m.h2>
             <m.p
@@ -232,7 +232,7 @@ export function ProjectsSection() {
               viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-            22 million dollarlik halal turizm markazi loyihasi
+{t('subtitle')}
             </m.p>
         </m.div>
       </div>
