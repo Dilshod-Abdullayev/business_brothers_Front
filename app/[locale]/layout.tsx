@@ -128,9 +128,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       icon: [
         { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
         { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/images/logotip-64x64.png', sizes: '64x64', type: 'image/png' },
+        { url: '/images/logotip-512x512.png', sizes: '512x512', type: 'image/png' },
         { url: '/favicon.ico', sizes: 'any' }
       ],
-      shortcut: '/favicon-16x16.png',
+      shortcut: '/images/logotip-64x64.png',
       apple: '/apple-touch-icon.png',
     },
     manifest: '/site.webmanifest',
@@ -164,7 +166,7 @@ export default async function LocaleLayout({
     "alternateName": ["Business Brothers Partners", "BusinessBrothersPartners", "BBP LLC"],
     "legalName": "Business Brothers Partners LLC",
     "url": "https://businessbrothers.uz",
-    "logo": "https://businessbrothers.uz/logo.png",
+    "logo": "https://businessbrothers.uz/images/logotip-512x512.png",
     "image": "https://businessbrothers.uz/og-image.jpg",
     "foundingDate": "2020",
     "founder": {
@@ -251,7 +253,7 @@ export default async function LocaleLayout({
     "@type": "LocalBusiness",
     "name": "Business Brothers Partners LLC",
     "alternateName": "Business Brothers Partners",
-    "image": ["https://businessbrothers.uz/logo.png", "https://businessbrothers.uz/og-image.jpg"],
+    "image": ["https://businessbrothers.uz/images/logotip-512x512.png", "https://businessbrothers.uz/og-image.jpg"],
     "@id": "https://businessbrothers.uz",
     "url": "https://businessbrothers.uz",
     "telephone": "+998-93-398-50-50",
