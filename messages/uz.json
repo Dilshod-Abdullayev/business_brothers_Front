@@ -217,10 +217,8 @@
       "expertise": "Restoran boshqaruvi va xalqaro savdo sohasida ekspert"
     },
     "positions": {
-      "ceo": "CEO - Bosh Ijrochi Direktor",
-      "cto": "CTO - Bosh Texnologiya Direktori",
-      "cfo": "CFO - Bosh Moliyaviy Direktor",
-      "coo": "COO - Bosh Operatsion Direktor"
+      "headSpecialist": "Bosh Mutaxassis – Chet Tili va Ichki Ishlar Yo'nalishi",
+      "itSpecialist": "IT Mutaxassisi"
     }
   },
   "achievements": {

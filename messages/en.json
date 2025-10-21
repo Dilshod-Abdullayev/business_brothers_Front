@@ -217,10 +217,8 @@
       "expertise": "Expert in restaurant management and international trade"
     },
     "positions": {
-      "ceo": "CEO - Chief Executive Officer",
-      "cto": "CTO - Chief Technology Officer",
-      "cfo": "CFO - Chief Financial Officer",
-      "coo": "COO - Chief Operating Officer"
+      "headSpecialist": "Head Specialist – Foreign Languages and Internal Affairs Department",
+      "itSpecialist": "IT Specialist"
     }
   },
   "achievements": {

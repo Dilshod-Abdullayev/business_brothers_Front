@@ -28,12 +28,12 @@ export function TeamSection() {
       }
     },
     {
-      name: "Mardon",
-      position: t('positions.ceo'),
+      name: "Mardon Karimov",
+      position: t('positions.headSpecialist'),
       image: "/images/mardon.jpg",
-      bio: "12 yillik tajribaga ega, strategik rejalashtirish va biznes rivojlantirish sohasida ekspert.",
-      experience: "12+",
-      level: "ceo",
+      bio: "13 yillik tajribaga ega chet tili mutaxassisi. Sotuv va kompaniya ichki jarayonlarini boshqarish, muloqot va tashkilot ichidagi samaradorlikni oshirish bo'yicha yetuk mutaxassis.",
+      experience: "13+",
+      level: "specialist",
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
@@ -41,38 +41,12 @@ export function TeamSection() {
       }
     },
     {
-      name: "Dilshod Karimov",
-      position: t('positions.cto'),
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop",
-      bio: "10 yillik IT tajribasi, raqamli transformatsiya va innovatsion yechimlar mutaxassisi.",
-      experience: "10+",
-      level: "cto",
-      social: {
-        linkedin: "#",
-        email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
-      }
-    },
-    {
-      name: "Nodira Karimova",
-      position: t('positions.cfo'),
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=800&fit=crop",
-      bio: "8 yillik moliyaviy tajriba, investitsiya va moliyaviy strategiya sohasida ekspert.",
-      experience: "8+",
-      level: "cfo",
-      social: {
-        linkedin: "#",
-        email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
-      }
-    },
-    {
-      name: "Javohir Tursunov",
-      position: t('positions.coo'),
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=800&fit=crop",
-      bio: "9 yillik operatsion tajriba, jarayonlar optimallashtirish va ishlab chiqarish boshqaruvi mutaxassisi.",
-      experience: "9+",
-      level: "coo",
+      name: "Dilshod Abdullayev",
+      position: t('positions.itSpecialist'),
+      image: "/images/dilshod.jpg",
+      bio: "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis.",
+      experience: "3+",
+      level: "specialist",
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
@@ -131,7 +105,7 @@ export function TeamSection() {
           </div>
 
           {/* Executive Team - Second Level */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
             {team.slice(1).map((member, index) => (
               <div key={member.name} className="relative">
                 {/* Connecting Line */}
