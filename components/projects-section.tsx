@@ -32,6 +32,13 @@ function ProjectCard({ project, index }: any) {
     setIsHovered(false)
   }
 
+  const handleCardClick = () => {
+    console.log('Card clicked, project:', project.title, 'link:', project.link)
+    if (project.link) {
+      window.open(project.link, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
     <m.div
       initial={{ opacity: 0, y: 50 }}
@@ -46,6 +53,7 @@ function ProjectCard({ project, index }: any) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
+      onClick={handleCardClick}
       className="group cursor-pointer relative"
     >
       {/* Glow Effect */}
@@ -171,10 +179,11 @@ export function ProjectsSection() {
     {
       title: t('importTerminal.title'),
       category: t('importTerminal.category'),
-      image: "/smart-city-technology-dashboard.jpg",
+      image: "/images/milaf-project.jpg",
       stats: { products: t('importTerminal.products'), beverages: t('importTerminal.beverages'), status: t('importTerminal.status') },
       gradient: "from-blue-500/20 to-indigo-600/20",
-      description: t('importTerminal.description')
+      description: t('importTerminal.description'),
+      link: "https://www.milafcola.com.uz/"
     },
     {
       title: t('tourismAgency.title'),

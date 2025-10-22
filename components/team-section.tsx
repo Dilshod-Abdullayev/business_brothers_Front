@@ -31,7 +31,7 @@ export function TeamSection() {
       name: "Mardon Karimov",
       position: t('positions.headSpecialist'),
       image: "/images/mardon.jpg",
-      bio: "13 yillik tajribaga ega chet tili mutaxassisi. Sotuv va kompaniya ichki jarayonlarini boshqarish, muloqot va tashkilot ichidagi samaradorlikni oshirish bo'yicha yetuk mutaxassis.",
+      bio: t('bios.mardon'),
       experience: "13+",
       level: "specialist",
       social: {
@@ -44,7 +44,7 @@ export function TeamSection() {
       name: "Dilshod Abdullayev",
       position: t('positions.itSpecialist'),
       image: "/images/dilshod.jpg",
-      bio: "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis.",
+      bio: t('bios.dilshod'),
       experience: "3+",
       level: "specialist",
       social: {
@@ -54,6 +54,7 @@ export function TeamSection() {
       }
     }
   ]
+
 
   return (
     <section ref={ref} className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -105,7 +106,7 @@ export function TeamSection() {
           </div>
 
           {/* Executive Team - Second Level */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {team.slice(1).map((member, index) => (
               <div key={member.name} className="relative">
                 {/* Connecting Line */}
@@ -129,9 +130,9 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
   return (
     <m.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      initial={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0 }}
       className={`group relative overflow-hidden transition-all duration-300 ${
         isFounder 
           ? "bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/50 rounded-3xl shadow-2xl shadow-primary/30 hover:shadow-primary/50" 
@@ -139,12 +140,12 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
       }`}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden ${isFounder ? "h-64 sm:h-80" : "h-48 sm:h-64"}`}>
+      <div className={`relative overflow-hidden ${isFounder ? "h-72 sm:h-96" : "h-56 sm:h-72"}`}>
         <Image
           src={member.image}
           alt={member.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           priority={index === 0}
         />

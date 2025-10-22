@@ -219,6 +219,10 @@
     "positions": {
       "headSpecialist": "Head Specialist – Foreign Languages and Internal Affairs Department",
       "itSpecialist": "IT Specialist"
+    },
+    "bios": {
+      "mardon": "Foreign language specialist with 13 years of experience. Expert in sales management and company internal processes, communication and improving organizational efficiency.",
+      "dilshod": "Software engineer with more than 3 years of experience. Experienced specialist in working with modern technologies, system optimization and developing efficient IT solutions."
     }
   },
   "achievements": {
