@@ -17,7 +17,7 @@ export function TeamSection() {
     {
       name: "Fakhriddin Maksumov",
       position: t('founder.title'),
-      image: "/images/fakhriddin.jpg",
+      image: "/images/fakhriddin2.jpg",
       bio: t('founder.expertise'),
       experience: "15+",
       level: "founder",
