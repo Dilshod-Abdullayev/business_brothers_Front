@@ -160,6 +160,15 @@ export function ProjectsSection() {
   
   const projects = [
     {
+      title: t('importTerminal.title'),
+      category: t('importTerminal.category'),
+      image: "/images/milaf-project.jpg",
+      stats: { products: t('importTerminal.products'), beverages: t('importTerminal.beverages'), status: t('importTerminal.status') },
+      gradient: "from-blue-500/20 to-indigo-600/20",
+      description: t('importTerminal.description'),
+      link: "https://www.milafcola.com.uz/"
+    },
+    {
       title: t('foodCenter.title'),
       category: t('foodCenter.category'),
       image: "/international-trade-logistics-center.jpg",
@@ -176,15 +185,7 @@ export function ProjectsSection() {
       gradient: "from-orange-500/20 to-red-600/20",
       description: t('restaurantNetwork.description')
     },
-    {
-      title: t('importTerminal.title'),
-      category: t('importTerminal.category'),
-      image: "/images/milaf-project.jpg",
-      stats: { products: t('importTerminal.products'), beverages: t('importTerminal.beverages'), status: t('importTerminal.status') },
-      gradient: "from-blue-500/20 to-indigo-600/20",
-      description: t('importTerminal.description'),
-      link: "https://www.milafcola.com.uz/"
-    },
+
     {
       title: t('tourismAgency.title'),
       category: t('tourismAgency.category'),

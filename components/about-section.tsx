@@ -176,11 +176,11 @@ export function AboutSection() {
 
             <div className="space-y-8 sm:space-y-12">
               {[
-                { year: "2020", title: t('timeline.2020.title'), desc: t('timeline.2020.description') },
-                { year: "2021", title: t('timeline.2021.title'), desc: t('timeline.2021.description') },
-                { year: "2022", title: t('timeline.2022.title'), desc: t('timeline.2022.description') },
-                { year: "2023", title: t('timeline.2023.title'), desc: t('timeline.2023.description') },
-                { year: "2024", title: t('timeline.2024.title'), desc: t('timeline.2024.description') },
+                { year: "2024", title: t('timeline.2020.title'), desc: t('timeline.2020.description') },
+                { year: "", title: t('timeline.2021.title'), desc: t('timeline.2021.description') },
+                { year: "", title: t('timeline.2022.title'), desc: t('timeline.2022.description') },
+                { year: "", title: t('timeline.2023.title'), desc: t('timeline.2023.description') },
+                { year: "", title: t('timeline.2024.title'), desc: t('timeline.2024.description') },
               ].map((item, index) => (
                 <m.div
                   key={item.year}

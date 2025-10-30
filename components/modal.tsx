@@ -49,7 +49,7 @@ export function Modal() {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className={`relative w-full ${type === 'image' ? 'max-w-3xl' : 'max-w-md'} bg-card border border-border rounded-2xl p-0 ${type === 'image' ? '' : 'p-6'} shadow-2xl overflow-hidden`}
+          className={`relative w-full ${type === 'image' ? 'max-w-5xl' : 'max-w-md'} bg-card border border-border rounded-2xl p-0 ${type === 'image' ? '' : 'p-6'} shadow-2xl overflow-hidden`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -61,12 +61,12 @@ export function Modal() {
           </button>
           {/* Modal Content */}
           {type === 'image' ? (
-            <div className="relative w-full aspect-[16/10] bg-black">
+            <div className={`relative ${data?.isFounder ? 'w-[92vw] max-w-6xl h-[85vh]' : 'w-[80vw] max-w-4xl h-[70vh]'} bg-black overflow-hidden`}>
               <Image
                 src={data?.src || '/placeholder.jpg'}
                 alt={data?.alt || 'Preview'}
                 fill
-                className="object-contain"
+                className={`object-contain object-top origin-center ${data?.isFounder ? 'scale-[1.12] md:scale-[1.18]' : 'scale-[1.04] md:scale-[1.08]'}`}
                 sizes="100vw"
                 priority
               />

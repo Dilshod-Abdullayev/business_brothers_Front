@@ -156,14 +156,13 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
           : "bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20"
       }`}
     >
-      {/* Image */}
-      <div className={`relative overflow-hidden ${isFounder ? "h-72 sm:h-96" : "h-56 sm:h-72"}`}>
+      <div className={`relative overflow-hidden ${isFounder ? "h-64 sm:h-80" : "h-56 sm:h-72"}`}>
         <Image
           src={member.image}
           alt={member.name}
           fill
-          className={`${isFounder ? "object-contain" : "object-cover object-top"} group-hover:scale-105 transition-transform duration-500 cursor-zoom-in bg-black`}
-          onClick={() => dispatch(openModal({ type: 'image', data: { src: member.image, alt: member.name } }))}
+          className={`${isFounder ? "object-contain scale-[1.06] sm:scale-[1.08]" : "object-cover object-top"} group-hover:scale-105 transition-transform duration-500 ${isFounder ? 'cursor-zoom-in' : 'cursor-default'} bg-black`}
+          onClick={() => { if (isFounder) { dispatch(openModal({ type: 'image', data: { src: member.image, alt: member.name, isFounder } })) } }}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           priority={index === 0}
         />
