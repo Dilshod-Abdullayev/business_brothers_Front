@@ -57,7 +57,7 @@ function ProjectCard({ project, index }: any) {
       className="group cursor-pointer relative"
     >
       {/* Glow Effect */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-5 transition-opacity duration-500`} />
       
       <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#1f2937] border border-gray-700 h-[450px] sm:h-[500px] lg:h-[550px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
         {/* Image with Zoom */}
@@ -71,11 +71,11 @@ function ProjectCard({ project, index }: any) {
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
+            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-5 transition-opacity`} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent group-hover:from-black/20 group-hover:via-black/10" />
           </m.div>
 
           {/* Floating Badge */}

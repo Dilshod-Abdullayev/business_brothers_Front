@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface ModalState {
   isOpen: boolean
-  type: 'contact' | 'project' | 'service' | null
+  type: 'contact' | 'project' | 'service' | 'image' | null
   data: any
   isLoading: boolean
 }
@@ -19,7 +19,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     openModal: (state, action: PayloadAction<{
-      type: 'contact' | 'project' | 'service'
+      type: 'contact' | 'project' | 'service' | 'image'
       data?: any
     }>) => {
       state.isOpen = true

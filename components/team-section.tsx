@@ -5,6 +5,8 @@ import { useRef } from "react"
 import Image from "next/image"
 import { Users, Linkedin, Mail, Phone, Sparkles } from "lucide-react"
 import { useTranslations } from 'next-intl'
+import { useAppDispatch } from '@/store/hooks'
+import { openModal } from '@/store/slices/modalSlice'
 
 // Team data will be created inside the component to use translations
 
@@ -12,15 +14,29 @@ export function TeamSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const t = useTranslations('team')
+  const dispatch = useAppDispatch()
 
   const team = [
     {
       name: "Fakhriddin Maksumov",
       position: t('founder.title'),
-      image: "/images/fakhriddin2.jpg",
+      image: "/images/test.jpg",
       bio: t('founder.expertise'),
       experience: "15+",
       level: "founder",
+      social: {
+        linkedin: "#",
+        email: "businessbrotherspartners@gmail.com",
+        phone: "+998 93 398 50 50"
+      }
+    },
+    {
+      name: "Azizxodja Xaydarov",
+      position: t('positions.director'),
+      image: "/images/azizxodja.jpg",
+      bio: t('bios.aziz'),
+      experience: "15+",
+      level: "director",
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
@@ -106,9 +122,9 @@ export function TeamSection() {
           </div>
 
           {/* Executive Team - Second Level */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {team.slice(1).map((member, index) => (
-              <div key={member.name} className="relative">
+              <div key={member.name} className="relative h-full">
                 {/* Connecting Line */}
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-px h-8 bg-gradient-to-b from-primary/50 to-transparent"></div>
                 <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
@@ -126,6 +142,7 @@ export function TeamSection() {
 function TeamCard({ member, index, isFounder = false }: { member: any; index: number; isFounder?: boolean }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const dispatch = useAppDispatch()
 
   return (
     <m.div
@@ -133,7 +150,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
       initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0 }}
-      className={`group relative overflow-hidden transition-all duration-300 ${
+      className={`group relative overflow-hidden transition-all duration-300 flex flex-col h-full ${
         isFounder 
           ? "bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/50 rounded-3xl shadow-2xl shadow-primary/30 hover:shadow-primary/50" 
           : "bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20"
@@ -145,11 +162,14 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
           src={member.image}
           alt={member.name}
           fill
-          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          className={`${isFounder ? "object-contain" : "object-cover object-top"} group-hover:scale-105 transition-transform duration-500 cursor-zoom-in bg-black`}
+          onClick={() => dispatch(openModal({ type: 'image', data: { src: member.image, alt: member.name } }))}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           priority={index === 0}
         />
-        <div className={`absolute inset-0 ${isFounder ? "bg-gradient-to-t from-primary/20 via-primary/10 to-transparent" : "bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"}`} />
+        {!isFounder && (
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-gray-900/30 via-gray-900/10 to-transparent" />
+        )}
         
         {/* Experience Badge */}
         <div className={`absolute top-3 sm:top-4 right-3 sm:right-4 px-2 sm:px-3 py-1 rounded-lg backdrop-blur-sm border ${
@@ -184,7 +204,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
       </div>
 
       {/* Content */}
-      <div className={`p-4 sm:p-5 ${isFounder ? "pb-5 sm:pb-6" : ""}`}>
+      <div className={`p-4 sm:p-5 ${isFounder ? "pb-5 sm:pb-6" : ""} flex-1 flex flex-col`}>
         <h3 className={`font-bold mb-1 group-hover:text-primary transition-colors ${
           isFounder ? "text-xl sm:text-2xl text-white" : "text-lg sm:text-xl text-white"
         }`}>
@@ -200,7 +220,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
         </p>
         <p className={`leading-relaxed ${
           isFounder ? "text-gray-300 text-sm sm:text-base" : "text-gray-400 text-xs sm:text-sm"
-        }`}>
+        } mt-1` }>
           {member.bio}
         </p>
       </div>

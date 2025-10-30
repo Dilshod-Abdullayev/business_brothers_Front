@@ -218,11 +218,13 @@
     },
     "positions": {
       "headSpecialist": "Bosh Mutaxassis – Chet Tili va Ichki Ishlar Yo'nalishi",
-      "itSpecialist": "IT Mutaxassisi"
+      "itSpecialist": "IT Mutaxassisi",
+      "director": "Direktor"
     },
     "bios": {
       "mardon": "13 yillik tajribaga ega chet tili mutaxassisi. Sotuv va kompaniya ichki jarayonlarini boshqarish, muloqot va tashkilot ichidagi samaradorlikni oshirish bo'yicha yetuk mutaxassis.",
-      "dilshod": "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis."
+      "dilshod": "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis.",
+      "aziz": "Kompaniya bosh direktor. Restoran boshqaruvi va biznes yuritish bo'yicha mutaxassis."
     }
   },
   "achievements": {
