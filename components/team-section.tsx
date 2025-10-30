@@ -46,8 +46,8 @@ export function TeamSection() {
     {
       name: "Mardon Karimov",
       position: t('positions.headSpecialist'),
-      image: "/images/mardon.jpg",
-      bio: t('bios.mardon'),
+      image: "/images/Mardon.jpg",
+      bio: t('bios.Mardon'),
       experience: "13+",
       level: "specialist",
       social: {
@@ -188,18 +188,7 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
           </div>
         )}
 
-        {/* Social Links - Show on Hover */}
-        <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <a href={member.social.linkedin} className="flex-1 p-2 bg-blue-600/80 backdrop-blur-sm rounded-lg hover:bg-blue-600 transition-colors">
-            <Linkedin className="w-4 h-4 text-white mx-auto" />
-          </a>
-          <a href={`mailto:${member.social.email}`} className="flex-1 p-2 bg-purple-600/80 backdrop-blur-sm rounded-lg hover:bg-purple-600 transition-colors">
-            <Mail className="w-4 h-4 text-white mx-auto" />
-          </a>
-          <a href={`tel:${member.social.phone}`} className="flex-1 p-2 bg-green-600/80 backdrop-blur-sm rounded-lg hover:bg-green-600 transition-colors">
-            <Phone className="w-4 h-4 text-white mx-auto" />
-          </a>
-        </div>
+        {/* Social links removed by request */}
       </div>
 
       {/* Content */}

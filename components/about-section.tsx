@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import Image from "next/image"
 import { useRef } from "react"
 import { DataFlowAnimation, FloatingBusinessIcons } from "./business-animations"
+import FinancialHighlights from "./financial-highlights"
 
 export function AboutSection() {
   const t = useTranslations('about')
@@ -108,6 +109,9 @@ export function AboutSection() {
           </m.div>
         </m.div>
 
+        {/* Financial Highlights */}
+        <FinancialHighlights />
+
         {/* Values Cards */}
         <m.div style={{ y }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-24 lg:mb-32">
           {values.map((value, index) => (
@@ -183,7 +187,7 @@ export function AboutSection() {
                 { year: "", title: t('timeline.2024.title'), desc: t('timeline.2024.description') },
               ].map((item, index) => (
                 <m.div
-                  key={item.year}
+                  key={`${item.year || index}`}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, amount: 0.5 }}
