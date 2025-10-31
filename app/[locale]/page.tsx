@@ -72,12 +72,12 @@ export default async function Home({
       {/* SEO: Semantic HTML with proper heading hierarchy */}
       <h1 className="sr-only">Business Brothers Partners LLC - Fakhriddin Maksumov - Halal Business Tashkent Uzbekistan</h1>
       <HeroSection />
-      <section id="haqimizda"><AboutSection /></section>
-      <section id="yutuqlar"><AchievementsSection /></section>
-      <section id="jamoa"><TeamSection /></section>
-      <section id="xizmatlar"><BusinessDirections /></section>
-      <section id="loyihalar"><ProjectsSection /></section>
-      <section id="aloqa"><ContactSection /></section>
+      <section id="haqimizda" className="relative overflow-hidden"><AboutSection /></section>
+      <section id="yutuqlar" className="relative overflow-hidden"><AchievementsSection /></section>
+      <section id="jamoa" className="relative overflow-hidden"><TeamSection /></section>
+      <section id="xizmatlar" className="relative overflow-hidden"><BusinessDirections /></section>
+      <section id="loyihalar" className="relative overflow-hidden"><ProjectsSection /></section>
+      <section id="aloqa" className="relative overflow-hidden"><ContactSection /></section>
     </main>
   )
 }

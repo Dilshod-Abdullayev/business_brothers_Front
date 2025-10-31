@@ -38,87 +38,87 @@ export function HeroSection() {
     }
   }, [])
 
-  // Ultra smooth scroll-based transitions - iPhone style
+  // Optimized scroll-based transitions - Fast and smooth
   useEffect(() => {
     if (!isMounted) return
 
-    let animationFrame: number | null = null
     let targetIndex = currentImageIndex
     let isAnimating = false
+    let lastWheelTime = 0
+    const WHEEL_THROTTLE = 300 // Reduced throttle for faster response
+    const ANIMATION_DURATION = 400 // Much faster animation
 
     const handleWheel = (e: WheelEvent) => {
       if (!sectionRef.current) return
       
+      const now = Date.now()
+      if (now - lastWheelTime < WHEEL_THROTTLE && isAnimating) {
+        e.preventDefault()
+        return
+      }
+      lastWheelTime = now
+      
       const rect = sectionRef.current.getBoundingClientRect()
-      const isInHeroSection = rect.top <= 0 && rect.bottom >= window.innerHeight * 0.5
+      const isInHeroSection = rect.top <= 0 && rect.bottom >= window.innerHeight * 0.3
       
       if (isInHeroSection && scrollLocked) {
-        // Birinchi rasmda yuqoriga scroll - allow
+        // Birinchi rasmda yuqoriga scroll - allow normal scroll
         if (currentImageIndex === 0 && e.deltaY < 0) {
           return
         }
         
-        // Hero section ichida scroll'ni block qilamiz
-        e.preventDefault()
-        e.stopPropagation()
-        
         // Agar animatsiya davomida bo'lsa - ignore
-        if (isAnimating) return
+        if (isAnimating) {
+          e.preventDefault()
+          return
+        }
         
-        isAnimating = true
+        e.preventDefault()
         
         if (e.deltaY > 0) {
-          // Pastga scroll
+          // Pastga scroll - tez transition
           if (targetIndex < backgroundImages.length - 1) {
             targetIndex++
+            isAnimating = true
             
-            // Smooth transition bilan keyingi rasmga
-            setTimeout(() => {
+            requestAnimationFrame(() => {
               setCurrentImageIndex(targetIndex)
               
-              // Oxirgi rasmga yetganda
+              // Oxirgi rasmga yetganda - tez unlock
               if (targetIndex === backgroundImages.length - 1) {
                 setTimeout(() => {
                   setScrollLocked(false)
-                  
-                  // Pastga scroll
+                  // Auto scroll pastga
                   setTimeout(() => {
                     window.scrollTo({
                       top: window.innerHeight,
                       behavior: 'smooth'
                     })
-                  }, 500)
-                }, 1200)
+                  }, 200)
+                }, ANIMATION_DURATION)
               }
               
               setTimeout(() => {
                 isAnimating = false
-              }, 1200)
-            }, 50)
+              }, ANIMATION_DURATION)
+            })
           } else {
-            // Oxirgi rasmda - unlock
+            // Oxirgi rasmda - unlock immediately
             setScrollLocked(false)
             isAnimating = false
-            
-            setTimeout(() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-              })
-            }, 100)
           }
         } else if (e.deltaY < 0) {
           // Yuqoriga scroll
           if (targetIndex > 0) {
             targetIndex--
+            isAnimating = true
             
-            setTimeout(() => {
+            requestAnimationFrame(() => {
               setCurrentImageIndex(targetIndex)
-              
               setTimeout(() => {
                 isAnimating = false
-              }, 1200)
-            }, 50)
+              }, ANIMATION_DURATION)
+            })
           } else {
             isAnimating = false
           }
@@ -126,18 +126,24 @@ export function HeroSection() {
       }
     }
 
-    // Section reset
+    // Section reset - throttled
+    let scrollTimeout: NodeJS.Timeout | null = null
     const handleScroll = () => {
-      if (!sectionRef.current) return
-      
-      const rect = sectionRef.current.getBoundingClientRect()
-      
-      if (rect.top >= 0) {
-        setScrollLocked(true)
-        setCurrentImageIndex(0)
-        targetIndex = 0
-        isAnimating = false
-      }
+      if (scrollTimeout) return
+      scrollTimeout = setTimeout(() => {
+        if (!sectionRef.current) {
+          scrollTimeout = null
+          return
+        }
+        const rect = sectionRef.current.getBoundingClientRect()
+        if (rect.top >= 0) {
+          setScrollLocked(true)
+          setCurrentImageIndex(0)
+          targetIndex = 0
+          isAnimating = false
+        }
+        scrollTimeout = null
+      }, 50)
     }
 
     window.addEventListener('wheel', handleWheel, { passive: false })
@@ -146,7 +152,7 @@ export function HeroSection() {
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('scroll', handleScroll)
-      if (animationFrame) cancelAnimationFrame(animationFrame)
+      if (scrollTimeout) clearTimeout(scrollTimeout)
     }
   }, [currentImageIndex, scrollLocked, isMounted])
   return (
@@ -170,9 +176,10 @@ export function HeroSection() {
                   scale: currentImageIndex === index ? 1 : 1.05,
                 }}
                 transition={{ 
-                  opacity: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
-                  scale: { duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }
+                  opacity: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+                  scale: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }
                 }}
+                style={{ willChange: 'opacity, transform' }}
                 className="absolute inset-0"
               >
                 <Image
@@ -326,7 +333,7 @@ export function HeroSection() {
                         width: index === currentImageIndex ? 80 : 12,
                       }}
                       transition={{ 
-                        duration: 0.4,
+                        duration: 0.3,
                         ease: "easeInOut"
                       }}
                       className={`h-3 rounded-full transition-colors duration-300 ${
