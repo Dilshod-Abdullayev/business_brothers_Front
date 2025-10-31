@@ -43,8 +43,8 @@ function ProjectCard({ project, index }: any) {
     <m.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       style={{
         rotateX: isHovered ? rotateX : 0,
         rotateY: isHovered ? rotateY : 0,
@@ -82,8 +82,8 @@ function ProjectCard({ project, index }: any) {
           <m.div
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: index * 0.05 + 0.1 }}
             className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10"
           >
             <div className="px-3 sm:px-5 py-1 sm:py-2 rounded-full bg-black/80 backdrop-blur-md border border-primary/30 flex items-center gap-2 shadow-lg">
@@ -98,8 +98,8 @@ function ProjectCard({ project, index }: any) {
               className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6 text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.05 + 0.15 }}
             >
               {project.title}
             </m.h3>
@@ -109,8 +109,8 @@ function ProjectCard({ project, index }: any) {
               className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
             >
               {Object.entries(project.stats).map(([key, value], idx) => (
                   <m.div
@@ -129,8 +129,8 @@ function ProjectCard({ project, index }: any) {
             <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.05 + 0.25 }}
             >
               <Button
                 variant="outline"
