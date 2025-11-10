@@ -27,7 +27,7 @@ export function TeamSection() {
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
+        phone: "+998 55 510 17 71 "
       }
     },
     {
@@ -40,20 +40,20 @@ export function TeamSection() {
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
+        phone: "+998 55 510 17 71 "
       }
     },
     {
       name: "Mardon Karimov",
       position: t('positions.headSpecialist'),
-      image: "/images/Mardon.jpg",
+      image: "/images/mardon.jpg",
       bio: t('bios.Mardon'),
       experience: "13+",
       level: "specialist",
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
+        phone: "+998 55 510 17 71 "
       }
     },
     {
@@ -66,7 +66,7 @@ export function TeamSection() {
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
-        phone: "+998 93 398 50 50"
+        phone: "+998 55 510 17 71 "
       }
     }
   ]
@@ -102,11 +102,7 @@ export function TeamSection() {
             {t('description')}
           </p>
 
-          {/* Organizational Chart Description */}
-          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Tashkiliy tuzilma</span>
-          </div>
+  
         </m.div>
 
         {/* Organizational Chart */}
