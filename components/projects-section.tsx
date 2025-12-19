@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 // Projects data will be created inside the component to use translations
 
 function ProjectCard({ project, index }: any) {
+  const t = useTranslations('projects')
   const [isHovered, setIsHovered] = useState(false)
   
   const mouseX = useMotionValue(0)
@@ -72,7 +73,17 @@ function ProjectCard({ project, index }: any) {
               alt={project.title}
               fill
               className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              loading={index === 0 ? "eager" : "lazy"}
+              quality={85}
+              onError={(e) => {
+                console.error('Image failed to load:', project.image)
+                // Fallback to placeholder if image fails
+                const target = e.target as HTMLImageElement
+                if (target && project.image) {
+                  target.src = '/placeholder.svg'
+                }
+              }}
             />
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-5 transition-opacity`} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent group-hover:from-black/20 group-hover:via-black/10" />
@@ -136,7 +147,7 @@ function ProjectCard({ project, index }: any) {
                 variant="outline"
                 className="border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/60 backdrop-blur-sm shadow-lg text-sm sm:text-base"
               >
-                Ko'proq bilish
+                {t('learnMore')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
             </m.div>

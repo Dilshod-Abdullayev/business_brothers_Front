@@ -105,7 +105,16 @@ export function HorizontalScrollSection() {
                     alt={t(service.title)}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="500px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                    loading="lazy"
+                    quality={85}
+                    onError={(e) => {
+                      console.error('Image failed to load:', service.image)
+                      const target = e.target as HTMLImageElement
+                      if (target && service.image) {
+                        target.src = '/placeholder.svg'
+                      }
+                    }}
                   />
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient}`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />

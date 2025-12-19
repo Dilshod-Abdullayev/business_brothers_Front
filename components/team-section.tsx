@@ -159,8 +159,18 @@ function TeamCard({ member, index, isFounder = false }: { member: any; index: nu
           fill
           className={`${isFounder ? "object-contain scale-[1.06] sm:scale-[1.08]" : "object-cover object-top"} group-hover:scale-105 transition-transform duration-500 ${isFounder ? 'cursor-zoom-in' : 'cursor-default'} bg-black`}
           onClick={() => { if (isFounder) { dispatch(openModal({ type: 'image', data: { src: member.image, alt: member.name, isFounder } })) } }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority={index === 0}
+          loading={index === 0 ? "eager" : "lazy"}
+          quality={85}
+          onError={(e) => {
+            console.error('Image failed to load:', member.image)
+            // Fallback to placeholder if image fails
+            const target = e.target as HTMLImageElement
+            if (target) {
+              target.src = '/placeholder.svg'
+            }
+          }}
         />
         {!isFounder && (
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-gray-900/30 via-gray-900/10 to-transparent" />

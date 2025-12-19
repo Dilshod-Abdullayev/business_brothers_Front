@@ -133,7 +133,8 @@
       "services": "Halal",
       "tourism": "Tourism",
       "status": "In Development"
-    }
+    },
+    "learnMore": "Learn More"
   },
   "contact": {
     "badge": "Contact us",

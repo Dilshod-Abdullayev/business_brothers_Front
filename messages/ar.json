@@ -95,18 +95,18 @@
   },
   "projects": {
     "badge": "مشاريع مميزة",
-    "title": "مشاريعنا",
-    "subtitle": "المشاريع المنجزة بنجاح والمستمرة لشركة Business Brothers And Partners LLC",
+    "title": "المشروع الرئيسي - FOOD BAZAR",
+    "subtitle": "مشروع مركز السياحة الحلال بقيمة 22 مليون دولار",
     "foodCenter": {
-      "title": "مركز الأغذية الحلال",
-      "category": "تجارة الأغذية",
+      "title": "FOOD BAZAR - مركز السياحة الحلال",
+      "category": "السياحة الحلال",
       "description": "مركز السياحة الحلال بقيمة 22 مليون دولار في طشقند. المميزات: مركز الأغذية الحلال، خدمات السياحة، السوق المحلي.",
       "goal": "جعل أوزبكستان مركز الحلال في آسيا الوسطى",
       "location": "طشقند",
       "status": "قيد التطوير"
     },
     "restaurantNetwork": {
-      "title": "شبكة مطاعم مميزة",
+      "title": "مطاعم مميزة",
       "category": "أعمال المطاعم",
       "description": "مؤسسات الطعام المميزة قيد التطوير",
       "restaurants": "قيد التطوير",
@@ -114,7 +114,7 @@
       "status": "توسع"
     },
     "importTerminal": {
-      "title": "محطة الاستيراد الدولية",
+      "title": "Milaf Cola Import",
       "category": "أنشطة الاستيراد",
       "description": "استيراد Milaf Cola والمشروبات الأخرى",
       "products": "Milaf Cola",
@@ -122,13 +122,14 @@
       "status": "نشط"
     },
     "tourismAgency": {
-      "title": "وكالة السياحة الحلال",
+      "title": "خدمات السياحة الحلال",
       "category": "السياحة الحلال",
       "description": "خدمات سياحية تلبي معايير الحلال",
       "services": "حلال",
       "tourism": "السياحة",
       "status": "قيد التطوير"
-    }
+    },
+    "learnMore": "اعرف المزيد"
   },
   "contact": {
     "badge": "تواصل معنا",
