@@ -4,9 +4,6 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -49,14 +46,6 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   // Headers for SEO, security, and caching
   async headers() {
