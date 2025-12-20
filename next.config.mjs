@@ -8,7 +8,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: false, // Enable optimization for better performance
+    unoptimized: true, // Disable Vercel image optimization to avoid payment limits
     remotePatterns: [
       {
         protocol: 'https',
