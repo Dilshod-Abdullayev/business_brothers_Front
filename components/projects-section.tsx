@@ -34,7 +34,6 @@ function ProjectCard({ project, index }: any) {
   }
 
   const handleCardClick = () => {
-    console.log('Card clicked, project:', project.title, 'link:', project.link)
     if (project.link) {
       window.open(project.link, '_blank', 'noopener,noreferrer')
     }
@@ -60,98 +59,50 @@ function ProjectCard({ project, index }: any) {
       {/* Glow Effect */}
       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-5 transition-opacity duration-500`} />
       
-      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#1f2937] border border-gray-700 h-[450px] sm:h-[500px] lg:h-[550px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
-        {/* Image with Zoom */}
-        <div className="relative h-full overflow-hidden">
+      <div className="relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl bg-[#1f2937] border border-gray-700 min-h-[480px] sm:min-h-[520px] shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-500">
+        {/* Image zone — full screenshot visible for IT projects */}
+        <div className={`relative w-full shrink-0 overflow-hidden bg-[#0f1419] ${
+          project.imageFit === 'contain' ? 'h-[240px] sm:h-[280px] lg:h-[320px]' : 'h-[220px] sm:h-[260px] lg:h-[300px]'
+        }`}>
           <m.div
-            className="absolute inset-0"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.6 }}
+            className="relative h-full w-full p-2 sm:p-3"
+            whileHover={{ scale: project.imageFit === 'contain' ? 1.02 : 1.05 }}
+            transition={{ duration: 0.5 }}
           >
             <Image
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               fill
-              className="object-cover object-center"
+              className={
+                project.imageFit === 'contain'
+                  ? 'object-contain object-center'
+                  : 'object-cover object-center'
+              }
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
               loading={index === 0 ? "eager" : "lazy"}
-              quality={85}
+              quality={90}
               onError={(e) => {
-                console.error('Image failed to load:', project.image)
-                // Fallback to placeholder if image fails
                 const target = e.target as HTMLImageElement
                 if (target && project.image) {
                   target.src = '/placeholder.svg'
                 }
               }}
             />
-            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-5 transition-opacity`} />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent group-hover:from-black/20 group-hover:via-black/10" />
           </m.div>
 
-          {/* Floating Badge */}
+          {/* Category badge */}
           <m.div
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: index * 0.05 + 0.1 }}
-            className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10"
+            className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10"
           >
-            <div className="px-3 sm:px-5 py-1 sm:py-2 rounded-full bg-black/80 backdrop-blur-md border border-primary/30 flex items-center gap-2 shadow-lg">
-              <Star className="w-4 h-4 text-primary fill-primary" />
+            <div className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-primary/30 flex items-center gap-2 shadow-lg">
+              <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary fill-primary" />
               <span className="text-xs sm:text-sm font-semibold text-primary">{project.category}</span>
             </div>
           </m.div>
-
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 z-20">
-            <m.h3
-              className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-poppins)] mb-4 sm:mb-6 text-white drop-shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: index * 0.05 + 0.15 }}
-            >
-              {project.title}
-            </m.h3>
-
-            {/* Stats Grid */}
-            <m.div
-              className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
-            >
-              {Object.entries(project.stats).map(([key, value], idx) => (
-                  <m.div
-                  key={key}
-                  className="backdrop-blur-sm bg-black/60 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-primary/20"
-                  whileHover={{ y: -5, scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">{String(value)}</div>
-                  <div className="text-xs text-muted-foreground uppercase font-medium">{key}</div>
-                </m.div>
-              ))}
-            </m.div>
-
-            {/* Button */}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: index * 0.05 + 0.25 }}
-            >
-              <Button
-                variant="outline"
-                className="border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/60 backdrop-blur-sm shadow-lg text-sm sm:text-base"
-              >
-                {t('learnMore')}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
-            </m.div>
-          </div>
 
           {/* Shine Effect */}
           <m.div
@@ -160,6 +111,54 @@ function ProjectCard({ project, index }: any) {
             animate={{ x: isHovered ? "100%" : "-100%" }}
             transition={{ duration: 0.8 }}
           />
+        </div>
+
+        {/* Content — below image, no overlap */}
+        <div className={`relative flex flex-1 flex-col p-4 sm:p-6 border-t border-gray-700/80 bg-gradient-to-br ${project.gradient} from-[#1f2937] to-[#111827]`}>
+          <m.h3
+            className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-poppins)] mb-3 sm:mb-4 text-white"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: index * 0.05 + 0.15 }}
+          >
+            {project.title}
+          </m.h3>
+
+          <m.div
+            className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-5 flex-1"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
+          >
+            {Object.entries(project.stats).map(([key, value]) => (
+              <m.div
+                key={key}
+                className="rounded-lg sm:rounded-xl p-2 sm:p-3 border border-primary/20 bg-black/40"
+                whileHover={{ y: -3, scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="text-sm sm:text-base lg:text-lg font-bold text-primary leading-tight">{String(value)}</div>
+                <div className="text-[10px] sm:text-xs text-gray-400 font-medium mt-0.5 line-clamp-2">{key}</div>
+              </m.div>
+            ))}
+          </m.div>
+
+          <m.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, delay: index * 0.05 + 0.25 }}
+          >
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto border-2 border-primary/50 hover:bg-primary/10 group/btn bg-black/50 text-sm sm:text-base"
+            >
+              {t('learnMore')}
+              <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </Button>
+          </m.div>
         </div>
       </div>
     </m.div>
@@ -170,6 +169,48 @@ export function ProjectsSection() {
   const t = useTranslations('projects')
   
   const projects = [
+    {
+      title: t('joytop.title'),
+      category: t('joytop.category'),
+      image: "/images/joytop.jpg",
+      imageFit: 'contain' as const,
+      stats: {
+        [t('joytop.platformLabel')]: t('joytop.platform'),
+        [t('joytop.focusLabel')]: t('joytop.focus'),
+        [t('joytop.statusLabel')]: t('joytop.status'),
+      },
+      gradient: "from-emerald-500/20 to-teal-600/20",
+      description: t('joytop.description'),
+      link: "https://joy.com.uz/?type=sale",
+    },
+    {
+      title: t('mahsulottop.title'),
+      category: t('mahsulottop.category'),
+      image: "/images/mahsulottop.jpg",
+      stats: {
+        [t('mahsulottop.platformLabel')]: t('mahsulottop.platform'),
+        [t('mahsulottop.focusLabel')]: t('mahsulottop.focus'),
+        [t('mahsulottop.statusLabel')]: t('mahsulottop.status'),
+      },
+      gradient: "from-cyan-500/20 to-blue-600/20",
+      description: t('mahsulottop.description'),
+      link: "https://www.mahsulottop.uz/",
+      imageFit: 'contain' as const,
+    },
+    {
+      title: t('carinpocket.title'),
+      category: t('carinpocket.category'),
+      image: "/images/carinpocket.jpg",
+      imageFit: 'contain' as const,
+      stats: {
+        [t('carinpocket.platformLabel')]: t('carinpocket.platform'),
+        [t('carinpocket.focusLabel')]: t('carinpocket.focus'),
+        [t('carinpocket.statusLabel')]: t('carinpocket.status'),
+      },
+      gradient: "from-slate-500/20 to-zinc-600/20",
+      description: t('carinpocket.description'),
+      link: "https://www.carinpocket.com/marketplace",
+    },
     {
       title: t('importTerminal.title'),
       category: t('importTerminal.category'),

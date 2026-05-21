@@ -101,7 +101,7 @@
   "projects": {
     "badge": "Premium Projects",
     "title": "Major Project - FOOD BAZAR",
-    "subtitle": "$22 million halal tourism center project",
+    "subtitle": "Our projects across IT, business, and halal tourism",
     "foodCenter": {
       "title": "FOOD BAZAR - Halal Tourism Center",
       "category": "Halal Tourism",
@@ -133,6 +133,39 @@
       "services": "Halal",
       "tourism": "Tourism",
       "status": "In Development"
+    },
+    "mahsulottop": {
+      "title": "Mahsulot Top",
+      "category": "IT Project",
+      "description": "Modern platform for discovering and sourcing products",
+      "platformLabel": "Platform",
+      "platform": "Product search",
+      "focusLabel": "Focus",
+      "focus": "B2B / B2C",
+      "statusLabel": "Status",
+      "status": "Active"
+    },
+    "carinpocket": {
+      "title": "Car In Pocket",
+      "category": "IT Project",
+      "description": "Car marketplace and international vehicle import services",
+      "platformLabel": "Platform",
+      "platform": "Auto marketplace",
+      "focusLabel": "Service",
+      "focus": "Import / Marketplace",
+      "statusLabel": "Status",
+      "status": "Active"
+    },
+    "joytop": {
+      "title": "JoyTop",
+      "category": "IT Project",
+      "description": "Real estate platform in Uzbekistan — property sales and rentals",
+      "platformLabel": "Platform",
+      "platform": "Real estate",
+      "focusLabel": "Service",
+      "focus": "Sale / Rent",
+      "statusLabel": "Status",
+      "status": "Active"
     },
     "learnMore": "Learn More"
   },
@@ -223,9 +256,8 @@
       "director": "Director"
     },
     "bios": {
-      "Mardon": "Foreign language specialist with 13 years of experience. Expert in sales management and company internal processes, communication and improving organizational efficiency.",
-      "dilshod": "Software engineer with more than 3 years of experience. Experienced specialist in working with modern technologies, system optimization and developing efficient IT solutions.",
-      "aziz": "Company director. Specialist in restaurant management and business operations."
+      "Mardon": "Company Director. Specialist with 13+ years of experience in sales management, internal operations, and team leadership.",
+      "dilshod": "Software engineer with more than 3 years of experience. Experienced specialist in working with modern technologies, system optimization and developing efficient IT solutions."
     }
   },
   "achievements": {

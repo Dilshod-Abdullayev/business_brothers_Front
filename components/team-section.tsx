@@ -31,25 +31,12 @@ export function TeamSection() {
       }
     },
     {
-      name: "Azizxodja Xaydarov",
-      position: t('positions.director'),
-      image: "/images/azizxodja.jpg",
-      bio: t('bios.aziz'),
-      experience: "15+",
-      level: "director",
-      social: {
-        linkedin: "#",
-        email: "businessbrotherspartners@gmail.com",
-        phone: "+998 55 510 17 71 "
-      }
-    },
-    {
       name: "Mardon Karimov",
-      position: t('positions.headSpecialist'),
+      position: t('positions.director'),
       image: "/images/mardon.jpg",
       bio: t('bios.Mardon'),
       experience: "13+",
-      level: "specialist",
+      level: "director",
       social: {
         linkedin: "#",
         email: "businessbrotherspartners@gmail.com",
@@ -118,7 +105,7 @@ export function TeamSection() {
           </div>
 
           {/* Executive Team - Second Level */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {team.slice(1).map((member, index) => (
               <div key={member.name} className="relative h-full">
                 {/* Connecting Line */}

@@ -101,7 +101,7 @@
   "projects": {
     "badge": "Premium Loyihalar",
     "title": "Asosiy Loyiha - FOOD BAZAR",
-    "subtitle": "22 million dollarlik halal turizm markazi loyihasi",
+    "subtitle": "IT, biznes va halal turizm yo'nalishidagi loyihalarimiz",
     "foodCenter": {
       "title": "FOOD BAZAR - Halal Turizm Markazi",
       "category": "Halal Turizm",
@@ -133,6 +133,39 @@
       "services": "Halal",
       "tourism": "Turizm",
       "status": "Rivojlanmoqda"
+    },
+    "mahsulottop": {
+      "title": "Mahsulot Top",
+      "category": "IT Loyiha",
+      "description": "Mahsulotlarni qidirish va topish uchun zamonaviy platforma",
+      "platformLabel": "Platforma",
+      "platform": "Mahsulot qidiruv",
+      "focusLabel": "Yo'nalish",
+      "focus": "B2B / B2C",
+      "statusLabel": "Holat",
+      "status": "Faol"
+    },
+    "carinpocket": {
+      "title": "Car In Pocket",
+      "category": "IT Loyiha",
+      "description": "Avtomobillar bozori va chet eldan mashina olib kelish xizmatlari",
+      "platformLabel": "Platforma",
+      "platform": "Avto bozor",
+      "focusLabel": "Xizmat",
+      "focus": "Import / Marketplace",
+      "statusLabel": "Holat",
+      "status": "Faol"
+    },
+    "joytop": {
+      "title": "JoyTop",
+      "category": "IT Loyiha",
+      "description": "O'zbekistondagi ko'chmas mulk platformasi — sotish va ijaraga berish",
+      "platformLabel": "Platforma",
+      "platform": "Ko'chmas mulk",
+      "focusLabel": "Xizmat",
+      "focus": "Sotish / Ijara",
+      "statusLabel": "Holat",
+      "status": "Faol"
     },
     "learnMore": "Ko'proq bilish"
   },
@@ -223,9 +256,8 @@
       "director": "Direktor"
     },
     "bios": {
-      "Mardon": "13 yillik tajribaga ega chet tili mutaxassisi. Sotuv va kompaniya ichki jarayonlarini boshqarish, muloqot va tashkilot ichidagi samaradorlikni oshirish bo'yicha yetuk mutaxassis.",
-      "dilshod": "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis.",
-      "aziz": "Kompaniya direktor. Restoran boshqaruvi va biznes yuritish bo'yicha mutaxassis."
+      "Mardon": "Kompaniya direktori. Sotuv, ichki jarayonlar va jamoa samaradorligini boshqarish bo'yicha 13 yillik tajribaga ega mutaxassis.",
+      "dilshod": "3 yildan ortiq tajribaga ega dasturiy ta'minot (software) injeneri. Zamonaviy texnologiyalar bilan ishlash, tizimlarni optimallashtirish va samarali IT yechimlar ishlab chiqish bo'yicha tajribali mutaxassis."
     }
   },
   "achievements": {
